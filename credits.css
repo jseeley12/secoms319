@@ -1,0 +1,53 @@
+
+
+#date{
+background-color: lightgray;
+text-align: left;
+text-decoration: solid;
+font-size: 20px;
+text-indent: 2%;
+}
+#nameofcourse{
+    background-color: lightgray;
+    text-align: left;
+    text-decoration: solid;
+    font-size: 20px; 
+    text-indent: 2%;
+}
+#students{
+    background-color: lightgray;
+text-align: left;
+text-decoration: solid;
+font-size: 20px;
+text-indent: 2%;
+
+}
+#emails{
+    background-color: lightgray;
+text-align: left;
+text-decoration: solid;
+font-size: 20px;
+text-indent: 2%;
+}
+#professor{
+    background-color: lightgray;
+text-align:left;
+text-decoration: solid;
+font-size: 20px;
+text-indent: 3%;
+
+}
+
+ul li{
+    list-style-type: '-';
+    font-size: 30px;
+    font-weight: bold;
+}
+ul li span{
+    font-size: 23px;
+    font-family: Courier new;
+}
+
+
+  
+
