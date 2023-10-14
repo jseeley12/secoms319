@@ -1,4 +1,4 @@
-fetch("./index1.json")
+fetch("./handTool.json")
     .then(response => response.json())
     .then(tools => loadMovies(tools));
 
