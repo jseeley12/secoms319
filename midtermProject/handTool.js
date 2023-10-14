@@ -25,7 +25,4 @@ function loadMovies(tools) {
 
         Catalog.appendChild(toolPlace);
     }
-
-
-
 }
