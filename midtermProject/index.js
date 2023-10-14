@@ -18,7 +18,7 @@ function loadMovies(tools) {
             <div class="card shadow-sm">
                 <img src="${img}" alt=${name}></img>
                 <div class="card-body">
-                    <p class="card-text">  <h5>${name}</h5><br><Strong> Description: </Strong> ${disc}<br><Strong> Price: </Strong> $${price} <br> <a href="${url}" class="btn btn-sm btn-outline-secondary">View</a> </p>
+                    <p class="card-text">  <h5><Strong>${name}</Strong></h5><br><Strong> Description: </Strong> ${disc}<br><Strong> Price: </Strong> $${price} <br> <a href="${url}" class="btn btn-sm btn-outline-secondary">View</a> </p>
                 </div>
             </div>
         </div>`;
