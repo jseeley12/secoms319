@@ -26,25 +26,12 @@ function loadMovies(tools) {
         Catalog.appendChild(toolPlace);
 
         toolPlace.addEventListener("mouseenter", function() {
-            //console.log(toolPlace.childNodes[1].childNodes[1].childNodes[3].childNodes[6]);
             var content1 = toolPlace.childNodes[1].childNodes[1].childNodes[3].childNodes[6];
-            // if(content1.style.display === "block"){
-            //     content1.style.display = "none";
-            // } else {
-            //     content1.style.display = "block";
-            // }
             content1.style.display = "block";
         });
         toolPlace.addEventListener("mouseleave", function() {
-            //console.log(toolPlace.childNodes[1].childNodes[1].childNodes[3].childNodes[6]);
             var content1 = toolPlace.childNodes[1].childNodes[1].childNodes[3].childNodes[6];
-            // if(content1.style.display === "block"){
-            //     content1.style.display = "none";
-            // } else {
-            //     content1.style.display = "block";
-            // }
             content1.style.display = "none";
-            
         });
     }
 
