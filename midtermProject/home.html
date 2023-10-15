@@ -11,7 +11,7 @@
     <title>Tool Finder</title>
 </head>
 <body>
-    
+    <section class="background">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="check2" viewBox="0 0 16 16">
           <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -28,57 +28,82 @@
         </symbol>
       </svg>
   <header data-bs-theme="dark">
-    <div id = "navbar">
+    <div class = "navbar">
       <!-- <a href="#" class=" d-flex text-center">
         <strong>Power Tools</strong>
       </a> -->
+       
       <div style="height: 10px;"></div>
-      <h3 style="color: dark gray;text-align: center; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;"><strong>Tool Finder</strong></h3>
+      
+      <h3 class="page-title"><strong>Tool Finder</strong></h3>
+      <h3><span class="titlemessage">Find tools now for any project!</span></h3>
+      <img class="top-left-image" src= "images/shtopright.jpg" alt = "screwdriver and hammer"></img>
     </div>
   </header>
   
   <main>
 
-        <div class="col-lg-6 col-md-8 mx-auto text-center">
-           <p>
-            <a href="./home.html" class="btn btn-primary my-2">Home</a>
-            <a href="./handtools.html" class="btn btn-secondary my-2">Hand Tools</a>
-            <a href="./index.html" class="btn btn-secondary my-2">Power Tools</a>
-            <a href="./credits.html" class="btn btn-secondary my-2">Credits</a>
-          </p>
-        </div>
-  
-    <div style= "background-color: white; height:auto;">
+    <div class="col-lg-6 col-md-8 mx-auto text-center">
+        <p>
+         <a href="./home.html" class="btn btn-primary my-2">Home</a>
+         <a href="./handtools.html" class="btn btn-secondary my-2">Hand Tools</a>
+         <a href="./index.html" class="btn btn-secondary my-2">Power Tools</a>
+         <a href="./credits.html" class="btn btn-secondary my-2">Credits</a>
+       </p>
+     </div>
+
+    <div style="background-color:white;">
+        <p style="font-size: 24px; padding-left: 8px;">&#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736 &#128736</p>
       <div class="container">
-            <section>
-                <div class = "c">
-                  <ul>
-                    <li>Many tools</li>
-                    <li>tools</li>
-                    <li>tools</li>
-                  </ul>
-                </div>
-                <div  class = "w">
-                <p>
-                  <h1>iiiiii</h1>
-                  <p>iiiii</p>
-                  <p>jiiii</p>
-                </p>
+                  <section>
+                      <div class = "Sidebar">
+                        <img style=" position: absolute; padding-left: 40px; padding-top: 150px;" src= "images/homepagepowertools.jpg" height="400px" alt = "powertools"></img>
+                        <img style=" position: absolute; padding-left: 800px; padding-right: 40px; padding-top: 150px;" src= "images/homepagehandtools.jpg" height="450px" alt = "handtools"></img>
+                        <h3 style="text-align: center;">Welcome to Tools Finder! Here we find a tool to fit your needs!</h3><br>
+                        <h4 style="text-align: center">We have a selection from many items to fit your needs including:</h4><br>
+                        <ul style = "text-align:center; list-style-type: none; align-items: center;">
+                          <li><h5>Handtools:</h5></li>
+                            <ul style = "list-style-type: none;">
+                                <li>Screwdrivers</li>
+                                <li>Saws</li>
+                                <li>Wrenches</li>
+                                <li>Sockets</li>
+                                <li>Hammers</li>
+                            </ul><br>
+                          <li><h5>PowerTools:</h5></li>
+                          <ul style = "list-style-type: none;">
+                            <li>Drills</li>
+                            <li>Jigsaws</li>
+                            <li>Nailgun/Stapleguns</li>
+                            <li>Sanders</li>
+                          </ul><br>
+                          <p style="font-style: italic; font-weight: bold;">And so much more!</p>
+                        </ul>
+                      </div>
+
+                      <div class = "Content">
+                      <p>
+                        <h1></h1>
+                        <p>iiiii</p>
+                        <p>jiiii</p>
+                      </p>
+                  </div>
+                    </section>
+      
             </div>
-              </section>
+          </div>
 
       </div>
     </div>
   
   </main>
-  
-  <footer class="text-body-secondary py-5">
+  </section>
+  <footer class="text-body-secondary py-5 background">
     <div class="container">
-      <p class="float-end mb-1">
+      <p class="float-end mb-2">
         <a href="#">Back to top</a>
       </p>
-      <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-      <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+      <p class="mb-6">Thanks for Visiting our catalog! Hope you have found everything needed!</p>
     </div>
   </footer>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
