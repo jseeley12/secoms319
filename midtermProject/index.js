@@ -2,7 +2,6 @@ fetch("./index.json")
     .then(response => response.json())
     .then(tools => loadMovies(tools));
 
-
 function loadMovies(tools) {
     var Catalog = document.getElementById("toolHolder");
 
@@ -20,24 +19,33 @@ function loadMovies(tools) {
                 <img src="${img}" alt=${name}></img>
                 <div class="card-body" id="cardtoo">
                     <p class="card-text"> <h5><Strong>${name}</Strong></h5><br></p>
+                    <div id="smaller" style="display: none"><p><Strong> Description: </Strong> ${disc}<br><Strong> Price: </Strong> $${price} <br> <a href="${url}" class="btn btn-sm btn-outline-secondary">View</a> </p></div>
                 </div>
             </div>
         </div>`;
         Catalog.appendChild(toolPlace);
 
-        let toolPlace2 = document.createElement("div");
-        toolPlace2.innerHTML = `
-        <div id="smaller"><p><Strong> Description: </Strong> ${disc}<br><Strong> Price: </Strong> $${price} <br> <a href="${url}" class="btn btn-sm btn-outline-secondary">View</a> </p></div>
-        `;
-        
-        toolPlace.childNodes[1].childNodes[1].childNodes[3].appendChild(toolPlace2);
-
-        // var toggleButton3 = document.getElementById('cards');
-        // var card3 = document.getElementById('smaller');
-        var collapsableCard3 = new bootstrap.Collapse(toolPlace2, { toggle: true });
-        toolPlace.addEventListener('click', function () {
-            collapsableCard3.toggle();
-            console.log("hi!")
+        toolPlace.addEventListener("mouseenter", function() {
+            //console.log(toolPlace.childNodes[1].childNodes[1].childNodes[3].childNodes[6]);
+            var content1 = toolPlace.childNodes[1].childNodes[1].childNodes[3].childNodes[6];
+            // if(content1.style.display === "block"){
+            //     content1.style.display = "none";
+            // } else {
+            //     content1.style.display = "block";
+            // }
+            content1.style.display = "block";
+        });
+        toolPlace.addEventListener("mouseleave", function() {
+            //console.log(toolPlace.childNodes[1].childNodes[1].childNodes[3].childNodes[6]);
+            var content1 = toolPlace.childNodes[1].childNodes[1].childNodes[3].childNodes[6];
+            // if(content1.style.display === "block"){
+            //     content1.style.display = "none";
+            // } else {
+            //     content1.style.display = "block";
+            // }
+            content1.style.display = "none";
+            
         });
     }
+
 }
