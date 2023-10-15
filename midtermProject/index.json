@@ -1,14 +1,14 @@
 {
     "tool": [
         {
-            "name": "Hammer",
+            "name": "Impact Wrench",
             "img": "https://freepngimg.com/thumb/avengers/5-2-avengers-png-picture.png",
             "url": "https://www.google.com/",
             "price": 10.89,
             "discription": "Used for pounding nails in to wood."
         },
         {
-            "name": "Stright Blade Screw Driver",
+            "name": "Sawzaw",
             "img": "https://freepngimg.com/thumb/avengers/5-2-avengers-png-picture.png",
             "url": "https://www.google.com/",
             "price": 5.89,
