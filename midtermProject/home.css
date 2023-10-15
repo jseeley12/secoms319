@@ -3,13 +3,13 @@
     border-width: 2px;
     border-color: rgb(32, 29, 29);
     height: 60px;
-    background-color: rgb(178, 131, 131);
+    background-color: rgb(255, 128, 0);
 }
 #page{
-    background-color: rgb(120, 103, 103)
+    background-color: rgb(182, 182, 182)
 }
 body{
-    background-color: rgb(120, 103, 103);
+    background-color: rgb(182, 182, 182);
 }
 .w {
  
