@@ -15,14 +15,26 @@ function loadMovies(tools) {
         let toolPlace = document.createElement("div");
         toolPlace.innerHTML = `
         <div class="col">
-            <div class="card shadow-sm">
+            <div class="card shadow-sm" id="cards">
                 <img src="${img}" alt=${name}></img>
-                <div class="card-body">
-                    <p class="card-text">  <h5><Strong>${name}</Strong></h5><br><Strong> Description: </Strong> ${disc}<br><Strong> Price: </Strong> $${price} <br> <a href="${url}" class="btn btn-sm btn-outline-secondary">View</a> </p>
+                <div class="card-body" id="cardtoo">
+                    <p class="card-text"> <h5><Strong>${name}</Strong></h5><br></p>
+                    <div id="smaller" style="display: none"><p><Strong> Description: </Strong> ${disc}<br><Strong> Price: </Strong> $${price} <br> <a href="${url}" class="btn btn-sm btn-outline-secondary">View</a> </p></div>
                 </div>
             </div>
         </div>`;
 
         Catalog.appendChild(toolPlace);
+
+        Catalog.appendChild(toolPlace);
+
+        toolPlace.addEventListener("mouseenter", function() {
+            var content1 = toolPlace.childNodes[1].childNodes[1].childNodes[3].childNodes[6];
+            content1.style.display = "block";
+        });
+        toolPlace.addEventListener("mouseleave", function() {
+            var content1 = toolPlace.childNodes[1].childNodes[1].childNodes[3].childNodes[6];
+            content1.style.display = "none";
+        });
     }
 }
