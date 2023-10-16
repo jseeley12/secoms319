@@ -2,32 +2,124 @@
     "tool": [
         {
             "name": "Hammer",
-            "img": "https://freepngimg.com/thumb/avengers/5-2-avengers-png-picture.png",
-            "url": "https://www.google.com/",
-            "price": 10.89,
-            "discription": "Used for pounding nails in to wood."
+            "img": "./images/Hammer.png",
+            "url": "https://www.lowes.com/pd/CRAFTSMAN-16-oz-Smooth-Face-Steel-Head-Fiberglass-Claw-Hammer/1000593895",
+            "price": 9.98,
+            "discription": "Used for striking nails or metals etc."
         },
         {
             "name": "Stright Blade Screw Driver",
-            "img": "https://freepngimg.com/thumb/avengers/5-2-avengers-png-picture.png",
-            "url": "https://www.google.com/",
-            "price": 5.89,
-            "discription": "Used for driving in screws"
+            "img": "./images/flathead.png",
+            "url": "https://www.lowes.com/pd/CRAFTSMAN-Acetate-Handle-1-8-in-Slotted-Screwdriver/1000595879",
+            "price": 5.48,
+            "discription": "Used for driving in flathead screws"
         },
         {
             "name": "Phlips head Screw Driver",
-            "img": "https://freepngimg.com/thumb/avengers/5-2-avengers-png-picture.png",
-            "url": "https://www.google.com/",
-            "price": 6.89,
+            "img": "./images/philips.png",
+            "url": "https://www.lowes.com/pd/CRAFTSMAN-Acetate-Handle-2-Phillips-Screwdriver/1000595773",
+            "price": 5.48,
             "discription": "Used for driving in philps head screws"
         },
         {
-            "name": "Place_Holder",
-            "img": "Place_Holder",
+            "name": "Hand Saw",
+            "img": "./images/handsaw.png",
+            "url": "https://www.lowes.com/pd/CRAFTSMAN-15-in-Medium-Cut-Hand-Saw/1000595443",
+            "price": 14.98,
+            "discription": "Used for cutting many things including wood, plastic, and much more"
+        },
+        {
+            "name": "Wrench Set",
+            "img": "./images/wrenchset.png",
+            "url": "https://www.lowes.com/pd/Kobalt-24-Piece-Combination-Wrench-Set-Metric-SAE/5001994767",
+            "price": 44.98,
+            "discription": "Used for tightening bolts in many sizes"
+        },
+        {
+            "name": "Socket Set",
+            "img": "./images/socketset.png",
+            "url": "https://www.lowes.com/pd/CRAFTSMAN-105-Piece-Gunmetal-Chrome-Mechanic-s-Tool-Set/5000183147",
+            "price": 139.00,
+            "discription": "Used for tighening bolts in many sizes and shapes, but in a quicker fashion"
+        },
+        {
+            "name": "Measuring Tape",
+            "img": "./images/measuringtape.png",
+            "url": "https://www.lowes.com/pd/CRAFTSMAN-PROREACH-25-ft-Tape-Measure/1002275068",
+            "price": 16.98,
+            "discription": "Used for measuring the distance of something. Useful for measurments for cutting, shaping, etc."
+        },
+        {
+            "name": "Axe",
+            "img": "./images/axe.png",
             "url": "https://www.google.com/",
-            "price": 0,
-            "discription": "Place_Holder"
+            "price": 6.89,
+            "discription": "Used for cutting things with blunt force"
+        },
+        {
+            "name": "Wire cutters",
+            "img": "./images/wirecutters.png",
+            "url": "https://www.google.com/",
+            "price": 6.89,
+            "discription": "Used for cutting wire"
+        },  
+        {
+            "name": "Pliers",
+            "img": "./images/pliers.png",
+            "url": "https://www.google.com/",
+            "price": 6.89,
+            "discription": "Used for pulling nails, staples, screws out of things. Also useful for anything you need to get a grip on"
+        },
+        {
+            "name": "Leveler",
+            "img": "./images/leveler.png",
+            "url": "https://www.google.com/",
+            "price": 6.89,
+            "discription": "Used for telling if a surface is level or not"
+        },
+        {
+            "name": "Pry bar",
+            "img": "./images/prybar.png",
+            "url": "https://www.google.com/",
+            "price": 6.89,
+            "discription": "Used for prying something open and holding it open"
+        },
+        {
+            "name": "Staple Gun",
+            "img": "./images/staplegun.png",
+            "url": "https://www.google.com/",
+            "price": 6.89,
+            "discription": "Used for stapling things. You also need staples for this to be useful"
+        },
+        {
+            "name": "Chisel",
+            "img": "./images/chisel.png",
+            "url": "https://www.google.com/",
+            "price": 6.89,
+            "discription": "Used for scraping and cutting wood, metal, or stone."
+        },
+        {
+            "name": "Mallet",
+            "img": "./images/mallet.png",
+            "url": "https://www.google.com/",
+            "price": 6.89,
+            "discription": "Used for driving dowels or chisels. Softer type of hammer with more surface area"
+        },
+        {
+            "name": "Utility Knife",
+            "img": "./images/utilityknife.png",
+            "url": "https://www.google.com/",
+            "price": 6.89,
+            "discription": "Used for cutting things including plastic, banding, and anything you may need to cut with a knife. Comes with multiple blades"
+        },
+        {
+            "name": "Sandpaper",
+            "img": "./images/sandpaper.png",
+            "url": "https://www.google.com/",
+            "price": 6.89,
+            "discription": "Used for metal or wood to soften edges, corners, and rough spots on the material"
         }
+
     ]
 }
 

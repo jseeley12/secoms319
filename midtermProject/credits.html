@@ -6,12 +6,12 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
+    <link href="home.css" rel="stylesheet">
     <script src="./index.js"></script>
     <title>Tool Finder</title>
 </head>
 <body>
-    
+    <section class = "background">
     <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
         <symbol id="check2" viewBox="0 0 16 16">
           <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -28,12 +28,14 @@
         </symbol>
       </svg>
   <header data-bs-theme="dark">
-    <div class="navbar-dark bg-dark shadow-sm" style="height: 60px;">
-      <!-- <a href="#" class=" d-flex text-center">
-        <strong>Power Tools</strong>
-      </a> -->
+    <div class = "navbar">
+  
+       
       <div style="height: 10px;"></div>
-      <h3 style="color: white;text-align: center;"><strong>Tool Finder</strong></h3>
+      
+      <h3 class="page-title"><strong>Tool Finder</strong></h3>
+      <h3><span class="titlemessage">Find tools now for any project!</span></h3>
+      <img class="top-left-image" src= "images/shtopright.jpg" alt = "screwdriver and hammer"></img>
     </div>
   </header>
   
@@ -41,10 +43,10 @@
 
         <div class="col-lg-6 col-md-8 mx-auto text-center">
            <p>
-            <a href="./home.html" class="btn btn-primary my-2">Home</a>
-            <a href="./handtools.html" class="btn btn-secondary my-2">Hand Tools</a>
+            <a href="./home.html" class="btn btn-secondary my-2">Home</a>
+            <a href="./handTool.html" class="btn btn-secondary my-2">Hand Tools</a>
             <a href="./index.html" class="btn btn-secondary my-2">Power Tools</a>
-            <a href="./credits.html" class="btn btn-secondary my-2">Credits</a>
+            <a href="./credits.html" class="btn btn-primary my-2">Credits</a>
           </p>
         </div>
   
@@ -56,14 +58,13 @@
     </div>
   
   </main>
-  
-  <footer class="text-body-secondary py-5">
+  </section>
+  <footer class="text-body-secondary py-5 background">
     <div class="container">
-      <p class="float-end mb-1">
+      <p class="float-end mb-2">
         <a href="#">Back to top</a>
       </p>
-      <p class="mb-1">Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-      <p class="mb-0">New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="../getting-started/introduction/">getting started guide</a>.</p>
+      <p class="mb-6">Thanks for Visiting our catalog! Hope you have found everything needed!</p>
     </div>
   </footer>
   <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
