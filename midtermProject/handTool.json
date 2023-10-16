@@ -52,72 +52,93 @@
         {
             "name": "Axe",
             "img": "./images/axe.png",
-            "url": "https://www.google.com/",
-            "price": 6.89,
+            "url": "https://www.lowes.com/pd/Kobalt-Steel-Michigan-Axe-with-36-in-Fiberglass-Handle/1000377473",
+            "price": 39.98,
             "discription": "Used for cutting things with blunt force"
         },
         {
-            "name": "Wire cutters",
-            "img": "./images/wirecutters.png",
-            "url": "https://www.google.com/",
-            "price": 6.89,
-            "discription": "Used for cutting wire"
+            "name": "Wire strippers",
+            "img": "./images/wirestrippercutter.png",
+            "url": "https://www.lowes.com/pd/CRAFTSMAN-Wire-Cutter-Stripper/1000596325",
+            "price": 16.98,
+            "discription": "Used for stripping and cutting wire"
         },  
         {
             "name": "Pliers",
             "img": "./images/pliers.png",
-            "url": "https://www.google.com/",
-            "price": 6.89,
-            "discription": "Used for pulling nails, staples, screws out of things. Also useful for anything you need to get a grip on"
+            "url": "https://www.lowes.com/pd/Kobalt-Lineman-Pliers/50083102",
+            "price": 12.98,
+            "discription": "Used for pulling nails, staples, screws out of things; including wires. Also useful for anything you need to get a grip on."
         },
         {
             "name": "Leveler",
             "img": "./images/leveler.png",
-            "url": "https://www.google.com/",
-            "price": 6.89,
+            "url": "https://www.lowes.com/pd/CRAFTSMAN-48-in-I-beam-Level/1000596129",
+            "price": 20.98,
             "discription": "Used for telling if a surface is level or not"
         },
         {
             "name": "Pry bar",
             "img": "./images/prybar.png",
-            "url": "https://www.google.com/",
-            "price": 6.89,
-            "discription": "Used for prying something open and holding it open"
+            "url": "https://www.lowes.com/pd/Kobalt-Prybar-15-in-High-Carbon-Steel-Wrecking-Bar/4777015",
+            "price": 14.98,
+            "discription": "Used for prying something open or out of something. It is also used for holding something open"
         },
         {
             "name": "Staple Gun",
             "img": "./images/staplegun.png",
-            "url": "https://www.google.com/",
-            "price": 6.89,
+            "url": "https://www.lowes.com/pd/Arrow-T50-Heavy-Duty-Manual-Staple-Gun/999929280",
+            "price": 19.98,
             "discription": "Used for stapling things. You also need staples for this to be useful"
         },
         {
             "name": "Chisel",
             "img": "./images/chisel.png",
-            "url": "https://www.google.com/",
-            "price": 6.89,
+            "url": "https://www.lowes.com/pd/Kobalt/5013317193",
+            "price": 14.98,
             "discription": "Used for scraping and cutting wood, metal, or stone."
         },
         {
             "name": "Mallet",
             "img": "./images/mallet.png",
-            "url": "https://www.google.com/",
-            "price": 6.89,
+            "url": "https://www.lowes.com/pd/OX-Tools/5013795467",
+            "price": 18.98,
             "discription": "Used for driving dowels or chisels. Softer type of hammer with more surface area"
         },
         {
             "name": "Utility Knife",
             "img": "./images/utilityknife.png",
-            "url": "https://www.google.com/",
-            "price": 6.89,
+            "url": "https://www.lowes.com/pd/CRAFTSMAN-Retractable-Knife/5000242953",
+            "price": 5.98,
             "discription": "Used for cutting things including plastic, banding, and anything you may need to cut with a knife. Comes with multiple blades"
         },
         {
             "name": "Sandpaper",
             "img": "./images/sandpaper.png",
-            "url": "https://www.google.com/",
-            "price": 6.89,
+            "url": "https://www.lowes.com/pd/3M-SandBlaster-Pro-5-Pack-9-in-W-x-11-in-L-220-Grit-Premium-Sandpaper/1000065507",
+            "price": 6.98,
             "discription": "Used for metal or wood to soften edges, corners, and rough spots on the material"
+        },
+        {
+            "name": "Adjustable Wrench",
+            "img": "./images/adjustablewrench.png",
+            "url": "https://www.lowes.com/pd/CRAFTSMAN-6-in-Steel-Adjustable-Wrench-Individual/1000596585",
+            "price": 10.98,
+            "discription": "Used for tightening bolts of many sizes. Can adjust to many different sizes to tighten or loosen different sized bolts/knuts"
+        },
+        {
+            "name": " C-Clamp",
+            "img": "./images/cclamp.png",
+            "url": "https://www.lowes.com/pd/Pony-Pony-8in-Drop-Forged-Steel-C-Clamp/5001997551",
+            "price": 37.98,
+            "discription": "Used for holding something in place to do other work on it. This includes any material you may need to hold in place."
+        },
+        {
+            "name": "Needle Nose Pliers",
+            "img": "./images/needlenosepliers.png",
+            "url": "https://www.lowes.com/pd/CRAFTSMAN-6-in-Needle-Nose-Pliers/1000596405",
+            "price": 8.98,
+            "discription": "Used for reaching into tight areas to grasp something. Also used for cutting and twisting wire. Also can be used for pulling staples"
         }
 
     ]

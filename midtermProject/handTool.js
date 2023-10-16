@@ -15,11 +15,11 @@ function loadMovies(tools) {
         let toolPlace = document.createElement("div");
         toolPlace.innerHTML = `
         <div class="col">
-            <div class="card shadow-sm" id="cards">
+            <div class="card shadow-sm" id="cards" style="background-color: lightgrey;">
                 <img src="${img}" alt=${name}></img>
                 <div class="card-body" id="cardtoo">
                     <p class="card-text"> <h5><Strong>${name}</Strong></h5><br></p>
-                    <div id="smaller" style="display: none"><p><Strong> Description: </Strong> ${disc}<br><Strong> Price: </Strong> $${price} <br> <a href="${url}" class="btn btn-sm btn-outline-secondary">View</a> </p></div>
+                    <div id="smaller" style="display: none"><p><Strong> Description: </Strong> ${disc}<br><Strong><span style="font-size: 20px;"> Price: </span></Strong><span style="font-size: 20px;"> $${price} </span><br><br> <a href="${url}" class="btn btn-md btn-outline-secondary">View</a> </p></div>
                 </div>
             </div>
         </div>`;
