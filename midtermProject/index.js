@@ -37,4 +37,3 @@ function loadMovies(tools) {
     }
 
 }
-jjj
