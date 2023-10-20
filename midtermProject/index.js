@@ -1,4 +1,4 @@
-fetch("./index.json")
+fetch("./data.json")
     .then(response => response.json())
     .then(tools => loadMovies(tools));
 
