@@ -1,26 +1,60 @@
-import './App.css'
-import React, { useState, useEffect } from 'react'
-import data from './app.json'
+import "./App.css";
+import React, { useState, useEffect } from "react";
+import tool from "./app.json";
+import "bootstrap/dist/css/bootstrap.css";
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-       
-        <p>
-          Edit <code>HELLLLLLLOOOOOO</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  
+  useEffect(() => {
+    browse(tool);
+  }, []);
+ 
 
+
+ const priceOfCart = () => {
+
+    let total = 0;
+
+    
+ }
+
+function browse(tools) {
+  var Catalog = document.getElementById("toolHolder");
+
+  for (var i = 0; i < tools.tool.length; i++) {
+      let name = tools.tool[i].name;
+      let img = tools.tool[i].img;
+      let url = tools.tool[i].url;
+      let price = tools.tool[i].price;
+      let disc = tools.tool[i].discription;
+
+      let toolPlace = document.createElement("div");
+      toolPlace.innerHTML = `
+  
+        <div class="col">
+            <div class="card shadow-sm" id="cards" style="background-color: lightgrey;">
+                <img src="${img}" alt=${name}></img>
+                <div class="card-body" id="cardtoo">
+                    <p class="card-text"> <h5><Strong>${name}</Strong></h5><br></p>
+                    <div id="smaller" style="display: none"><p><Strong> Description: </Strong> ${disc}<br><Strong><span style="font-size: 20px;"> Price: </span></Strong><span style="font-size: 20px;"> $${price} </span><br><br> <a href="${url}" class="btn btn-md btn-outline-secondary">View</a> </p></div>
+                </div>
+            </div>
+        </div>`;
+
+        Catalog.appendChild(toolPlace);
+
+        toolPlace.addEventListener("mouseenter", function() {
+            var content1 = toolPlace.childNodes[1].childNodes[1].childNodes[3].childNodes[6];
+            content1.style.display = "block";
+        });
+        toolPlace.addEventListener("mouseleave", function() {
+            var content1 = toolPlace.childNodes[1].childNodes[1].childNodes[3].childNodes[6];
+            content1.style.display = "none";
+        });
+    }
+    
+}
+}
 export default App;

@@ -1,10 +1,33 @@
 {
-    "data": [
-
-
-        
-    ]
-
-
-
+  "tool": [
+    {
+      "id": 1,
+      "name": "Hammer",
+      "img": "./images/Hammer.png",
+      "url": "https://www.lowes.com/pd/CRAFTSMAN-16-oz-Smooth-Face-Steel-Head-Fiberglass-Claw-Hammer/1000593895",
+      "price": 9.98,
+      "discription": "Used for striking nails or metals etc."
+    },
+    {
+      "name": "Stright Blade Screw Driver",
+      "img": "./images/flathead.png",
+      "url": "https://www.lowes.com/pd/CRAFTSMAN-Acetate-Handle-1-8-in-Slotted-Screwdriver/1000595879",
+      "price": 5.48,
+      "discription": "Used for driving in flathead screws"
+    },
+    {
+      "name": "Phlips head Screw Driver",
+      "img": "./images/philips.png",
+      "url": "https://www.lowes.com/pd/CRAFTSMAN-Acetate-Handle-2-Phillips-Screwdriver/1000595773",
+      "price": 5.48,
+      "discription": "Used for driving in philps head screws"
+    },
+    {
+      "name": "Hand Saw",
+      "img": "./images/handsaw.png",
+      "url": "https://www.lowes.com/pd/CRAFTSMAN-15-in-Medium-Cut-Hand-Saw/1000595443",
+      "price": 14.98,
+      "discription": "Used for cutting many things including wood, plastic, and much more"
+    }
+  ]
 }
