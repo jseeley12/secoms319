@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import items from "./selected_products.json";
+import "./Shopping.css";
 
 const Shop = () => {
   const [cart, setCart] = useState([]);
@@ -7,18 +8,34 @@ const Shop = () => {
   const [ProductsCategory, setProductsCategory] = useState(items);
 
   const listItems = ProductsCategory.map((el) => (
-    <div key={el.id}>
-      <img class="img-fluid" src={el.image} width={150} /> <br />
+    <div key={el.id} className="album py-3 bg-body-tertiary ">
+      <div className="container">
+      <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3  row-cols-lg-4 row-cols-xl-5 g-3 ">
+      <div className="col">
+      <div className="card shadow-sm" id="cards">
+      <img className="img-fluid" src={el.image} width={200}/> <br />
+      <div className="card-body" id="cardtoo">
+      <p className="title">
       {el.title} <br />
-      {el.category} <br />
-      {el.price} <br />
-      <button type="button" onClick={() => removeFromCart(el)}>
+      </p>
+      {el.description} <br /><br/>
+      
+      
+        <span className = "price">
+      <span className = "commentPrice">{"For the small price of:"}</span> {"    "}{el.price}{"$"} <br /> <br />
+      </span>
+      <button className = "lbtnn" type="button" variant="light" onClick={() => removeFromCart(el)}>
         -
-      </button>{" "}{el.qty}
-      <button type="button" variant="light" onClick={() => addToCart(el)}>
+      </button>{" "}{el.qty}{" "}
+      <button  className = "rbtnn" type="button" variant="light" onClick={() => addToCart(el)}>
         {" "}
         +{" "}
       </button>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
   ));
 
@@ -53,7 +70,7 @@ const Shop = () => {
   const cartItems = cart.map((el) => (
     <div key={el.id}>
       <img class="img-fluid" src={el.image} width={150} />
-      {el.title}${el.price}x{el.qty}
+      {el.title} <span style= {{ fontWeight: "bold"  }}>${el.price}</span>  <span style={{ marginLeft: 600 }}>Quantity: {el.qty}</span>
     </div>
   ));
 
@@ -127,29 +144,34 @@ const Shop = () => {
 
   return (
     <div>
-      {catalog &&<div>
-        <button onClick={ShowChechout}>Check Out</button>
-        <h4>Search</h4>
-        <input
+      {catalog &&<div className="headerc">
+        <h1 className="t">Tools🛠</h1>
+        <button className= "checkoutbtn" onClick={ShowChechout}>Check Out</button>
+        <h4 className="searchbar">Search</h4>
+        <input className="searchbarbtn"
               type="search"
               value={query}
               onChange={handleChange}
             />
         <div>{listItems}</div>
-        
+        <footer>
+          <p style = {{ textAlign: "center" }}> COMS 319 - Assignment2</p>
+        </footer>
       </div>}
       {checkOut &&<div>
         {userInfo && <button onClick={ShowCatalog}>Return to catalog</button>}
-        <div>Items in Cart :</div>
-        <div>{cartItems}</div>
-        <div>Order total to pay :{cartTotal}</div>
+        <div>Items in Cart : <span style={{ marginLeft: "20" }}> Quantity</span>  </div>
+        <div style={{ marginLeft: "20"}}>{cartItems}</div>
+        <div>Order Total: {cartTotal}</div>
       </div>}
       {userInfo &&<div>
-        <h2>User Info: </h2>
+        <h2>Payment information: </h2>
         <button onClick={ShowConfirmation}>Pay</button>
       </div>}
       {confirmation &&<div>
         <h2>Confirmation </h2>
+        div{cartItems}
+        <h3>Purchase Amount: {cartTotal}{"$"}</h3>
         <button onClick={ShowCatalog2}>Return to catalog</button>
       </div>}
     </div>

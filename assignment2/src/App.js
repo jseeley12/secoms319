@@ -16,6 +16,7 @@ function App() {
  const priceOfCart = () => {
 
     let total = 0;
+    
 
     
  }
