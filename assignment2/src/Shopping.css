@@ -107,9 +107,13 @@ margin-top: -60px;
 }
 footer{
   height: 180px;
-  
+  background-color: lightgray;
 }
 
- 
+.whiteSpace{
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
  
   
