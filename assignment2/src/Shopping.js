@@ -102,12 +102,14 @@ const Shop = () => {
   const [catalog, setcatalog] = useState(true);
   const [userInfo, setUserInfo] = useState(false);
   const [confirmation, setconfirmation] = useState(false);
+  const [error, setError] = useState(false);
 
   function ShowCatalog() {
     setcheckout(false);
     setcatalog(true);
     setUserInfo(false);
     setconfirmation(false);
+    setError(false);
   }
 
   function ShowChechout() {
@@ -115,6 +117,7 @@ const Shop = () => {
     setcatalog(false);
     setUserInfo(true);
     setconfirmation(false);
+    setError(false);
   }
 
   function ShowConfirmation() {
@@ -122,6 +125,15 @@ const Shop = () => {
     setcatalog(false);
     setUserInfo(false);
     setconfirmation(true);
+    setError(false);
+  }
+
+  function ShowError() {
+    setcheckout(true);
+    setcatalog(false);
+    setUserInfo(true);
+    setconfirmation(false);
+    setError(true);
   }
 
   function ShowCatalog2() {
@@ -158,44 +170,88 @@ const Shop = () => {
   const [town, setTown] = useState("");
   const [state, setState] = useState("");
   const [zip, setZip] = useState("");
+  const [errorState, seterrorState] = useState("");
 
   const nameChange = (e) => {
     setName(e.target.value);
-  }
+  };
 
   const emailChange = (e) => {
     setEmail(e.target.value);
-  }
+  };
 
   const CardChange = (e) => {
     setcardNum(e.target.value);
-  }
+  };
 
   const AdressChange = (e) => {
     setAdress(e.target.value);
-  }
-  
+  };
+
   const Adress2Change = (e) => {
     setAdress2(e.target.value);
-  }
+  };
 
   const townChange = (e) => {
     setTown(e.target.value);
-  }
+  };
 
   const stateChange = (e) => {
     setState(e.target.value);
-  }
+  };
 
   const zipChange = (e) => {
     setZip(e.target.value);
-  }
-
+  };
 
   function ConfirmationInfo() {
-    
-  }
+    let val = true;
 
+    if (
+      !email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      )
+    ) {
+      val = false;
+      seterrorState("Email is not valid");
+    }
+
+    if (name.length == 0) {
+      val = false;
+      seterrorState("Please add your Name");
+    }
+
+    if (!(cardNum.match(/^[0-9]{4}\-[0-9]{4}\-[0-9]{4}\-[0-9]{4}$/) && (cardNum.length == 16||cardNum.length == 19))) {
+      val = false;
+      seterrorState("Card Number is not valid");
+    }
+
+    if (adress.length == 0) {
+      val = false;
+      seterrorState("Please add your adress");
+    }
+
+    if (town.length == 0) {
+      val = false;
+      seterrorState("Please add your City");
+    }
+
+    if (state.length == 0){
+      val = false
+      seterrorState("Please add your State");
+    }
+
+    if (zip.match(/^[0-9]{4}$/)){
+      val = false
+      seterrorState("Zip Code is not valid");
+    }
+  
+    if(val){
+      ShowConfirmation()
+    }else{
+      ShowError()
+    }
+  }
 
   return (
     <div>
@@ -211,9 +267,12 @@ const Shop = () => {
           <button className="checkoutbtn" onClick={ShowCatalog}>
             Return to catalog
           </button>
-          
         )}
-        {confirmation && (<button className="checkoutbtn" onClick={ShowCatalog2}>Return to catalog</button>)}
+        {confirmation && (
+          <button className="checkoutbtn" onClick={ShowCatalog2}>
+            Return to catalog
+          </button>
+        )}
 
         {catalog && <h4 className="searchbar">Search</h4>}
         {catalog && (
@@ -262,7 +321,7 @@ const Shop = () => {
           </div>
         )}
 
-{/* Form */}
+        {/* Form */}
         {userInfo && (
           <div class="container">
             <div class="row">
@@ -271,23 +330,34 @@ const Shop = () => {
               <div class="col-8">
                 <h1>Pay Here</h1>
 
-                <div id="liveAlertPlaceholder"> 
-                  <h3><i class="bi-exclamation-circle"></i> Something went wrong!</h3>
-                </div>
+                {error && <div id="liveAlertPlaceholder">
+                  <h3>
+                    <i class="bi-exclamation-circle"></i> Something went wrong!
+                  </h3>
+                  {errorState}
+                </div>}
 
-                <form class="row g-3" id="checkout-form">
+                <div class="row g-3" >
                   <div class="col-md-6">
                     <label for="inputName" class="form-label">
                       Full Name
                     </label>
-                    <input type="text" class="form-control" onChange={nameChange} />
+                    <input
+                      type="text"
+                      class="form-control"
+                      onChange={nameChange}
+                    />
                   </div>
 
                   <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">
                       Email
                     </label>
-                    <input type="email" class="form-control" onChange={emailChange}/>
+                    <input
+                      type="email"
+                      class="form-control"
+                      onChange={emailChange}
+                    />
                   </div>
 
                   <div class="col-12">
@@ -338,31 +408,45 @@ const Shop = () => {
                     <label for="inputCity" class="form-label">
                       City
                     </label>
-                    <input type="text" class="form-control" onChange={townChange}/>
+                    <input
+                      type="text"
+                      class="form-control"
+                      onChange={townChange}
+                    />
                   </div>
                   <div class="col-md-4">
                     <label for="inputState" class="form-label">
                       State
                     </label>
-                    <input type="text" class="form-control" onChange={stateChange}/>
+                    <input
+                      type="text"
+                      class="form-control"
+                      onChange={stateChange}
+                    />
                   </div>
                   <div class="col-md-2">
                     <label for="inputZip" class="form-label">
                       Zip
                     </label>
-                    <input type="text" class="form-control" onChange={zipChange}/>
+                    <input
+                      type="text"
+                      class="form-control"
+                      onChange={zipChange}
+                    />
                   </div>
                   <div class="col-12">
-                    <button class="btn btn-success"onClick={ConfirmationInfo}><i class="bi-bag-check"></i> Order</button>
+                    <button class="btn btn-success" onClick={ConfirmationInfo}>
+                      <i class="bi-bag-check"></i> Order
+                    </button>
                   </div>
-                </form>
+                </div>
               </div>
               <div class="col-2"></div>
             </div>
           </div>
         )}
 
-{/* Confirm */}
+        {/* Confirm */}
         {confirmation && (
           <div>
             <h2 class="centerText">Items Purchased </h2>
@@ -370,9 +454,10 @@ const Shop = () => {
               <div className="row row-cols-1 g-3 ">{cartItems}</div>
             </div>
             <h3 class="centerText">
-              Purchase Amount: {"$"}{cartTotal * 1.07}
+              Purchase Amount: {"$"}
+              {cartTotal * 1.07}
             </h3>
-            
+
             <div class="centerText">
               <hr></hr>
               <h4>Info:</h4>
