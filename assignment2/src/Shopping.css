@@ -115,5 +115,16 @@ footer{
   padding-top: 20px;
   padding-bottom: 10px;
 }
+#liveAlertPlaceholder
+{
+  background-color: red;
+  text-align: center;
+  padding: 10px;
+}
+
+.centerText
+{
+  text-align: center;
+}
  
   

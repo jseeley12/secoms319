@@ -149,6 +149,54 @@ const Shop = () => {
     setProductsCategory(results);
   };
 
+  //form
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [cardNum, setcardNum] = useState("");
+  const [adress, setAdress] = useState("");
+  const [adress2, setAdress2] = useState("");
+  const [town, setTown] = useState("");
+  const [state, setState] = useState("");
+  const [zip, setZip] = useState("");
+
+  const nameChange = (e) => {
+    setName(e.target.value);
+  }
+
+  const emailChange = (e) => {
+    setEmail(e.target.value);
+  }
+
+  const CardChange = (e) => {
+    setcardNum(e.target.value);
+  }
+
+  const AdressChange = (e) => {
+    setAdress(e.target.value);
+  }
+  
+  const Adress2Change = (e) => {
+    setAdress2(e.target.value);
+  }
+
+  const townChange = (e) => {
+    setTown(e.target.value);
+  }
+
+  const stateChange = (e) => {
+    setState(e.target.value);
+  }
+
+  const zipChange = (e) => {
+    setZip(e.target.value);
+  }
+
+
+  function ConfirmationInfo() {
+    
+  }
+
+
   return (
     <div>
       {/* Header */}
@@ -163,7 +211,10 @@ const Shop = () => {
           <button className="checkoutbtn" onClick={ShowCatalog}>
             Return to catalog
           </button>
+          
         )}
+        {confirmation && (<button className="checkoutbtn" onClick={ShowCatalog2}>Return to catalog</button>)}
+
         {catalog && <h4 className="searchbar">Search</h4>}
         {catalog && (
           <input
@@ -218,29 +269,25 @@ const Shop = () => {
               <div class="col-2"></div>
 
               <div class="col-8">
-                <h1>Javascript Form Validation</h1>
+                <h1>Pay Here</h1>
 
-                <div id="liveAlertPlaceholder"></div>
+                <div id="liveAlertPlaceholder"> 
+                  <h3><i class="bi-exclamation-circle"></i> Something went wrong!</h3>
+                </div>
 
                 <form class="row g-3" id="checkout-form">
                   <div class="col-md-6">
                     <label for="inputName" class="form-label">
                       Full Name
                     </label>
-                    <input type="text" class="form-control" id="inputName" />
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">Must be like, "John Doe"</div>
+                    <input type="text" class="form-control" onChange={nameChange} />
                   </div>
 
                   <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">
                       Email
                     </label>
-                    <input type="email" class="form-control" id="inputEmail4" />
-                    <div class="valid-feedback">Looks good!</div>
-                    <div class="invalid-feedback">
-                      Must be like, "abc@xyz.efg"
-                    </div>
+                    <input type="email" class="form-control" onChange={emailChange}/>
                   </div>
 
                   <div class="col-12">
@@ -258,11 +305,8 @@ const Shop = () => {
                         placeholder="XXXX-XXXX-XXXX-XXXX"
                         aria-label="Username"
                         aria-describedby="basic-addon1"
+                        onChange={CardChange}
                       />
-                      <div class="valid-feedback">Looks good!</div>
-                      <div class="invalid-feedback">
-                        Must be like, "7777-7777-7777-7777"
-                      </div>
                     </div>
                   </div>
 
@@ -275,6 +319,7 @@ const Shop = () => {
                       class="form-control"
                       id="inputAddress"
                       placeholder="1234 Main St"
+                      onChange={AdressChange}
                     />
                   </div>
                   <div class="col-12">
@@ -286,67 +331,32 @@ const Shop = () => {
                       class="form-control"
                       id="inputAddress2"
                       placeholder="Apartment, studio, or floor"
+                      onChange={Adress2Change}
                     />
                   </div>
                   <div class="col-md-6">
                     <label for="inputCity" class="form-label">
                       City
                     </label>
-                    <input type="text" class="form-control" id="inputCity" />
+                    <input type="text" class="form-control" onChange={townChange}/>
                   </div>
                   <div class="col-md-4">
                     <label for="inputState" class="form-label">
                       State
                     </label>
-                    <select id="inputState" class="form-select">
-                      <option selected>Choose...</option>
-                      <option>...</option>
-                    </select>
+                    <input type="text" class="form-control" onChange={stateChange}/>
                   </div>
                   <div class="col-md-2">
                     <label for="inputZip" class="form-label">
                       Zip
                     </label>
-                    <input type="text" class="form-control" id="inputZip" />
+                    <input type="text" class="form-control" onChange={zipChange}/>
                   </div>
                   <div class="col-12">
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="gridCheck"
-                      />
-                      <label class="form-check-label" for="gridCheck">
-                        Check me out
-                      </label>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-success">
-                      {" "}
-                      <i class="bi-bag-check"></i> Order
-                    </button>
+                    <button class="btn btn-success"onClick={ConfirmationInfo}><i class="bi-bag-check"></i> Order</button>
                   </div>
                 </form>
-
-                <div class="card collapse" style={{width: "18rem"}}>
-                  <div class="card-body">
-                    <h5 class="card-title">Order summary</h5>
-                    <p class="card-text">Here is a summary of your order.</p>
-                  </div>
-                  <ul class="list-group list-group-flush"></ul>
-                  <a
-                    href=""
-                    onclick="location.reload()"
-                    class="btn btn-secondary"
-                  >
-                    {" "}
-                    <i class="bi-arrow-left-circle"></i>
-                    Return
-                  </a>
-                </div>
               </div>
-
               <div class="col-2"></div>
             </div>
           </div>
@@ -355,13 +365,25 @@ const Shop = () => {
 {/* Confirm */}
         {confirmation && (
           <div>
-            <h2>Confirmation </h2>
-            div{cartItems}
-            <h3>
-              Purchase Amount: {cartTotal * 1.07}
-              {"$"}
+            <h2 class="centerText">Items Purchased </h2>
+            <div className="container">
+              <div className="row row-cols-1 g-3 ">{cartItems}</div>
+            </div>
+            <h3 class="centerText">
+              Purchase Amount: {"$"}{cartTotal * 1.07}
             </h3>
-            <button onClick={ShowCatalog2}>Return to catalog</button>
+            
+            <div class="centerText">
+              <hr></hr>
+              <h4>Info:</h4>
+              <h6>{name}</h6>
+              <h6>{email}</h6>
+              <h6>{cardNum}</h6>
+              <h6>{adress}</h6>
+              <h6>{adress2}</h6>
+              <h6>{state}</h6>
+              <h6>{zip}</h6>
+            </div>
           </div>
         )}
       </div>
