@@ -105,6 +105,8 @@ const Shop = () => {
   const [error, setError] = useState(false);
 
   function ShowCatalog() {
+    setQuery("");
+    setProductsCategory(items);
     setcheckout(false);
     setcatalog(true);
     setUserInfo(false);
@@ -146,12 +148,6 @@ const Shop = () => {
 
   const handleChange = (e) => {
     setQuery(e.target.value);
-    console.log(
-      "Step 6 : in handleChange, Target Value :",
-      e.target.value,
-      " Query Value :",
-      query
-    );
     const results = items.filter((eachProduct) => {
       if (e.target.value === "") return ProductsCategory;
       return eachProduct.title
@@ -241,7 +237,7 @@ const Shop = () => {
       seterrorState("Please add your State");
     }
 
-    if (zip.match(/^[0-9]{4}$/)){
+    if (!zip.match(/^[0-9]{5}$/)){
       val = false
       seterrorState("Zip Code is not valid");
     }
