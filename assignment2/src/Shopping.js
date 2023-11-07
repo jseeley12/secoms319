@@ -10,7 +10,7 @@ const Shop = () => {
   const listItems = ProductsCategory.map((el) => (
     <div key={el.id} className="col">
       <div className="card shadow-sm" id="cards">
-        <img className="img-fluid" src={el.image} width={200} /> <br />
+        <img className="imgnew" src={el.image} width={200} /> <br />
         <div className="card-body" id="cardtoo">
           <p className="title">
             {el.title} <br />
@@ -93,6 +93,7 @@ const Shop = () => {
     for (let i = 0; i < cart.length; i++) {
       totalVal += cart[i].price * cart[i].qty;
     }
+    totalVal = Math.round(totalVal*100)/100;
     setCartTotal(totalVal);
   };
 
@@ -299,22 +300,22 @@ const Shop = () => {
         )}
         {checkOut && (
           <div>
-            <div>
-              <h3>Shopping Cart - Checkout</h3>
+            <div >
+              <h2><span style={{ fontWeight: "bold"}}>Shopping Cart - Checkout</span></h2><br></br>
             </div>
             <div className="container">
               <div className="row row-cols-1 g-3 ">{cartItems}</div>
             </div>
             <hr></hr>
-            <div style={{ marginLeft: "60px" }}>
+            <div style={{ marginLeft: "60px", fontSize: "20px"}}>
               <div>
                 <strong>Cost: </strong>${cartTotal}
               </div>
               <div>
-                <strong>Tax: </strong>${cartTotal * 0.07}
+                <strong>Tax: </strong>${Math.round((cartTotal * 0.07) *100)/100}
               </div>
               <div>
-                <strong>Total: </strong>${cartTotal * 1.07}
+                <strong>Total: </strong>${Math.round((cartTotal * 1.07) *100)/100}
               </div>
             </div>
             <hr></hr>
@@ -449,25 +450,33 @@ const Shop = () => {
         {/* Confirm */}
         {confirmation && (
           <div>
-            <h2 class="centerText">Items Purchased </h2>
+            <h2 class="centerText"><span style = {{ fontWeight: "Bold" }}>✅ Items Purchased ✅</span></h2><br></br><br></br>
             <div className="container">
               <div className="row row-cols-1 g-3 ">{cartItems}</div>
             </div>
-            <h3 class="centerText">
-              Purchase Amount: {"$"}
-              {cartTotal * 1.07}
-            </h3>
+            <div>
+
+            </div>
+            
 
             <div class="centerText">
               <hr></hr>
-              <h4>Info:</h4>
-              <h6>{name}</h6>
-              <h6>{email}</h6>
-              <h6>{cardNum}</h6>
-              <h6>{adress}</h6>
-              <h6>{adress2}</h6>
-              <h6>{state}</h6>
-              <h6>{zip}</h6>
+              <div class="boxaroundinfo">
+              <h3 class="centerText"> <br></br>
+              <span style={{ fontWeight: "bold" }}>Total Purchase Amount: </span>
+             <span style={{ fontWeight: "Bold", fontFamily: "cursive" }}> {"$"}{Math.round((cartTotal *1.07)*100)/100}</span>
+            </h3><br></br>
+
+              <hr></hr>
+              <h2>Info:</h2><br></br>
+              <span style={{ fontSize: "25px", fontStyle: "italic"}}>Name: </span><h5>{name}</h5>
+              <span style={{ fontSize: "25px", fontStyle: "italic"}}>Email: </span><h5>{email}</h5>
+              <span style={{ fontSize: "25px", fontStyle: "italic"}}>Card: </span><h5>{cardNum}</h5>
+              <span style={{ fontSize: "25px", fontStyle: "italic"}}>Address: </span><h5>{adress}</h5>
+              <span style={{ fontSize: "25px", fontStyle: "italic"}}>Address 2: </span><h5>{adress2}</h5>
+              <span style={{ fontSize: "25px", fontStyle: "italic"}}>State: </span><h5>{state}</h5>
+              <span style={{ fontSize: "25px", fontStyle: "italic"}}>Zip: </span><h5>{zip}</h5>
+            </div>
             </div>
           </div>
         )}
