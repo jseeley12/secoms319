@@ -75,9 +75,15 @@ const Shop = () => {
   const cartItems = cart.map((el) => (
     <div key={el.id} className="col">
       <div className="card shadow-sm">
-        <img class="img-fluid" src={el.image} width={150} />
-        {el.title} <span style={{ fontWeight: "bold" }}>${el.price}</span>{" "}
-        <span style={{ marginLeft: 600 }}>Quantity: {el.qty}</span>
+        <div className="container">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 ">
+            <div className="col" class="centerText"> <img class="img-fluid" src={el.image} width={150} /> </div>
+            <div className="col" class="centerText"> Item: <span style={{ fontWeight: "bold" }}>{el.title}</span> </div>
+            <div className="col" class="centerText"> Price: <span style={{ fontWeight: "bold" }}>${el.price}</span>{" "} </div>
+            <div className="col" class="centerText"> <span >Quantity: <span style={{ fontWeight: "bold" }}>{el.qty}</span></span></div>
+          </div>
+        </div>
+
       </div>
     </div>
   ));
@@ -106,6 +112,8 @@ const Shop = () => {
   const [error, setError] = useState(false);
 
   function ShowCatalog() {
+    setQuery("");
+    setProductsCategory(items);
     setcheckout(false);
     setcatalog(true);
     setUserInfo(false);
@@ -147,12 +155,6 @@ const Shop = () => {
 
   const handleChange = (e) => {
     setQuery(e.target.value);
-    console.log(
-      "Step 6 : in handleChange, Target Value :",
-      e.target.value,
-      " Query Value :",
-      query
-    );
     const results = items.filter((eachProduct) => {
       if (e.target.value === "") return ProductsCategory;
       return eachProduct.title
@@ -242,7 +244,7 @@ const Shop = () => {
       seterrorState("Please add your State");
     }
 
-    if (zip.match(/^[0-9]{4}$/)){
+    if (!zip.match(/^[0-9]{5}$/)){
       val = false
       seterrorState("Zip Code is not valid");
     }
