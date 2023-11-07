@@ -71,12 +71,6 @@ width: 50%;
   font-style: italic;
   font-size: 14px;
 }
-.lbtnn{
-margin-left: 30%;
-}
-.rbtnn{
-  margin-right:30%;
-}
 .checkoutbtn{
 margin-left: 90%;
 background-color: rgb(65, 65, 255);
@@ -103,6 +97,7 @@ margin-top: -60px;
   margin-left: 5%;
   margin-bottom: -1%;
   margin-top: 1%;
+  padding-top: 1%;
   
 }
 footer{

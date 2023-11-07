@@ -23,8 +23,8 @@ const Shop = () => {
             {el.price}
             {"$"} <br /> <br />
           </span>
+          <div style = {{ textAlign: "center"}}>
           <button
-            className="lbtnn"
             type="button"
             variant="light"
             onClick={() => removeFromCart(el)}
@@ -33,7 +33,6 @@ const Shop = () => {
           </button>{" "}
           {el.qty}{" "}
           <button
-            className="rbtnn"
             type="button"
             variant="light"
             onClick={() => addToCart(el)}
@@ -41,6 +40,7 @@ const Shop = () => {
             {" "}
             +{" "}
           </button>
+          </div>
         </div>
       </div>
     </div>
