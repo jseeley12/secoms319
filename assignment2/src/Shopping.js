@@ -75,9 +75,15 @@ const Shop = () => {
   const cartItems = cart.map((el) => (
     <div key={el.id} className="col">
       <div className="card shadow-sm">
-        <img class="img-fluid" src={el.image} width={150} />
-        {el.title} <span style={{ fontWeight: "bold" }}>${el.price}</span>{" "}
-        <span style={{ marginLeft: 600 }}>Quantity: {el.qty}</span>
+        <div className="container">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 ">
+            <div className="col" class="centerText"> <img class="img-fluid" src={el.image} width={150} /> </div>
+            <div className="col" class="centerText"> Item: <span style={{ fontWeight: "bold" }}>{el.title}</span> </div>
+            <div className="col" class="centerText"> Price: <span style={{ fontWeight: "bold" }}>${el.price}</span>{" "} </div>
+            <div className="col" class="centerText"> <span >Quantity: <span style={{ fontWeight: "bold" }}>{el.qty}</span></span></div>
+          </div>
+        </div>
+
       </div>
     </div>
   ));
