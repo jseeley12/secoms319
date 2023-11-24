@@ -4,7 +4,20 @@ import "./App.css";
 
 function App() {
 
+  let items;
+
+  //From Mongo
+  function getMethod() {
+    fetch('http://localhost:8081/listTools')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            items = data; 
+        })
+  };
+
   //Shop
+  getMethod(); 
   const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
   const [ProductsCategory, setProductsCategory] = useState(items);
