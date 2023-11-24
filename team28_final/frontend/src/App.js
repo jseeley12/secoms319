@@ -17,7 +17,6 @@ function App() {
   };
 
   //Shop
-  getMethod(); 
   const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
   const [ProductsCategory, setProductsCategory] = useState(items);
