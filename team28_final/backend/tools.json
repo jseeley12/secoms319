@@ -1,72 +1,94 @@
 [
         {
+            "id": "1",
             "name": "Impact Wrench",
             "img": "./images/impactWench.png",
-            "url": "https://www.lowes.com/pd/CRAFTSMAN-V20-20-Volt-Max-1-2-in-Drive-Cordless-Impact-Wrench-1-Battery-Included/1000578229",
+            "qty": 0,
+            "inventory": 100,
             "price": "189.00",
             "discription": "Used driving in Bolts"
         },
         {
+            "id": "2",
             "name": "Sawzaw",
             "img": "./images/Sawzall1.png",
-            "url": "https://www.lowes.com/pd/CRAFTSMAN-V20-20-Volt-Max-Variable-Speed-Cordless-Reciprocating-Saw-Battery-Not-Included/1000578225",
+            "qty": 0,
+            "inventory": 100,
             "price": "79.00",
             "discription": "Used to cut through any wood or metal"
         },
         {
+            "id": "3",
             "name": "Impact Driver",
             "img": "./images/impactDriver.png",
-            "url": "https://www.lowes.com/pd/CRAFTSMAN-20-Volt-Max-1-4-in-Variable-Speed-Cordless-Impact-Driver-1-Battery-Included/1003016536",
+            "qty": 0,
+            "inventory": 100,
             "price": "79.00",
             "discription": "Used for driving in screws and small bolts"
         },
         {
+            "id": "4",
             "name": "Circular Saw",
             "img": "./images/cicularSaw.png",
-            "url": "https://www.lowes.com/pd/CRAFTSMAN-CM-V20-RP-BL-Circ-Saw-Bare/5012961101",
+            "qty": 0,
+            "inventory": 100,
             "price": "129.00",
             "discription": "Used for cutting wood sheets"
         },
         {
+            "id": "5",
             "name": "Miter Saw",
             "img": "./images/miterSaw.png",
-            "url": "https://www.lowes.com/pd/CRAFTSMAN-10-in-15-Amp-Single-Bevel-Sliding-Miter-Saw/1001071446",
+            "qty": 0,
+            "inventory": 100,
             "price": "249.00",
             "discription": "Used for cut wood boards. Can cut at angles."
         },{
+            "id": "6",
             "name": "Welder",
             "img": "./images/welder.png",
-            "url": "https://www.lowes.com/pd/Lincoln-Electric-120-Volt-140-Amp-Mig-Flux-cored-Wire-Feed-Welder/1072945",
+            "qty": 0,
+            "inventory": 100,
             "price": "649.00",
             "discription": "Used to melt 2 peices of metals together."
         },{
+            "id": "7",
             "name": "Table Saw",
             "img": "./images/tableSaw.png",
-            "url": "https://www.lowes.com/pd/CRAFTSMAN-8-25-in-Carbide-Tipped-Blade-13-Amp-Corded-Table-Saw/5001958861",
+            "qty": 0,
+            "inventory": 100,
             "price": "149.00",
             "discription": "Used for cutting stright lines in sheets of wood"
         },{
+            "id": "8",
             "name": "Orbital Sander",
             "img": "./images/sander.png",
-            "url": "lowes.com/pd/CRAFTSMAN-120-Volt-3-Amps-Random-Orbital-Sander/1000596265",
+            "qty": 0,
+            "inventory": 100,
             "price": "54.00",
             "discription": "Used to smooth out wood"
         },{
+            "id": "9",
             "name": "Drill",
             "img": "./images/drill.png",
-            "url": "https://www.lowes.com/pd/CRAFTSMAN-V20-20-volt-Max-1-2-in-Cordless-Drill-1-Battery-Included-and-Charger-Included/5004861567",
+            "qty": 0,
+            "inventory": 100,
             "price": "79.00",
             "discription": "Used for making holes and driving in screw"
         },{
+            "id": "10",
             "name": "Angle Grinder",
             "img": "./images/angleGrinder.png",
-            "url": "https://www.lowes.com/pd/CRAFTSMAN-V20-4-5-in-20-Volt-Max-Cordless-Angle-Grinder/1000578303",
+            "qty": 0,
+            "inventory": 100,
             "price": "59.00",
             "discription": "Used to cut through metal"
         },{
+            "id": "11",
             "name": "Band Saw",
             "img": "./images/bandSaw.png",
-            "url": "https://www.lowes.com/pd/CRAFTSMAN/5013277039",
+            "qty": 0,
+            "inventory": 100,
             "price": "189.00",
             "discription": "Place_Holder"
         }
