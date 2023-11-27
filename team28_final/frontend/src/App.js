@@ -104,6 +104,22 @@ function App() {
     </div>
   ));
 
+  //Calculating Totals
+
+  useEffect(() => {
+    total();
+  }, [cart]);
+
+  const total = () => {
+    let totalVal = 0;
+    for (let i = 0; i < cart.length; i++) {
+      totalVal += cart[i].price * cart[i].qty;
+    }
+    totalVal = Math.round(totalVal*100)/100;
+    setCartTotal(totalVal);
+  };
+
+
   //Search
   const [query, setQuery] = useState("");
 
@@ -189,6 +205,8 @@ function App() {
           <div className="sidebar border border-left col-md-3 col-lg-2 p-0 bg-body-tertiary">
             <h3>Cart ({cart.length})</h3>
             <botton className="btn btn-primary my-2" onClick={ShowCatalog}>Return to Catalog</botton>
+            <hr></hr>
+            <h4>Price: ${cartTotal}</h4>
           </div>
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div className="container">
