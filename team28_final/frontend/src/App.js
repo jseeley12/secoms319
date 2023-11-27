@@ -191,7 +191,11 @@ function App() {
             <botton className="btn btn-primary my-2" onClick={ShowCatalog}>Return to Catalog</botton>
           </div>
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-
+            <div className="container">
+              {!isLoading &&<div className="row row-cols-1 g-3">
+                {cartItems}
+              </div>}
+            </div>
           </main>
         </div>
       </div>}
