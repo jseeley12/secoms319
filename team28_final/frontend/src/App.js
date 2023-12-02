@@ -292,7 +292,7 @@ function App() {
           <h2 className="d-flex align-items-center fs-4 text-white mb-0">
             Tools
           </h2>
-          <botton className="btn btn-primary my-2">Sign in</botton>
+          <button className="btn btn-primary my-2">Sign in</button>
         </div>
       </header>
 
@@ -302,7 +302,7 @@ function App() {
           <div className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
             <div className="align-items-center">
               <h3>Cart ({cart.length})</h3>
-              <botton className="btn btn-primary my-2" onClick={ShowCheckout}>Check out</botton>
+              <button className="btn btn-primary my-2" onClick={ShowCheckout}>Check out</button>
             </div>
             <hr></hr>
             <h4>Search</h4>
@@ -313,7 +313,7 @@ function App() {
               onChange={handleChange}
             />
             <hr></hr>
-            <botton className="btn btn-primary my-2" onClick={ShowHelp}>Help</botton>
+            <button className="btn btn-primary my-2" onClick={ShowHelp}>Help</button>
           </div>
           <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div className="container">
@@ -330,8 +330,8 @@ function App() {
         <div className="row">
           <div className="sidebar border border-left col-md-3 col-lg-2 p-0 bg-body-tertiary">
             <h3>Cart ({cart.length})</h3>
-            {userInfo && <botton className="btn btn-primary my-2" onClick={ShowCatalog}>Return to Catalog</botton>}
-            {confirmation && <botton className="btn btn-primary my-2" onClick={ShowCatalog2}>Return to Catalog</botton>}
+            {userInfo && <button className="btn btn-primary my-2" onClick={ShowCatalog}>Return to Catalog</button>}
+            {confirmation && <button className="btn btn-primary my-2" onClick={ShowCatalog2}>Return to Catalog</button>}
             <hr></hr>
             <h4>Price: ${cartTotal}</h4>
             <hr></hr>
@@ -444,8 +444,41 @@ function App() {
 
       {/* Help Page */}
       {help && <div>
-        <botton className="btn btn-primary my-2" onClick={ShowCatalog}>Return to Catalog</botton>
-        
+        <div className="help1">
+
+          <div className="helptitlebox">
+            <h2 style={{fontSize: "40px", fontFamily: "fantasy"}}>Welcome to the Help Page!</h2>
+            <hr style={{ height:"3px", border:"none", color:"#333", backgroundColor:"#333" }}></hr>
+            <p className="textsize">Here you can find anwsers and information about the tools to best fit your job!</p>
+            
+          </div>
+          <hr style={{ height:"3px", border:"none", color:"#333", backgroundColor:"#333" }}></hr>
+        <div className="box">
+          <h4 className="helpheadersize">
+            Drills/Impact Drills:
+          </h4>
+          <br></br>
+          <div>
+          <p style= {{ marginLeft: "50px", textAlign:"left"}}>Uses:</p>
+          </div>
+          <div>
+          <p style={{ textAlign: "center"}}>Functionality:</p>
+          </div>
+          <div>
+          <p style={{ marginRight:"50px",textAlign:"right"}}>Additional Products:</p>
+          </div>
+          <div>
+          <p>Brands:</p>
+          </div>
+        </div>
+        <div className="box">
+
+        </div>
+      <div className="box">
+          
+        </div>  
+        <button className="btn btn-primary my-2 help1" onClick={ShowCatalog}>Return to Catalog</button>
+        </div>
         
         
       </div>}

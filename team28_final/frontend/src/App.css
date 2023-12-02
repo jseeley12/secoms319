@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+.help1{
+text-align: center;
+align-items: center;
+
+}
+.helptitlebox{
+  width: 900px;
+ padding: 30px;
+  height:fit-content;
+ margin-left: 20%;
+ margin-top:1%;
+ 
+ 
+}
+.box{
+  width: 900px;
+  border: 2px solid rgb(255, 214, 179);
+  background-color: rgb(245, 245, 245);
+  padding: 50px;
+  height:fit-content;
+ margin-left: 20%;
+ margin-top:1%;
+ box-shadow: .8px .8px .8px .8px rgb(255, 214, 179);
+  }
+  .textsize{
+    font-size: 20px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+  }
+  .helpheadersize{
+   margin-top: -6%;
+  } 
+  .divleftbox{
+    
+  }
+  .divcenterbox{
+
+  }
+  .divrightbox{
+
+  }
