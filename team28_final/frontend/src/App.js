@@ -2,10 +2,7 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
-
-
 function App() {
-
   //Shop
   const [cart, setCart] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
@@ -14,17 +11,16 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true)
-    fetch('http://localhost:8081/listTools')
-      .then(response => response.json())
-      .then(res => {
-          console.log(res);
-          setProductsCategory(res); 
-          setProductsCategoryRAW(res);
-          setIsLoading(false)
-      })
-
-  },[])
+    setIsLoading(true);
+    fetch("http://localhost:8081/listTools")
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res);
+        setProductsCategory(res);
+        setProductsCategoryRAW(res);
+        setIsLoading(false);
+      });
+  }, []);
 
   const listItems = ProductsCategory.map((el) => (
     <div key={el.id} className="col">
@@ -38,27 +34,24 @@ function App() {
           <br />
           <span className="price">
             <span className="commentPrice">{"For the small price of:"}</span>{" "}
-            {"    "}{"$"}
+            {"    "}
+            {"$"}
             {el.price}
-             <br /> <br />
+            <br /> <br />
           </span>
-          <div style = {{ textAlign: "center"}}>
-          <button
-            type="button"
-            variant="light"
-            onClick={() => removeFromCart(el)}
-          >
-            -
-          </button>{" "}
-          {el.qty}{" "}
-          <button
-            type="button"
-            variant="light"
-            onClick={() => addToCart(el)}
-          >
-            {" "}
-            +{" "}
-          </button>
+          <div style={{ textAlign: "center" }}>
+            <button
+              type="button"
+              variant="light"
+              onClick={() => removeFromCart(el)}
+            >
+              -
+            </button>{" "}
+            {el.qty}{" "}
+            <button type="button" variant="light" onClick={() => addToCart(el)}>
+              {" "}
+              +{" "}
+            </button>
           </div>
         </div>
       </div>
@@ -95,13 +88,28 @@ function App() {
       <div className="card shadow-sm">
         <div className="container">
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 ">
-            <div className="col" class="centerText"> <img class="img-fluid" src={el.img} width={150} /> </div>
-            <div className="col" class="centerText"> Item: <span style={{ fontWeight: "bold" }}>{el.name}</span> </div>
-            <div className="col" class="centerText"> Price: <span style={{ fontWeight: "bold" }}>${el.price}</span>{" "} </div>
-            <div className="col" class="centerText"> <span >Quantity: <span style={{ fontWeight: "bold" }}>{el.qty}</span></span></div>
+            <div className="col" class="centerText">
+              {" "}
+              <img class="img-fluid" src={el.img} width={150} />{" "}
+            </div>
+            <div className="col" class="centerText">
+              {" "}
+              Item: <span style={{ fontWeight: "bold" }}>{el.name}</span>{" "}
+            </div>
+            <div className="col" class="centerText">
+              {" "}
+              Price: <span style={{ fontWeight: "bold" }}>
+                ${el.price}
+              </span>{" "}
+            </div>
+            <div className="col" class="centerText">
+              {" "}
+              <span>
+                Quantity: <span style={{ fontWeight: "bold" }}>{el.qty}</span>
+              </span>
+            </div>
           </div>
         </div>
-
       </div>
     </div>
   ));
@@ -117,16 +125,15 @@ function App() {
     for (let i = 0; i < cart.length; i++) {
       totalVal += cart[i].price * cart[i].qty;
     }
-    totalVal = Math.round(totalVal*100)/100;
+    totalVal = Math.round(totalVal * 100) / 100;
     setCartTotal(totalVal);
   };
-
 
   //Search
   const [query, setQuery] = useState("");
 
   const handleChange = (e) => {
-    let items = ProductsCategoryRAW; 
+    let items = ProductsCategoryRAW;
     setQuery(e.target.value);
     const results = items.filter((eachProduct) => {
       if (e.target.value === "") return ProductsCategory;
@@ -187,7 +194,7 @@ function App() {
     window.location.reload();
   }
 
-  function ShowHelp(){
+  function ShowHelp() {
     setcheckout(false);
     setcatalog(false);
     setUserInfo(false);
@@ -252,7 +259,12 @@ function App() {
       seterrorState("Please add your Name");
     }
 
-    if (!(cardNum.match(/^[0-9]{4}\-[0-9]{4}\-[0-9]{4}\-[0-9]{4}$/) && (cardNum.length == 16||cardNum.length == 19))) {
+    if (
+      !(
+        cardNum.match(/^[0-9]{4}\-[0-9]{4}\-[0-9]{4}\-[0-9]{4}$/) &&
+        (cardNum.length == 16 || cardNum.length == 19)
+      )
+    ) {
       val = false;
       seterrorState("Card Number is not valid");
     }
@@ -267,23 +279,22 @@ function App() {
       seterrorState("Please add your City");
     }
 
-    if (state.length == 0){
-      val = false
+    if (state.length == 0) {
+      val = false;
       seterrorState("Please add your State");
     }
 
-    if (!zip.match(/^[0-9]{5}$/)){
-      val = false
+    if (!zip.match(/^[0-9]{5}$/)) {
+      val = false;
       seterrorState("Zip Code is not valid");
     }
-  
-    if(val){
-      ShowConfirmation()
-    }else{
-      ShowError()
+
+    if (val) {
+      ShowConfirmation();
+    } else {
+      ShowError();
     }
   }
-
 
   return (
     <>
@@ -297,192 +308,330 @@ function App() {
       </header>
 
       {/* Catalog */}
-      {catalog && <div className="container-fluid">
-        <div className="row">
-          <div className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
-            <div className="align-items-center">
-              <h3>Cart ({cart.length})</h3>
-              <button className="btn btn-primary my-2" onClick={ShowCheckout}>Check out</button>
+      {catalog && (
+        <div className="container-fluid">
+          <div className="row">
+            <div className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+              <div className="align-items-center">
+                <h3>Cart ({cart.length})</h3>
+                <button className="btn btn-primary my-2" onClick={ShowCheckout}>
+                  Check out
+                </button>
+              </div>
+              <hr></hr>
+              <h4>Search</h4>
+              <input
+                className="form-control"
+                type="search"
+                value={query}
+                onChange={handleChange}
+              />
+              <hr></hr>
+              <button className="btn btn-primary my-2" onClick={ShowHelp}>
+                Help
+              </button>
             </div>
-            <hr></hr>
-            <h4>Search</h4>
-            <input
-              className="form-control"
-              type="search"
-              value={query}
-              onChange={handleChange}
-            />
-            <hr></hr>
-            <button className="btn btn-primary my-2" onClick={ShowHelp}>Help</button>
+            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+              <div className="container">
+                {!isLoading && (
+                  <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 ">
+                    {listItems}
+                  </div>
+                )}
+              </div>
+            </main>
           </div>
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div className="container">
-              {!isLoading &&<div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 ">
-                {listItems}
-              </div>}
-            </div>
-          </main>
         </div>
-      </div>}
+      )}
 
       {/* Checkout Page */}
-      {checkOut && <div className="container-fluid">
-        <div className="row">
-          <div className="sidebar border border-left col-md-3 col-lg-2 p-0 bg-body-tertiary">
-            <h3>Cart ({cart.length})</h3>
-            {userInfo && <button className="btn btn-primary my-2" onClick={ShowCatalog}>Return to Catalog</button>}
-            {confirmation && <button className="btn btn-primary my-2" onClick={ShowCatalog2}>Return to Catalog</button>}
-            <hr></hr>
-            <h4>Price: ${cartTotal}</h4>
-            <hr></hr>
-            {/* User Info */}
-            {userInfo && <div>
-              <h5>User Info:</h5>
-              {error && <div style={{ backgroundColor: "red"}}>
-                  <h3>
-                    <i class="bi-exclamation-circle"></i> Something went wrong!
-                  </h3>
-                  {errorState}
-                </div>}
-              <label for="inputName" class="form-label">
-                Full Name
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                onChange={nameChange}
-              />
-              <label for="inputEmail4" class="form-label">
-                Email
-              </label>
-              <input
-                type="email"
-                class="form-control"
-                onChange={emailChange}
-              />
-              <label for="inputCard" class="form-label">
-                Card
-              </label>
-              <input
-                type="text"
-                id="inputCard"
-                class="form-control"
-                placeholder="XXXX-XXXX-XXXX-XXXX"
-                aria-label="Username"
-                aria-describedby="basic-addon1"
-                onChange={CardChange}
-              />
-              <label for="inputAddress" class="form-label">
-                Address
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputAddress"
-                placeholder="1234 Main St"
-                onChange={AdressChange}
-              />
-              <label for="inputCity" class="form-label">
-                City
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                onChange={townChange}
-              />
-              <label for="inputState" class="form-label">
-                State
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                onChange={stateChange}
-              />
-              <label for="inputZip" class="form-label">
-                Zip
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                onChange={zipChange}
-              />
-              <button class="btn btn-success" onClick={ConfirmationInfo}>
-                <i class="bi-bag-check"></i> Order
-              </button>
-  
-            </div>}
+      {checkOut && (
+        <div className="container-fluid">
+          <div className="row">
+            <div className="sidebar border border-left col-md-3 col-lg-2 p-0 bg-body-tertiary">
+              <h3>Cart ({cart.length})</h3>
+              {userInfo && (
+                <button className="btn btn-primary my-2" onClick={ShowCatalog}>
+                  Return to Catalog
+                </button>
+              )}
+              {confirmation && (
+                <button className="btn btn-primary my-2" onClick={ShowCatalog2}>
+                  Return to Catalog
+                </button>
+              )}
+              <hr></hr>
+              <h4>Price: ${cartTotal}</h4>
+              <hr></hr>
+              {/* User Info */}
+              {userInfo && (
+                <div>
+                  <h5>User Info:</h5>
+                  {error && (
+                    <div style={{ backgroundColor: "red" }}>
+                      <h3>
+                        <i class="bi-exclamation-circle"></i> Something went
+                        wrong!
+                      </h3>
+                      {errorState}
+                    </div>
+                  )}
+                  <label for="inputName" class="form-label">
+                    Full Name
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    onChange={nameChange}
+                  />
+                  <label for="inputEmail4" class="form-label">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    onChange={emailChange}
+                  />
+                  <label for="inputCard" class="form-label">
+                    Card
+                  </label>
+                  <input
+                    type="text"
+                    id="inputCard"
+                    class="form-control"
+                    placeholder="XXXX-XXXX-XXXX-XXXX"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                    onChange={CardChange}
+                  />
+                  <label for="inputAddress" class="form-label">
+                    Address
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputAddress"
+                    placeholder="1234 Main St"
+                    onChange={AdressChange}
+                  />
+                  <label for="inputCity" class="form-label">
+                    City
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    onChange={townChange}
+                  />
+                  <label for="inputState" class="form-label">
+                    State
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    onChange={stateChange}
+                  />
+                  <label for="inputZip" class="form-label">
+                    Zip
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    onChange={zipChange}
+                  />
+                  <button class="btn btn-success" onClick={ConfirmationInfo}>
+                    <i class="bi-bag-check"></i> Order
+                  </button>
+                </div>
+              )}
 
-            {/* Confirmation Page */}
-            {confirmation && 
-            <div>
-              <h5>✅ Items Purchased ✅</h5>
-              <h5>Name: {name}</h5>
-              <h5>Email: {email}</h5>
-              <h5>Card: {cardNum}</h5>
-              <h5>Name: {name}</h5>
-              <h5>Adress: {adress}</h5>
-              <h5>State: {state}</h5>
-              <h5>ZIP: {zip}</h5>
+              {/* Confirmation Page */}
+              {confirmation && (
+                <div>
+                  <h5>✅ Items Purchased ✅</h5>
+                  <h5>Name: {name}</h5>
+                  <h5>Email: {email}</h5>
+                  <h5>Card: {cardNum}</h5>
+                  <h5>Name: {name}</h5>
+                  <h5>Adress: {adress}</h5>
+                  <h5>State: {state}</h5>
+                  <h5>ZIP: {zip}</h5>
+                </div>
+              )}
             </div>
-            }
-
+            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+              <div className="container">
+                {!isLoading && (
+                  <div className="row row-cols-1 g-3">{cartItems}</div>
+                )}
+              </div>
+            </main>
           </div>
-          <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div className="container">
-              {!isLoading &&<div className="row row-cols-1 g-3">
-                {cartItems}
-              </div>}
-            </div>
-          </main>
         </div>
-      </div>}
+      )}
 
       {/* Sign in Sheet */}
 
-
-
-
       {/* Help Page */}
-      {help && <div>
-        <div className="help1">
-
-          <div className="helptitlebox">
-            <h2 style={{fontSize: "40px", fontFamily: "fantasy"}}>Welcome to the Help Page!</h2>
-            <hr style={{ height:"3px", border:"none", color:"#333", backgroundColor:"#333" }}></hr>
-            <p className="textsize">Here you can find anwsers and information about the tools to best fit your job!</p>
+      {help && (
+        <div>
+          <div className="help1">
+            <div className="helptitlebox">
+              <h2 style={{ fontSize: "40px", fontFamily: "fantasy" }}>
+                Welcome to the Help Page!
+              </h2>
+              <img style={{float: "left"}}src="../public/images/toolbox.png" alt="toolbox"></img>
+              <hr
+                style={{
+                  height: "3px",
+                  border: "none",
+                  color: "#333",
+                  backgroundColor: "#333",
+                }}
+              ></hr>
+              <p className="textsize">
+                Here you can find anwsers and information about the tools to
+                best fit your job!
+              </p>
+            </div>
+            <hr
+              style={{
+                height: "3px",
+                border: "none",
+                color: "#333",
+                backgroundColor: "#333",
+              }}
+            ></hr>
+            <div className="box">
+              <h4 className="helpheadersize">Drills/Impact Drills:</h4>
+              <hr
+                style={{
+                  marginLeft: "-50px",
+                  marginRight: "-50px",
+                  height: "1.5px",
+                  border: "none",
+                  color: "#333",
+                  backgroundColor: "#333",
+                }}
+              ></hr>
             
-          </div>
-          <hr style={{ height:"3px", border:"none", color:"#333", backgroundColor:"#333" }}></hr>
-        <div className="box">
-          <h4 className="helpheadersize">
-            Drills/Impact Drills:
-          </h4>
-          <br></br>
-          <div>
-          <p style= {{ marginLeft: "50px", textAlign:"left"}}>Uses:</p>
-          </div>
-          <div>
-          <p style={{ textAlign: "center"}}>Functionality:</p>
-          </div>
-          <div>
-          <p style={{ marginRight:"50px",textAlign:"right"}}>Additional Products:</p>
-          </div>
-          <div>
-          <p>Brands:</p>
-          </div>
-        </div>
-        <div className="box">
+              <br></br>
 
-        </div>
-      <div className="box">
-          
-        </div>  
-        <button className="btn btn-primary my-2 help1" onClick={ShowCatalog}>Return to Catalog</button>
-        </div>
-        
-        
-      </div>}
+              <div
+                className="divleftbox"
+                style={{ backgroundColor: "lightgrey", display: "inline-block" }}
+              >
+                <h5 style={{ marginLeft: "50px", textAlign: "center" }}>
+                  Uses:
+                </h5>
+                <hr></hr>
+                <ul>
+                  <li>
+                  <span className="boldtitle">Drilling Holes:</span> In wood, metal, plastic, and other materials.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Screwdriving:</span> Inserting and removing screws from various
+                    surfaces.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Installing Fixtures:</span> Hanging shelves, pictures, mirrors, and
+                    other fixtures.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Woodworking:</span> Joining wood pieces, creating furniture, and
+                    crafting.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Assembly Work:</span> Putting together furniture, cabinets, and
+                    other items.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Carpentry:</span> Building structures, framing, and other carpentry
+                    tasks.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Masonry Work:</span> Drilling into bricks, concrete, and other
+                    masonry materials.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Plumbing:</span> Drilling holes for pipes and other plumbing
+                    installations.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Electrical Work:</span> Creating openings for electrical outlets
+                    and switches
+                  </li>
+                </ul>
+              </div>
 
+              <div
+                className="divcenterbox"
+                style={{ backgroundColor: "lightgrey", display: "inline-block" }}
+              >
+                <h5 style={{ textAlign: "center" }}>Functionality:</h5>
+                <hr></hr>
+                <ul>
+                  <li>
+                    <span className="boldtitle">Variable Speed:</span> Adjustable speed settings for different
+                    tasks and materials.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Forward and Reverse Mode:</span> Allows both drilling and
+                    screwdriving by changing the rotation direction.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Chuck Size:</span> Interchangeable drill bits and accessories with
+                    various chuck sizes.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Adjustable Clutch:</span> Control the torque to prevent
+                    over-tightening of screws.
+                  </li>
+                  
+                  <li>
+                  <span className="boldtitle">LED Work Light:</span> Illuminates the work area for better
+                    visibility.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Ergonomic Design:</span> Comfortable grip and ergonomic design for
+                    extended use.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Compact Size:</span> Maneuverability in tight spaces and ease of
+                    storage due to size.
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                className="divrightbox"
+                style={{ backgroundColor: "blue", display: "inline-block" }}
+              >
+                <h5
+                  style={{
+                    paddingTop: "-10px",
+                    marginRight: "30px",
+                    textAlign: "center",
+                  }}
+                >
+                  Additional Products:
+                </h5>
+              </div>
+
+              <div>
+                <h5 style={{ textAlign: "center" }}>Brands:</h5>
+              </div>
+            </div>
+            <div className="box"></div>
+            <div className="box"></div>
+            <button
+              className="btn btn-primary my-2 help1"
+              onClick={ShowCatalog}
+            >
+              Return to Catalog
+            </button>
+          </div>
+        </div>
+      )}
 
       <footer>
         <h1>Footer</h1>

@@ -69,11 +69,21 @@ align-items: center;
    margin-top: -6%;
   } 
   .divleftbox{
-    
+    margin-left:-90px;
+    width: 300px;
+    height:fit-content;
   }
   .divcenterbox{
-
+    width: 300px;
+    height:fit-content;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
   }
   .divrightbox{
-
+    margin-right:-90px;
+    width: 300px;
+    height:fit-content;
+  }
+  .boldtitle{
+    font-weight: bolder;
   }
