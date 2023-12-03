@@ -365,7 +365,7 @@ function App() {
             </botton>
           )}
           <h2 className="d-flex align-items-center fs-4 text-white mb-0">
-            Tools
+            Tools🛠
           </h2>
           {!(admin || signin) && (<button className="btn btn-primary my-2" onClick={ShowSignIn}>
             Sign in
@@ -593,9 +593,41 @@ function App() {
 
       {/* info Sheet */}
       {Info && (
-        <div>
-          <h2> test</h2>
-        </div>
+        <div className="album py-5 bg-body-tertiary">
+        <div className="container">
+          <div className="card shadow-sm text-center" style={{backgroundColor: "lightgrey"}}>
+            <h1><strong>Date: </strong></h1>
+            <h3>-12/3/2023</h3>
+          </div>
+          <br></br>
+          <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
+            <h1><strong>Course:</strong> </h1>
+            <h3>-COM S 319</h3>
+          </div>
+          <br></br>
+          <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
+            <h1><strong>Names: </strong></h1>
+            <h3>-Josh Seeley</h3>
+            <h3>-Michael Bracht</h3>
+          </div>
+          <br></br>
+          <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
+            <h1><strong>Emails: </strong></h1>
+            <h3>-jseeley@iastate.edu</h3>
+            <h3>-mlbracht@iastate.edu</h3>
+          </div>
+          <br></br>
+          <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
+            <h1><strong>Professor: </strong></h1>
+            <h3>-Dr. Abraham Aldaco</h3>
+          </div>
+          <br></br>
+          <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
+            <h1><strong>Purpose: </strong></h1>
+            <h4>To help users find the tool needed for their project.</h4>
+          </div>
+          </div>
+          </div>
       )}
 
       {/* Help Page */}
