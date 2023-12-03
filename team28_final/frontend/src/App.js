@@ -301,7 +301,7 @@ function App() {
     <>
       <header className="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <div className="container-fluid d-flex align-items-center">
-        <botton className="btn btn-primary my-2">Info</botton>
+        <botton className="btn btn-primary my-2">Website Info</botton>
           <h2 className="d-flex align-items-center fs-4 text-white mb-0">
             Tools
           </h2>
@@ -472,6 +472,8 @@ function App() {
       )}
 
       {/* Sign in Sheet */}
+
+      {/* info Sheet */}
 
       {/* Help Page */}
       {help && (
