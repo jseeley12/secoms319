@@ -458,13 +458,12 @@ function App() {
               {confirmation && (
                 <div>
                   <h5>✅ Items Purchased ✅</h5>
-                  <h5>Name: {name}</h5>
-                  <h5>Email: {email}</h5>
-                  <h5>Card: {cardNum}</h5>
-                  <h5>Name: {name}</h5>
-                  <h5>Adress: {adress}</h5>
-                  <h5>State: {state}</h5>
-                  <h5>ZIP: {zip}</h5>
+                  <h6>Name: {name}</h6>
+                  <h6>Email: {email}</h6>
+                  <h6>Card: {cardNum}</h6>
+                  <h6>Adress: {adress}</h6>
+                  <h6>State: {state}</h6>
+                  <h6>ZIP: {zip}</h6>
                 </div>
               )}
             </div>
