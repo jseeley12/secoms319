@@ -24,7 +24,7 @@ function App() {
 
   const listItems = ProductsCategory.map((el) => (
     <div key={el.id} className="col">
-      <div style={{backgroundColor:"#ECECEC"}}className="card shadow-sm">
+      <div style={{ backgroundColor: "#ECECEC" }} className="card shadow-sm">
         <img className="imgnew" src={el.img} width={200} /> <br />
         <div className="card-body" id="cardtoo">
           <p className="title">
@@ -151,7 +151,9 @@ function App() {
   const [confirmation, setconfirmation] = useState(false);
   const [error, setError] = useState(false);
   const [help, setHelp] = useState(false);
-  const [admin, setadmin] = useState(false);
+  const [admin, setAdmin] = useState(false);
+  const [Info, setInfo] = useState(false);
+  const [signin, setSignin] = useState(false);
 
   function ShowCatalog() {
     setQuery("");
@@ -162,6 +164,9 @@ function App() {
     setconfirmation(false);
     setError(false);
     setHelp(false);
+    setAdmin(false);
+    setInfo(false);
+    setSignin(false);
   }
 
   function ShowCheckout() {
@@ -171,6 +176,9 @@ function App() {
     setconfirmation(false);
     setError(false);
     setHelp(false);
+    setAdmin(false);
+    setInfo(false);
+    setSignin(false);
   }
 
   function ShowConfirmation() {
@@ -180,6 +188,9 @@ function App() {
     setconfirmation(true);
     setError(false);
     setHelp(false);
+    setAdmin(false);
+    setInfo(false);
+    setSignin(false);
   }
 
   function ShowError() {
@@ -189,6 +200,9 @@ function App() {
     setconfirmation(false);
     setError(true);
     setHelp(false);
+    setAdmin(false);
+    setInfo(false);
+    setSignin(false);
   }
 
   function ShowCatalog2() {
@@ -202,6 +216,45 @@ function App() {
     setconfirmation(false);
     setError(false);
     setHelp(true);
+    setAdmin(false);
+    setInfo(false);
+    setSignin(false);
+  }
+
+  function ShowInfo() {
+    setcheckout(false);
+    setcatalog(false);
+    setUserInfo(false);
+    setconfirmation(false);
+    setError(false);
+    setHelp(false);
+    setAdmin(false);
+    setInfo(true);
+    setSignin(false);
+  }
+
+  function ShowSignIn() {
+    setcheckout(false);
+    setcatalog(false);
+    setUserInfo(false);
+    setconfirmation(false);
+    setError(false);
+    setHelp(false);
+    setAdmin(false);
+    setInfo(false);
+    setSignin(true);
+  }
+
+  function ShowAdmin() {
+    setcheckout(false);
+    setcatalog(false);
+    setUserInfo(false);
+    setconfirmation(false);
+    setError(false);
+    setHelp(false);
+    setAdmin(true);
+    setInfo(false);
+    setSignin(false);
   }
 
   //Ordering Form
@@ -301,11 +354,34 @@ function App() {
     <>
       <header className="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <div className="container-fluid d-flex align-items-center">
-        <botton className="btn btn-primary my-2">Info</botton>
+          {!Info && (
+            <botton className="btn btn-primary my-2" onClick={ShowInfo}>
+              Website Info
+            </botton>
+          )}
+          {Info && (
+            <botton className="btn btn-primary my-2" onClick={ShowCatalog}>
+              Return to Catalog
+            </botton>
+          )}
           <h2 className="d-flex align-items-center fs-4 text-white mb-0">
             Tools
           </h2>
-          <button className="btn btn-primary my-2">Sign in</button>
+          {!(admin || signin) && (<button className="btn btn-primary my-2" onClick={ShowSignIn}>
+            Sign in
+          </button>
+          )}
+
+          {signin && (<button className="btn btn-primary my-2" onClick={ShowCatalog}>
+            Return to Catalog
+          </button>
+          )}
+
+          {admin && (<button className="btn btn-primary my-2" onClick={ShowCatalog}>
+            Sign out / Return to Catalog
+          </button>
+          )}
+          
         </div>
       </header>
 
@@ -329,17 +405,18 @@ function App() {
                 onChange={handleChange}
               />
               <hr></hr>
-              <p style={{fontSize:"12px"}}>Click here for more information on products!</p>
+              <p style={{ fontSize: "12px" }}>
+                Click here for more information on products!
+              </p>
               <button className="btn btn-primary my-2" onClick={ShowHelp}>
                 Help
               </button>
               <img
-              
-              className="imgnew1"
-              src="./images/multipletools.png"
-              alt="toolbox"
-              width="200px"
-            ></img>
+                className="imgnew1"
+                src="./images/multipletools.png"
+                alt="toolbox"
+                width="200px"
+              ></img>
             </div>
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
               <div className="container">
@@ -479,6 +556,47 @@ function App() {
       )}
 
       {/* Sign in Sheet */}
+      {signin && (
+        <div>
+          <h3>Sign In</h3>
+          <h5>User Name</h5>
+          <input
+            className="form-control"
+            type="search"
+            value={query}
+            onChange={handleChange}
+          />
+          <h5>Password</h5>
+          <input
+            className="form-control"
+            type="search"
+            value={query}
+            onChange={handleChange}
+          />
+          <botton className="btn btn-primary my-2" onClick={ShowAdmin}>
+            Sign In
+          </botton>
+        </div>
+      )}
+
+      {/* Admin Sheet */}
+      {admin && (
+        <div>
+          <h2> Admin Page</h2>
+          <botton className="btn btn-primary my-2" onClick={ShowAdmin}>
+            Restock / Modify Catalog
+          </botton>
+          <hr></hr>
+          Total Number of Items in Store: {ProductsCategoryRAW.length}
+        </div>
+      )}
+
+      {/* info Sheet */}
+      {Info && (
+        <div>
+          <h2> test</h2>
+        </div>
+      )}
 
       {/* Help Page */}
       {help && (
