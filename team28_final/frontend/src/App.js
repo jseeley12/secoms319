@@ -144,6 +144,7 @@ function App() {
   const [confirmation, setconfirmation] = useState(false);
   const [error, setError] = useState(false);
   const [help, setHelp] = useState(false);
+  const [admin, setadmin] = useState(false);
 
   function ShowCatalog() {
     setQuery("");
@@ -289,6 +290,7 @@ function App() {
     <>
       <header className="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <div className="container-fluid d-flex align-items-center">
+        <botton className="btn btn-primary my-2">Info</botton>
           <h2 className="d-flex align-items-center fs-4 text-white mb-0">
             Tools
           </h2>
