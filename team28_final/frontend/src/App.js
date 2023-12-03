@@ -24,7 +24,7 @@ function App() {
 
   const listItems = ProductsCategory.map((el) => (
     <div key={el.id} className="col">
-      <div className="card shadow-sm">
+      <div style={{backgroundColor:"#ECECEC"}}className="card shadow-sm">
         <img className="imgnew" src={el.img} width={200} /> <br />
         <div className="card-body" id="cardtoo">
           <p className="title">
