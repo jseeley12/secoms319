@@ -329,9 +329,17 @@ function App() {
                 onChange={handleChange}
               />
               <hr></hr>
+              <p style={{fontSize:"12px"}}>Click here for more information on products!</p>
               <button className="btn btn-primary my-2" onClick={ShowHelp}>
                 Help
               </button>
+              <img
+              
+              className="imgnew1"
+              src="./images/multipletools.png"
+              alt="toolbox"
+              width="200px"
+            ></img>
             </div>
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
               <div className="container">

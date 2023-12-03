@@ -34,6 +34,35 @@ app.get("/listTools", async (req, res) => {
     res.send(results);
 });
 
+app.post("/addTool", async (req, res) => {
+    await client.connect();
+    const keys = Object.keys(req.body);
+    const values = Object.values(req.body);
+    const id = values[0]; // id
+    const name = values[1]; // name
+    const price = values[2]; // price
+    const description = values[3]; // description
+    const imageUrl = values[4]; // imageUrl
+    console.log(id, name, price, description, imageUrl);
+    const newDocument = {
+       //form for new tool
+    };
+    const results = await db.collection("tools").insertOne(newDocument);
+    res.status(200);
+    res.send(results);
+  });
+  
+  app.delete("/deleteTool", async (req, res) => {
+    await client.connect();
+    // const keys = Object.keys(req.body);
+    const values = Object.values(req.body);
+    const id = values[0]; // id
+    console.log("Tool to delete :",id);
+    const query = { id: id };
+    const results = await db.collection("tools").deleteOne(query);
+    res.status(200);
+    res.send(results);
+    });
 app.listen(port, () => {
     console.log("App listening at http://%s:%s", host, port);
   });
