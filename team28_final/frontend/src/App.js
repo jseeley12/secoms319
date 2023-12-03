@@ -475,11 +475,12 @@ function App() {
       {help && (
         <div>
           <div className="help1">
+          <img style={{ marginLeft:"50px", float: "left"}} src="./images/toolbox.png" alt="toolbox" width="200px"></img>
             <div className="helptitlebox">
               <h2 style={{ fontSize: "40px", fontFamily: "fantasy" }}>
                 Welcome to the Help Page!
               </h2>
-              <img style={{float: "left"}}src="../public/images/toolbox.png" alt="toolbox"></img>
+              
               <hr
                 style={{
                   height: "3px",
@@ -502,7 +503,164 @@ function App() {
               }}
             ></hr>
             <div className="box">
-              <h4 className="helpheadersize">Drills/Impact Drills:</h4>
+              <h4 className="helpheadersize">Table/Miter/Circular Saws</h4>
+              <hr
+                style={{
+                  marginLeft: "-50px",
+                  marginRight: "-50px",
+                  height: "1.5px",
+                  border: "none",
+                  color: "#333",
+                  backgroundColor: "#333",
+                }}
+              ></hr>
+            
+              <br></br>
+
+              <div
+                className="divleftbox"
+                style={{ backgroundColor: "lightgrey", display: "inline-block" }}
+              >
+                <h5 style={{ marginLeft: "50px", textAlign: "center" }}>
+                  Uses:
+                </h5>
+                <hr></hr>
+                <ul>
+                  <li>
+                  <span className="boldtitle">Straight Cuts:</span> Table saws excel at making precise and straight cuts in various materials, including wood, plywood, MDF, and particleboard.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Rip Cuts:</span> Rip cuts involve cutting material along the length.
+                    surfaces.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Crosscuts:</span> Crosscuts are perpendicular to the wood grain.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Miter Cuts:</span> Table saws equipped with a miter gauge allow for angled cuts, essential for creating bevels and miter joints in woodworking projects.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Resawing:</span> Resawing involves cutting a board along its thickness to create thinner boards. 
+                  </li>
+                  <li>
+                  <span className="boldtitle">Cabinet Making:</span> Table saws are commonly used in cabinet making for cutting panels, creating joinery, and making precise measurements.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Trimming and Edging:</span> Table saws are useful for trimming and edging tasks, such as cutting trim pieces or beveling the edges of boards.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Plywood and Panel Cutting:</span> Table saws equipped with a stable surface and fence system are ideal for cutting large sheets of plywood or panels.
+                  </li>
+                  
+                </ul>
+              </div>
+
+              <div
+                className="divcenterbox"
+                style={{ backgroundColor: "lightgrey", display: "inline-block" }}
+              >
+                <h5 style={{ textAlign: "center" }}>Functionality:</h5>
+                <hr></hr>
+                <ul>
+                  <li>
+                    <span className="boldtitle">Adjustable Depth Settings:</span> Set the depth of the blade for different cutting depths.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Beveling Capability:</span> Tilt the blade to make beveled cuts for angled edges.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Miter Gauge:</span> Use a miter gauge to make accurate angled crosscuts.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Rip Fence:</span> Guide for making straight and parallel rip cuts.
+                  </li>
+                  
+                  <li>
+                  <span className="boldtitle">Blade Guard:</span> Safety feature to cover the blade during operation.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Splitter and Anti-Kickback Pawls:</span> Prevent kickback and ensure smoother, safer cuts.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Riving Knife:</span> Positioned behind the blade to prevent wood from pinching.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Table Extensions:</span> Extend the work surface for handling larger materials.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Electric Brake:</span> Quickly stops the blade when the power is turned off for enhanced safety.
+                  </li>
+                  <li>
+                  <span className="boldtitle">LED Work Light:</span> Illuminates the work area for improved visibility
+                  </li>
+                  <li>
+                    <span ClassName="boldtitle">Portable Design:</span> Some models are designed for easy transport and job site mobility.
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                className="divrightbox"
+                style={{ backgroundColor: "lightgrey", display: "inline-block" }}
+              >
+                <h5
+                  style={{
+                    paddingTop: "-10px",
+                    marginRight: "30px",
+                    textAlign: "center",
+                  }}
+                >
+                  Additional Products:
+                </h5>
+                <hr></hr>
+          
+                <ul>
+                  <li>
+                    <span className="boldtitle">Safety Gear:</span> Safety glasses, ear protection, and dust masks for personal protection.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Push Blocks and Sticks:</span> Aid in safely guiding materials through the saw.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Saw Blades:</span> Different blades for specific materials and types of cuts.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Crosscut Sled:</span> Improves accuracy when making crosscuts.
+                  </li>
+                  
+                  <li>
+                  <span className="boldtitle">Outfeed Table:</span> Provides additional support for longer workpieces.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Table Saw Stand:</span> Portable stands for job site mobility. Allows for stable areas to work.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Miter Saw Stand:</span> Allows for the use of the table saw as a miter saw.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Dust Collector:</span> Attaches to the saw to collect sawdust efficiently.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Saw Blade Cleaning Kit:</span> Keeps blades clean for optimal performance. A clean blade is important for clean cuts.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Mobile Bases:</span> Allows for easy movement and storage of the table saw.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Power Feeders:</span>Assists in feeding material smoothly through the saw.
+                  </li>
+                
+                 
+                </ul>
+              </div>
+
+              <div className="brands">
+                <h5 style={{ textAlign: "center" }}>Brands:</h5>
+                <h6>DeWalt | Makita | Bosch | Milwaukee | Ryobi | Hilti | Black & Decker | Hitachi | RIDGID | Fein | Porter-Cable | Skil</h6>
+              </div>
+            </div>
+            <div className="box">
+            <h4 className="helpheadersize">Drills/Impact Drills:</h4>
               <hr
                 style={{
                   marginLeft: "-50px",
@@ -604,7 +762,7 @@ function App() {
 
               <div
                 className="divrightbox"
-                style={{ backgroundColor: "blue", display: "inline-block" }}
+                style={{ backgroundColor: "lightgrey", display: "inline-block" }}
               >
                 <h5
                   style={{
@@ -615,13 +773,46 @@ function App() {
                 >
                   Additional Products:
                 </h5>
+                <hr></hr>
+                <ul>
+                  <li>
+                    <span className="boldtitle">Drill Bits:</span> Different types and sizes for various materials (wood, metal, masonry).
+                  </li>
+                  <li>
+                  <span className="boldtitle">Screwdriver Bits:</span> Phillips, flathead, torx, and other types for different screw types.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Nut Drivers:</span> For driving nuts and bolts with ease.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Spade Bits:</span> Used for drilling larger holes in wood.
+                  </li>
+                  
+                  <li>
+                  <span className="boldtitle">Hole Saws:</span> For cutting larger holes in wood, metal, or plastic.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Countersink Bits:</span> Create recessed holes for screw heads.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Driver Sets:</span> Comprehensive sets of drill and screwdriver bits.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Extension Rods:</span>Extend the reach of drill bits and drivers.
+                  </li>
+                  <li>
+                  <span className="boldtitle">Carrying Cases:</span>Provides storage and transportation for the drill and extras.
+                  </li>
+                 
+                </ul>
               </div>
 
-              <div>
+              <div className="brands">
                 <h5 style={{ textAlign: "center" }}>Brands:</h5>
+                <h6>DeWalt | Makita | Bosch | Milwaukee | Ryobi | Hilti | Black & Decker | Hitachi | RIDGID | Fein | Porter-Cable | Skil</h6>
               </div>
             </div>
-            <div className="box"></div>
+            </div>
             <div className="box"></div>
             <button
               className="btn btn-primary my-2 help1"
@@ -630,12 +821,17 @@ function App() {
               Return to Catalog
             </button>
           </div>
-        </div>
+
       )}
 
-      <footer>
-        <h1>Footer</h1>
-      </footer>
+<footer class="text-body-secondary py-5 background" style={{backgroundColor:"#ECECEC"}}>
+  <div class="container">
+    <p class="float-end mb-2">
+      <a href="#">Back to top</a>
+    </p>
+    <p class="mb-6">Thanks for Visiting our catalog! Hope you have found everything needed!</p>
+  </div>
+</footer>
     </>
   );
 }

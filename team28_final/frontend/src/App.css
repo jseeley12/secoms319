@@ -40,6 +40,7 @@
 text-align: center;
 align-items: center;
 
+
 }
 .helptitlebox{
   width: 900px;
@@ -69,7 +70,7 @@ align-items: center;
    margin-top: -6%;
   } 
   .divleftbox{
-    margin-left:-90px;
+    margin-left:-89px;
     width: 300px;
     height:fit-content;
   }
@@ -86,4 +87,9 @@ align-items: center;
   }
   .boldtitle{
     font-weight: bolder;
+  }
+  .brands{
+    background-color: lightgrey;
+    border-top: 1px solid black;
+    
   }
