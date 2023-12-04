@@ -606,7 +606,7 @@ function App() {
           <h3>Sign In</h3>
           {signinError && (<div>
             <hr></hr>
-            <h3>You have entered the worng username or password!  (try Username: username  and Password: password) </h3>
+            <h3>You have entered the worng username or password!  (try Username: Username  and Password: password) </h3>
             <hr></hr>
           </div>)}
           <h5>User Name</h5>
