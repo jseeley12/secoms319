@@ -583,11 +583,11 @@ function App() {
       {admin && (
         <div>
           <h2> Admin Page</h2>
-          <botton className="btn btn-primary my-2" onClick={ShowAdmin}>
+          <botton className="btn btn-primary my-2" onClick={ShowCatalog}>
             Restock / Modify Catalog
           </botton>
           <hr></hr>
-          Total Number of Items in Store: {ProductsCategoryRAW.length}
+          <h5>Total Number of Items in Store: {ProductsCategoryRAW.length}</h5>
         </div>
       )}
 
