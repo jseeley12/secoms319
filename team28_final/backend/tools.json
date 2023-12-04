@@ -270,5 +270,23 @@
             "inventory": 100,
             "price": "8.98",
             "discription": "Used for reaching into tight areas to grasp something. Also used for cutting and twisting wire. Also can be used for pulling staples"
+        },
+        {
+            "id": "33",
+            "name": "Paint Brush",
+            "img": "./images/paintbrush.png",
+            "qty": 0,
+            "inventory": 100,
+            "price": "8.00",
+            "discription": "Used for painting any object to another color or coat."
+        },
+        {
+            "id": "34",
+            "name": "Shovel",
+            "img": "./images/shovel.png",
+            "qty": 0,
+            "inventory": 100,
+            "price": "8.00",
+            "discription": "Used for scooping dirt, snow, rocks, or anything you need to pick up."
         }
 ]
