@@ -105,7 +105,8 @@
             "id":  "13",
             "name": "Stright Blade Screw Driver",
             "img": "./images/flathead.png",
-            
+            "qty": 0,
+            "inventory": 100,
             "price": "5.48",
             "discription": "Used for driving in flathead screws"
         },

@@ -154,6 +154,7 @@ function App() {
   const [admin, setAdmin] = useState(false);
   const [Info, setInfo] = useState(false);
   const [signin, setSignin] = useState(false);
+  const [signinError, setSigninError] = useState(false);
 
   function ShowCatalog() {
     setQuery("");
@@ -167,6 +168,7 @@ function App() {
     setAdmin(false);
     setInfo(false);
     setSignin(false);
+    setSigninError(false);
   }
 
   function ShowCheckout() {
@@ -179,6 +181,7 @@ function App() {
     setAdmin(false);
     setInfo(false);
     setSignin(false);
+    setSigninError(false);
   }
 
   function ShowConfirmation() {
@@ -191,6 +194,7 @@ function App() {
     setAdmin(false);
     setInfo(false);
     setSignin(false);
+    setSigninError(false);
   }
 
   function ShowError() {
@@ -203,6 +207,7 @@ function App() {
     setAdmin(false);
     setInfo(false);
     setSignin(false);
+    setSigninError(false);
   }
 
   function ShowCatalog2() {
@@ -219,6 +224,7 @@ function App() {
     setAdmin(false);
     setInfo(false);
     setSignin(false);
+    setSigninError(false);
   }
 
   function ShowInfo() {
@@ -231,6 +237,7 @@ function App() {
     setAdmin(false);
     setInfo(true);
     setSignin(false);
+    setSigninError(false);
   }
 
   function ShowSignIn() {
@@ -243,6 +250,7 @@ function App() {
     setAdmin(false);
     setInfo(false);
     setSignin(true);
+    setSigninError(false);
   }
 
   function ShowAdmin() {
@@ -255,6 +263,20 @@ function App() {
     setAdmin(true);
     setInfo(false);
     setSignin(false);
+    setSigninError(false);
+  }
+
+  function ShowSignInError() {
+    setcheckout(false);
+    setcatalog(false);
+    setUserInfo(false);
+    setconfirmation(false);
+    setError(false);
+    setHelp(false);
+    setAdmin(false);
+    setInfo(false);
+    setSignin(true);
+    setSigninError(true);
   }
 
   //Ordering Form
@@ -349,6 +371,29 @@ function App() {
       ShowError();
     }
   }
+
+  //Check Password
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const getUsername = (e) => {
+    setUsername(e.target.value);
+  };
+
+  const getPassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  function testPassword(){
+    if((username === "Username") && (password === "password"))
+    {
+      ShowAdmin();
+    }else{
+      ShowSignInError();
+    }
+
+  }
+
 
   return (
     <>
@@ -559,21 +604,24 @@ function App() {
       {signin && (
         <div>
           <h3>Sign In</h3>
+          {signinError && (<div>
+            <hr></hr>
+            <h3>You have entered the worng username or password!  (try Username: username  and Password: password) </h3>
+            <hr></hr>
+          </div>)}
           <h5>User Name</h5>
           <input
             className="form-control"
-            type="search"
-            value={query}
-            onChange={handleChange}
+            type="text"
+            onChange={getUsername}
           />
           <h5>Password</h5>
           <input
             className="form-control"
-            type="search"
-            value={query}
-            onChange={handleChange}
+            type="text"
+            onChange={getPassword}
           />
-          <botton className="btn btn-primary my-2" onClick={ShowAdmin}>
+          <botton className="btn btn-primary my-2" onClick={testPassword}>
             Sign In
           </botton>
         </div>
