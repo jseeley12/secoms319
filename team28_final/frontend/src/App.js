@@ -602,7 +602,7 @@ function App() {
           <br></br>
           <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
             <h1><strong>Course:</strong> </h1>
-            <h3>-COM S 319</h3>
+            <h3>SE/ComS319 Construction of User Interfaces, Fall 2023</h3>
           </div>
           <br></br>
           <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
@@ -620,6 +620,7 @@ function App() {
           <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
             <h1><strong>Professor: </strong></h1>
             <h3>-Dr. Abraham Aldaco</h3>
+            <h3>aaldaco@iastate.edu</h3>
           </div>
           <br></br>
           <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
