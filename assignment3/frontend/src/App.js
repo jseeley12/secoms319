@@ -296,6 +296,11 @@ function App() {
         </div>
       </header>
 
+      {/* Info */}
+      {Info && <div>
+        Info Page  
+      </div>}
+
       {/* Get */}
       {ListProduct && (
         <div>
