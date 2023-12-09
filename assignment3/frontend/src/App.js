@@ -7,6 +7,7 @@ function App() {
   const [ProductsCategory, setProductsCategory] = useState([]);
   const [oneProduct, setOneProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [OneFound, setOneFound] = useState(false);
 
   useEffect(() => {
     getAllProducts();
@@ -25,12 +26,20 @@ function App() {
 
   function getOneProducts(id) {
     setIsLoading(true);
+    setOneFound(false);
     fetch("http://localhost:8081/"+id)
       .then((response) => response.json())
       .then((res) => {
         console.log(res);
         setOneProduct(res);
         setIsLoading(false);
+        setOneFound(true);
+      })
+      .catch((err) => {
+        console.log("Item does not exist");
+        setIsLoading(false);
+        setOneProduct("Id Does not exist");
+        setOneFound(true);
       });
   }
 
@@ -58,6 +67,26 @@ function App() {
       </div>
     </div>
   ));
+
+  function showOne() {
+    if(oneProduct === "Id Does not exist"){
+      return(<div>
+        That Item ID does not Exist!
+      </div>)
+    }
+    else{
+      return(<div>
+        Id: {oneProduct.id} <br />
+        Title: {oneProduct.title}<br />
+        Description: {oneProduct.description}<br />
+        Category: {oneProduct.category}<br />
+        Price: {oneProduct.price}<br />
+        Rating: {oneProduct.rating}<br />
+      </div>)
+    }
+    
+  } 
+
 
   //ID Find
   const [queryID, setQueryID] = useState("");
@@ -139,6 +168,10 @@ function App() {
       });
   }
 
+  function deleteItem() {
+    deleteMethod(oneProduct.id); 
+  }
+
   //delete -  Mongo
   function deleteMethod(id) {
     fetch("http://localhost:8081/deleteItem", {
@@ -155,6 +188,7 @@ function App() {
         container.innerHTML = JSON.stringify(data);
       })
       .catch((err) => console.log("Errror:" + err));
+      window.location.reload();
   }
 
   return (
@@ -217,6 +251,12 @@ function App() {
             <botton className="btn btn-primary my-2" onClick={SelectButton}>
               Seach
             </botton>
+          {OneFound && <div>
+            {showOne()}
+            <botton className="btn btn-primary my-2" onClick={deleteItem}>
+              Delete Item!
+            </botton>
+          </div>}
         </div>
       )}
 

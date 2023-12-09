@@ -35,11 +35,11 @@ app.get("/listItems", async (req, res) => {
 
 //Mongo Get ID
 app.get("/:id", async (req, res) => {
-  const robotid = Number(req.params.id);
-  console.log("Robot to find :", robotid);
+  const itemid = Number(req.params.id);
+  console.log("Item to find :", itemid);
   await client.connect();
   console.log("Node connected successfully to GET-id MongoDB");
-  const query = { id: robotid };
+  const query = { id: itemid };
   const results = await db.collection("fakestore_catalog").findOne(query);
   console.log("Results :", results);
   if (!results) res.send("Not Found").status(404);
@@ -66,7 +66,7 @@ app.post("/addItems", async (req, res) => {
 });
 
 //Mongo Delete
-app.delete("/deleteItems", async (req, res) => {
+app.delete("/deleteItem", async (req, res) => {
   await client.connect();
   // const keys = Object.keys(req.body);
   const values = Object.values(req.body);
