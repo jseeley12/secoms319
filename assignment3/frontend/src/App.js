@@ -72,9 +72,12 @@ function App() {
   function showOne() {
     if (oneProduct === "Id Does not exist") {
       return <div>That Item ID does not Exist!</div>;
+    }else if(oneProduct === null){
+      return(<div></div>); 
     } else {
       return (
         <div>
+          <hr></hr>
           Id: {oneProduct.id} <br />
           Title: {oneProduct.title}
           <br />
@@ -87,6 +90,17 @@ function App() {
           Rating: {oneProduct.rating.rate}
           <br />
           Count: {oneProduct.rating.count}
+          {DeleteProduct && <div><hr></hr><botton className="btn btn-primary my-2" onClick={deleteItem}>
+            Delete Item!
+          </botton></div>}
+          {UpdateProduct && <div>
+            <hr></hr>
+            <h5>New Price: </h5>
+            <input type="Price" onChange={PriceChange} />
+            <botton className="btn btn-primary my-2" onClick={updateItem}>
+              Update Item!
+            </botton>
+          </div>}
         </div>
       );
     }
@@ -125,6 +139,9 @@ function App() {
     setAddProduct(false);
     setDeleteProduct(false);
     setInfo(false);
+    setQueryID("");
+    setOneFound(null);
+    showOne();
   }
 
   function ShowAdd() {
@@ -141,6 +158,9 @@ function App() {
     setAddProduct(false);
     setDeleteProduct(true);
     setInfo(false);
+    setQueryID("");
+    setOneFound(null);
+    showOne();
   }
 
   function ShowInfo() {
@@ -348,11 +368,6 @@ function App() {
           {OneFound && (
             <div>
               {showOne()}
-              <h5>Price: </h5>
-              <input type="Price" onChange={PriceChange} />
-              <botton className="btn btn-primary my-2" onClick={updateItem}>
-                Update Item!
-              </botton>
             </div>
           )}
       </div>}
@@ -368,9 +383,6 @@ function App() {
           {OneFound && (
             <div>
               {showOne()}
-              <botton className="btn btn-primary my-2" onClick={deleteItem}>
-                Delete Item!
-              </botton>
             </div>
           )}
         </div>
