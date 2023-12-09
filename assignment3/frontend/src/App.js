@@ -86,10 +86,6 @@ function App() {
           Category: {oneProduct.category}
           <br />
           Price: {oneProduct.price}
-          <br />
-          Rating: {oneProduct.rating.rate}
-          <br />
-          Count: {oneProduct.rating.count}
           {DeleteProduct && <div><hr></hr><botton className="btn btn-primary my-2" onClick={deleteItem}>
             Delete Item!
           </botton></div>}
