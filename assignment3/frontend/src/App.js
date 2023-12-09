@@ -298,7 +298,38 @@ function App() {
 
       {/* Info */}
       {Info && <div>
-        Info Page  
+        <div className="album py-5 bg-body-tertiary">
+        <div className="container">
+          <div className="card shadow-sm text-center" style={{backgroundColor: "lightgrey"}}>
+            <h1><strong>Date: </strong></h1>
+            <h3>-12/9/2023</h3>
+          </div>
+          <br></br>
+          <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
+            <h1><strong>Course:</strong> </h1>
+            <h3>SE/ComS319 Construction of User Interfaces, Fall 2023</h3>
+          </div>
+          <br></br>
+          <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
+            <h1><strong>Names: </strong></h1>
+            <h3>-Josh Seeley</h3>
+            <h3>-Michael Bracht</h3>
+          </div>
+          <br></br>
+          <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
+            <h1><strong>Emails: </strong></h1>
+            <h3>-jseeley@iastate.edu</h3>
+            <h3>-mlbracht@iastate.edu</h3>
+          </div>
+          <br></br>
+          <div className="card shadow-sm text-center" id="cards" style={{backgroundColor: "lightgrey"}}>
+            <h1><strong>Professor: </strong></h1>
+            <h3>-Dr. Abraham Aldaco</h3>
+            <h3>aaldaco@iastate.edu</h3>
+          </div>
+          </div>
+          </div>
+     
       </div>}
 
       {/* Get */}
