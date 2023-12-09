@@ -27,7 +27,7 @@ function App() {
   function getOneProducts(id) {
     setIsLoading(true);
     setOneFound(false);
-    fetch("http://localhost:8081/"+id)
+    fetch("http://localhost:8081/" + id)
       .then((response) => response.json())
       .then((res) => {
         console.log(res);
@@ -69,24 +69,26 @@ function App() {
   ));
 
   function showOne() {
-    if(oneProduct === "Id Does not exist"){
-      return(<div>
-        That Item ID does not Exist!
-      </div>)
+    if (oneProduct === "Id Does not exist") {
+      return <div>That Item ID does not Exist!</div>;
+    } else {
+      return (
+        <div>
+          Id: {oneProduct.id} <br />
+          Title: {oneProduct.title}
+          <br />
+          Description: {oneProduct.description}
+          <br />
+          Category: {oneProduct.category}
+          <br />
+          Price: {oneProduct.price}
+          <br />
+          Rating: {oneProduct.rating}
+          <br />
+        </div>
+      );
     }
-    else{
-      return(<div>
-        Id: {oneProduct.id} <br />
-        Title: {oneProduct.title}<br />
-        Description: {oneProduct.description}<br />
-        Category: {oneProduct.category}<br />
-        Price: {oneProduct.price}<br />
-        Rating: {oneProduct.rating}<br />
-      </div>)
-    }
-    
-  } 
-
+  }
 
   //ID Find
   const [queryID, setQueryID] = useState("");
@@ -98,7 +100,7 @@ function App() {
   function SelectButton() {
     getOneProducts(queryID);
     console.log(queryID);
-  };
+  }
 
   //Displays
   const [ListProduct, setListProduct] = useState(true);
@@ -147,29 +149,34 @@ function App() {
     setInfo(true);
   }
 
+  function addItem() {
+    postMethod();
+  }
+
   //add -  Mongo
   function postMethod() {
-    fetch("http://localhost:8081/addRobot", {
+    fetch("http://localhost:8081/addItems", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
-        id: 4,
-        name: "Robot 4",
-        price: 124.5,
-        description: "This is a description of Robot 4",
-        imageUrl: "https://robohash.org/",
+        id: Id,
+        title: Title,
+        price: Price,
+        description: Description,
+        category: Catagory,
+        imageUrl: Image,
+        rating: Rate
       }),
     })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        var container = document.getElementById("showData");
-        container.innerHTML = JSON.stringify(data);
       });
+      window.location.reload();
   }
 
   function deleteItem() {
-    deleteMethod(oneProduct.id); 
+    deleteMethod(oneProduct.id);
   }
 
   //delete -  Mongo
@@ -188,8 +195,50 @@ function App() {
         container.innerHTML = JSON.stringify(data);
       })
       .catch((err) => console.log("Errror:" + err));
-      window.location.reload();
+    window.location.reload();
   }
+
+  //form
+  const [Id, setId] = useState();
+  const [Title, setTitle] = useState("");
+  const [Price, setPrice] = useState();
+  const [Description, setDescription] = useState("");
+  const [Catagory, setCatagory] = useState("");
+  const [Image, setImage] = useState("");
+  const [Rate, setRate] = useState();
+  const [Count, setCount] = useState();
+
+  const IdChange = (e) => {
+    setId(parseFloat(e.target.value));
+  };
+
+  const TitleChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const PriceChange = (e) => {
+    setPrice(parseFloat(e.target.value));
+  };
+
+  const DescriptionChange = (e) => {
+    setDescription(e.target.value);
+  };
+
+  const CatagoryChange = (e) => {
+    setCatagory(e.target.value);
+  };
+
+  const ImageChange = (e) => {
+    setImage(e.target.value);
+  };
+
+  const RateChange = (e) => {
+    setRate(parseFloat(e.target.value));
+  };
+
+  const CountChange = (e) => {
+    setCount(parseFloat(e.target.value));
+  };
 
   return (
     <>
@@ -235,7 +284,30 @@ function App() {
       )}
 
       {/* Add */}
-      {AddProduct && <div></div>}
+      {AddProduct && (
+        <div>
+          <h5>ID: </h5>
+          <input type="Id" onChange={IdChange} />
+          <h5>Title: </h5>
+          <input type="Title" onChange={TitleChange} />
+          <h5>Price: </h5>
+          <input type="Price" onChange={PriceChange} />
+          <h5>Description: </h5>
+          <input type="Description" onChange={DescriptionChange} />
+          <h5>Catagory: </h5>
+          <input type="Catagory" onChange={CatagoryChange} />
+          <h5>Image: </h5>
+          <input type="Images" onChange={ImageChange} />
+          <h5>Rating: </h5>
+          <input type="Rate" onChange={RateChange} />
+          <h5>Count: </h5>
+          <input type="Count" onChange={CountChange} />
+          <hr></hr>
+          <botton className="btn btn-primary my-2" onClick={addItem}>
+            Create Item!
+          </botton>
+        </div>
+      )}
 
       {/* Update */}
       {UpdateProduct && <div></div>}
@@ -244,19 +316,18 @@ function App() {
       {DeleteProduct && (
         <div>
           <h4>ID to delete</h4>
-          <input 
-            type="search" 
-            value={queryID}
-            onChange={FindQueryID}/>
-            <botton className="btn btn-primary my-2" onClick={SelectButton}>
-              Seach
-            </botton>
-          {OneFound && <div>
-            {showOne()}
-            <botton className="btn btn-primary my-2" onClick={deleteItem}>
-              Delete Item!
-            </botton>
-          </div>}
+          <input type="search" value={queryID} onChange={FindQueryID} />
+          <botton className="btn btn-primary my-2" onClick={SelectButton}>
+            Seach
+          </botton>
+          {OneFound && (
+            <div>
+              {showOne()}
+              <botton className="btn btn-primary my-2" onClick={deleteItem}>
+                Delete Item!
+              </botton>
+            </div>
+          )}
         </div>
       )}
 

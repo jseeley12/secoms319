@@ -52,13 +52,21 @@ app.post("/addItems", async (req, res) => {
   const keys = Object.keys(req.body);
   const values = Object.values(req.body);
   const id = values[0]; // id
-  const name = values[1]; // name
+  const title = values[1]; // name
   const price = values[2]; // price
   const description = values[3]; // description
-  const imageUrl = values[4]; // imageUrl
-  console.log(id, name, price, description, imageUrl);
+  const category = values[4]; // imageUrl
+  const image = values[5];
+  const rating = values[6];
+  console.log(id, title, price, description, image);
   const newDocument = {
-    //form for new tool
+    id: id,
+    title: title,
+    price: price,
+    description: description,
+    category: category, 
+    image: image,
+    rating: rating
   };
   const results = await db.collection("fakestore_catalog").insertOne(newDocument);
   res.status(200);
