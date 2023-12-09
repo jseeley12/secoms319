@@ -57,7 +57,8 @@ app.post("/addItems", async (req, res) => {
   const description = values[3]; // description
   const category = values[4]; // imageUrl
   const image = values[5];
-  const rating = values[6];
+  const rate = values[6];
+  const count = values[7];
   console.log(id, title, price, description, image);
   const newDocument = {
     id: id,
@@ -66,12 +67,24 @@ app.post("/addItems", async (req, res) => {
     description: description,
     category: category, 
     image: image,
-    rating: rating
+    rating: {rate: rate, count:count}
   };
   const results = await db.collection("fakestore_catalog").insertOne(newDocument);
   res.status(200);
   res.send(results);
 });
+
+//Mongo Update
+app.post("/updateItems", async (req, res) => {
+    await client.connect();
+    const keys = Object.keys(req.body);
+    const values = Object.values(req.body);
+    const id = values[0]; // id
+    const price = values[1]; // new price
+    const results = await db.collection("fakestore_catalog").updateOne({ id: id},{$set: {price: price}});
+    res.status(200);
+    res.send(results);
+  });
 
 //Mongo Delete
 app.delete("/deleteItem", async (req, res) => {

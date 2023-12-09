@@ -60,7 +60,8 @@ function App() {
             <br />
           </span>
           Category: {el.category} <br />
-          Rating: {el.rating}
+          Rating: {el.rating.rate} <br />
+          Count: {el.rating.count}
           <br />
           Id: {el.id}
         </div>
@@ -83,8 +84,9 @@ function App() {
           <br />
           Price: {oneProduct.price}
           <br />
-          Rating: {oneProduct.rating}
+          Rating: {oneProduct.rating.rate}
           <br />
+          Count: {oneProduct.rating.count}
         </div>
       );
     }
@@ -165,7 +167,8 @@ function App() {
         description: Description,
         category: Catagory,
         imageUrl: Image,
-        rating: Rate
+        rating: Rate,
+        counting: Count
       }),
     })
       .then((response) => response.json())
@@ -191,12 +194,33 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
-        var container = document.getElementById("showData");
-        container.innerHTML = JSON.stringify(data);
       })
       .catch((err) => console.log("Errror:" + err));
     window.location.reload();
   }
+
+  //update - Mongo
+  function updateItem() {
+    updateMethod(oneProduct.id);
+  }
+
+  function updateMethod(id) {
+    fetch("http://localhost:8081/updateItems", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        id: id,
+        price: Price
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log("Errror:" + err));
+    window.location.reload();
+  }
+
 
   //form
   const [Id, setId] = useState();
@@ -310,7 +334,23 @@ function App() {
       )}
 
       {/* Update */}
-      {UpdateProduct && <div></div>}
+      {UpdateProduct && <div>
+        <h4>ID to Update</h4>
+          <input type="search" value={queryID} onChange={FindQueryID} />
+          <botton className="btn btn-primary my-2" onClick={SelectButton}>
+            Seach
+          </botton>
+          {OneFound && (
+            <div>
+              {showOne()}
+              <h5>Price: </h5>
+              <input type="Price" onChange={PriceChange} />
+              <botton className="btn btn-primary my-2" onClick={updateItem}>
+                Update Item!
+              </botton>
+            </div>
+          )}
+      </div>}
 
       {/* Delete */}
       {DeleteProduct && (
