@@ -10,6 +10,19 @@ function App() {
   const [ProductsCategoryRAW, setProductsCategoryRAW] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  //Displays
+  const [checkOut, setcheckout] = useState(false);
+  const [catalog, setcatalog] = useState(true);
+  const [userInfo, setUserInfo] = useState(false);
+  const [confirmation, setconfirmation] = useState(false);
+  const [error, setError] = useState(false);
+  const [help, setHelp] = useState(false);
+  const [admin, setAdmin] = useState(false);
+  const [Info, setInfo] = useState(false);
+  const [signin, setSignin] = useState(false);
+  const [signinError, setSigninError] = useState(false);
+
+  //Get - Mongo
   useEffect(() => {
     setIsLoading(true);
     fetch("http://localhost:8081/listTools")
@@ -21,6 +34,24 @@ function App() {
         setIsLoading(false);
       });
   }, []);
+
+  //Update - Mongo
+  function updateMethod(id, price, inventory) {
+    fetch("http://localhost:8081/updateTools", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        id: id,
+        price: price,
+        inventory: inventory
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log("Errror:" + err));
+  }
 
   const listItems = ProductsCategory.map((el) => (
     <div key={el.id} className="col">
@@ -39,7 +70,9 @@ function App() {
             {el.price}
             <br /> <br />
           </span>
-          <div style={{ textAlign: "center" }}>
+          {el.inventory} in stock <br/>
+          <hr></hr>
+          {catalog && <div style={{ textAlign: "center" }}>
             <button
               type="button"
               variant="light"
@@ -52,7 +85,21 @@ function App() {
               {" "}
               +{" "}
             </button>
-          </div>
+          </div>}
+          {admin && <div>
+            <h5>Update: </h5>
+            Inventory:<br/>
+            <input className= "inputcreateboxes" type="Title"/><br/>
+            Price:<br/>
+            <input className= "inputcreateboxes" type="Price"/><br/>
+            <botton className="btn btn-primary my-2" >
+              Update Item
+            </botton>
+            <hr/>
+            <botton className="btn btn-primary my-2" >
+              Delete
+            </botton>
+          </div>}
         </div>
       </div>
     </div>
@@ -63,10 +110,12 @@ function App() {
     let hardCopy = [...cart];
     if (el.qty < 1) {
       setCart([...cart, el]);
+      el.qty = el.qty + 1;
+    }else if(el.qty >= el.inventory) {
     } else {
       setCart(hardCopy);
+      el.qty = el.qty + 1;
     }
-    el.qty = el.qty + 1;
     console.log(el.qty);
   };
 
@@ -144,18 +193,9 @@ function App() {
     setProductsCategory(results);
   };
 
-  //Displays
-  const [checkOut, setcheckout] = useState(false);
-  const [catalog, setcatalog] = useState(true);
-  const [userInfo, setUserInfo] = useState(false);
-  const [confirmation, setconfirmation] = useState(false);
-  const [error, setError] = useState(false);
-  const [help, setHelp] = useState(false);
-  const [admin, setAdmin] = useState(false);
-  const [Info, setInfo] = useState(false);
-  const [signin, setSignin] = useState(false);
-  const [signinError, setSigninError] = useState(false);
 
+
+  //Changing Displays
   function ShowCatalog() {
     setQuery("");
     setProductsCategory(ProductsCategoryRAW);
@@ -367,8 +407,23 @@ function App() {
 
     if (val) {
       ShowConfirmation();
+      removeInventory();
     } else {
       ShowError();
+    }
+  }
+
+  //Removing Inventory after bought
+  function removeInventory(){
+    let c = cart.length - 1;
+    console.log(c);
+    console.log(cart)
+    while(c >= 0){
+      let item = cart[c];
+      console.log(item);
+      console.log(item.inventory-item.qty);
+      updateMethod(item.id,item.price,item.inventory-item.qty);
+      c = c-1;
     }
   }
 
@@ -631,11 +686,32 @@ function App() {
       {admin && (
         <div>
           <h2> Admin Page</h2>
-          <botton className="btn btn-primary my-2" onClick={ShowCatalog}>
-            Restock / Modify Catalog
-          </botton>
           <hr></hr>
           <h5>Total Number of Items in Store: {ProductsCategoryRAW.length}</h5>
+          <hr></hr>
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 ">
+            <div key={0} className="col">
+              <div style={{ backgroundColor: "#ECECEC" }} className="card shadow-sm">
+              <h5>New Item: </h5>
+              ID:<br/>
+              <input className= "inputcreateboxes" type="Title"/><br/>
+              Name:<br/>
+              <input className= "inputcreateboxes" type="Price"/><br/>
+              Description:<br/>
+              <input className= "inputcreateboxes" type="Price"/><br/>
+              Price:<br/>
+              <input className= "inputcreateboxes" type="Price"/><br/>
+              Image:<br/>
+              <input className= "inputcreateboxes" type="Price"/><br/>
+              Inventory:<br/>
+              <input className= "inputcreateboxes" type="Price"/><br/>
+              <botton className="btn btn-primary my-2" >
+                Add Item
+              </botton> 
+              </div>
+            </div>
+            {listItems}
+          </div>
         </div>
       )}
 
