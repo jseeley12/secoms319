@@ -18,6 +18,8 @@ function App() {
   const [error, setError] = useState(false);
   const [help, setHelp] = useState(false);
   const [admin, setAdmin] = useState(false);
+  const [adminUpdate, setAdminUpdate] = useState(false);
+  const [adminAdd, setAdminAdd] = useState(false);
   const [Info, setInfo] = useState(false);
   const [signin, setSignin] = useState(false);
   const [signinError, setSigninError] = useState(false);
@@ -71,8 +73,9 @@ function App() {
             <br /> <br />
           </span>
           {el.inventory} in stock <br/>
+          Item id: {el.id}<br/>
           <hr></hr>
-          {catalog && <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center" }}>
             <button
               type="button"
               variant="light"
@@ -85,21 +88,7 @@ function App() {
               {" "}
               +{" "}
             </button>
-          </div>}
-          {admin && <div>
-            <h5>Update: </h5>
-            Inventory:<br/>
-            <input className= "inputcreateboxes" type="Title"/><br/>
-            Price:<br/>
-            <input className= "inputcreateboxes" type="Price"/><br/>
-            <botton className="btn btn-primary my-2" >
-              Update Item
-            </botton>
-            <hr/>
-            <botton className="btn btn-primary my-2" >
-              Delete
-            </botton>
-          </div>}
+          </div>
         </div>
       </div>
     </div>
@@ -450,6 +439,87 @@ function App() {
   }
 
 
+  //Create, Update, & Delete
+  const [OneProduct, setOneProduct] = useState([]);
+  const [ProductID, setProductID] = useState([]);
+  const [ProductName, setProductName] = useState([]);
+  const [ProductDiscription, setProductDiscription] = useState([]);
+  const [ProductPrice, setProductPrice] = useState([]);
+  const [ProductImage, setProductImage] = useState([]);
+  const [ProductInventory, setProductInventory] = useState([]);
+
+  const nameProductID = (e) => {
+    setProductID(parseInt(e.target.value));
+  };
+
+  const nameProductName = (e) => {
+    setProductName(e.target.value);
+  };
+
+  const nameProductDiscription = (e) => {
+    setProductDiscription(e.target.value);
+  };
+
+  const nameProductPrice = (e) => {
+    setProductPrice(parseFloat(e.target.value));
+  };
+
+  const nameProductImage = (e) => {
+    setProductImage(e.target.value);
+  };
+
+  const nameProductInventory = (e) => {
+    setProductInventory(parseInt(e.target.value));
+  };
+
+  //Admin Views
+  function SelectButton(){
+    getOneProducts(ProductID);
+    if(OneProduct === "Id Does not exist"){
+      ShowAdminItemAdd()
+      setProductName("");
+      setProductDiscription("");
+      setProductPrice("");
+      setProductInventory("");
+      setProductImage("");
+    }else{
+      ShowAdminItemUpdate()
+      setProductName(OneProduct.name);
+      setProductDiscription(OneProduct.discription);
+      setProductPrice(OneProduct.price);
+      setProductInventory(OneProduct.inventory);
+      setProductImage(OneProduct.img);
+    }
+  }
+
+  function ShowAdminItemUpdate(){
+    setAdminUpdate(true);
+    setAdminAdd(false);
+  }
+  function ShowAdminItemAdd(){
+    setAdminAdd(true);
+    setAdminUpdate(false);
+  }
+
+  // Get Item
+  function getOneProducts(id) {
+    setIsLoading(true);
+    fetch("http://localhost:8081/" + id)
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res);
+        setOneProduct(res);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log("Item does not exist");
+        setIsLoading(false);
+        setOneProduct("Id Does not exist");
+      });
+  }
+  
+  
+
   return (
     <>
       <header className="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -689,29 +759,23 @@ function App() {
           <hr></hr>
           <h5>Total Number of Items in Store: {ProductsCategoryRAW.length}</h5>
           <hr></hr>
-          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 ">
-            <div key={0} className="col">
-              <div style={{ backgroundColor: "#ECECEC" }} className="card shadow-sm">
-              <h5>New Item: </h5>
-              ID:<br/>
-              <input className= "inputcreateboxes" type="Title"/><br/>
-              Name:<br/>
-              <input className= "inputcreateboxes" type="Price"/><br/>
-              Description:<br/>
-              <input className= "inputcreateboxes" type="Price"/><br/>
-              Price:<br/>
-              <input className= "inputcreateboxes" type="Price"/><br/>
-              Image:<br/>
-              <input className= "inputcreateboxes" type="Price"/><br/>
-              Inventory:<br/>
-              <input className= "inputcreateboxes" type="Price"/><br/>
-              <botton className="btn btn-primary my-2" >
-                Add Item
-              </botton> 
-              </div>
-            </div>
-            {listItems}
-          </div>
+          <h4>ID of existing item or new item</h4>
+          <input className= "inputcreateboxes" type="search" value={ProductID} onChange={nameProductID} />
+          <botton className="btn btn-primary my-2" onClick={SelectButton}>
+            Seach
+          </botton>
+          <hr/>
+          {adminUpdate && <>Id:{OneProduct.id}<br/></>}
+          Name: <input className= "inputcreateboxes" type="search" value={ProductName} onChange={nameProductName}/><br/>
+          Description: <input className= "inputcreateboxes" type="search" value={ProductDiscription} onChange={nameProductDiscription}/><br/>
+          Price: <input className= "inputcreateboxes" type="search" value={ProductPrice} onChange={nameProductPrice}/><br/>
+          Inventory: <input className= "inputcreateboxes" type="search" value={ProductInventory} onChange={nameProductInventory}/><br/>
+          Image: <input className= "inputcreateboxes" type="search" value={ProductImage} onChange={nameProductImage}/><br/><br/>
+          {adminAdd && <botton className="btn btn-primary my-2"> Add Item </botton>}
+          {adminUpdate && <>
+          <botton className="btn btn-primary my-2"> Update Item </botton> <br/>
+          <botton className="btn btn-primary my-2"> Delete Item </botton>
+          </>}
         </div>
       )}
 

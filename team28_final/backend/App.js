@@ -16,6 +16,9 @@ const db = client.db(dbName);
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use(express.static("public"));
+app.use("/images", express.static("images"));
+
 const port = "8081";
 const host = "localhost";
 
@@ -29,6 +32,19 @@ app.get("/listTools", async (req, res) => {
   res.status(200);
   res.send(results);
 });
+
+//Mongo Get ID
+app.get("/:id", async (req, res) => {
+    const itemid = Number(req.params.id);
+    console.log("Item to find :", itemid);
+    await client.connect();
+    console.log("Node connected successfully to GET-id MongoDB");
+    const query = { id: itemid };
+    const results = await db.collection("tools").findOne(query);
+    console.log("Results :", results);
+    if (!results) res.send("Not Found").status(404);
+    else res.send(results).status(200);
+  });
 
 //Mongo - Add
 app.post("/addTool", async (req, res) => {
