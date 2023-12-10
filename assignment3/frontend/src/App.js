@@ -86,13 +86,17 @@ function App() {
           Category: {oneProduct.category}
           <br />
           Price: {oneProduct.price}
+          <br />
+          Rating: {oneProduct.rating && oneProduct.rating.rate}
+          <br />
+          Count: {oneProduct.rating && oneProduct.rating.count}
           {DeleteProduct && <div><hr></hr><botton className="btn btn-primary my-2" onClick={deleteItem}>
             Delete Item!
           </botton></div>}
           {UpdateProduct && <div>
             <hr></hr>
             <h5>New Price: </h5>
-            <input type="Price" onChange={PriceChange} />
+            <input className= "inputcreateboxes" type="Price" onChange={PriceChange} />
             <botton className="btn btn-primary my-2" onClick={updateItem}>
               Update Item!
             </botton>
@@ -211,7 +215,7 @@ function App() {
       .then((data) => {
         console.log(data);
       })
-      .catch((err) => console.log("Errror:" + err));
+      .catch((err) => console.log("Error:" + err));
     window.location.reload();
   }
 
@@ -361,36 +365,38 @@ function App() {
 
       {/* Add */}
       {AddProduct && (
-        <div>
+        <div style={{marginLeft:"8px"}}>
           <h5>ID: </h5>
-          <input type="Id" onChange={IdChange} />
+          <input className= "inputcreateboxes" type="Id" onChange={IdChange} />
           <h5>Title: </h5>
-          <input type="Title" onChange={TitleChange} />
+          <input className= "inputcreateboxes" type="Title" onChange={TitleChange} />
           <h5>Price: </h5>
-          <input type="Price" onChange={PriceChange} />
+          <input className= "inputcreateboxes" type="Price" onChange={PriceChange} />
           <h5>Description: </h5>
-          <input type="Description" onChange={DescriptionChange} />
+          <input className= "inputcreateboxes" type="Description" onChange={DescriptionChange} />
           <h5>Catagory: </h5>
-          <input type="Catagory" onChange={CatagoryChange} />
+          <input className= "inputcreateboxes" type="Catagory" onChange={CatagoryChange} />
           <h5>Image: </h5>
-          <input type="Images" onChange={ImageChange} />
+          <input className= "inputcreateboxes" type="Images" onChange={ImageChange} />
           <h5>Rating: </h5>
-          <input type="Rate" onChange={RateChange} />
+          <input className= "inputcreateboxes" type="Rate" onChange={RateChange} />
           <h5>Count: </h5>
-          <input type="Count" onChange={CountChange} />
+          <input className= "inputcreateboxes" type="Count" onChange={CountChange} />
           <hr></hr>
           <botton className="btn btn-primary my-2" onClick={addItem}>
             Create Item!
           </botton>
+          
         </div>
       )}
 
       {/* Update */}
       {UpdateProduct && <div>
-        <h4>ID to Update</h4>
-          <input type="search" value={queryID} onChange={FindQueryID} />
+        <h4>ID to Update Price</h4>
+        
+          <input className= "inputcreateboxes" type="search" value={queryID} onChange={FindQueryID} />
           <botton className="btn btn-primary my-2" onClick={SelectButton}>
-            Seach
+            Search
           </botton>
           {OneFound && (
             <div>
@@ -403,7 +409,7 @@ function App() {
       {DeleteProduct && (
         <div>
           <h4>ID to delete</h4>
-          <input type="search" value={queryID} onChange={FindQueryID} />
+          <input className= "inputcreateboxes" type="search" value={queryID} onChange={FindQueryID} />
           <botton className="btn btn-primary my-2" onClick={SelectButton}>
             Seach
           </botton>
