@@ -26,6 +26,10 @@ function App() {
 
   //Get - Mongo
   useEffect(() => {
+    getAllProducts();
+  }, []);
+
+  function getAllProducts(){
     setIsLoading(true);
     fetch("http://localhost:8081/listTools")
       .then((response) => response.json())
@@ -35,7 +39,7 @@ function App() {
         setProductsCategoryRAW(res);
         setIsLoading(false);
       });
-  }, []);
+  }
 
 
 
@@ -456,6 +460,15 @@ function App() {
     setProductInventory(parseInt(e.target.value));
   };
 
+  function clearInputs(){
+    setProductID("");
+    setProductName("");
+    setProductdescription("");
+    setProductPrice("");
+    setProductImage("");
+    setProductInventory("");
+  }
+
   //Admin Views
   function SelectButton(){
     getOneProducts(ProductID);
@@ -561,17 +574,31 @@ function App() {
   
   //update Mongo
   function updateItem() {
+    let itemNum = OneProduct.id;
     updateMethod(OneProduct.id,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription);
+    alert("Item " + itemNum + " has been updated");
+    setAdminUpdate(false);
+    clearInputs();
+    getAllProducts();
   }
 
   //delete Mongo
   function deleteItem(){
+    let itemNum = OneProduct.id;
     deleteMethod(OneProduct.id);
+    alert("Item " + itemNum + " has been deleted");
+    setAdminUpdate(false);
+    clearInputs();
+    getAllProducts();
   }
 
   //Add Mongo
   function AddItem() {
+    let itemNum = ProductID;
     postMethod(ProductID,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription);
+    alert("Item " + itemNum + " has been created");
+    clearInputs();
+    getAllProducts();
   }
 
   return (
