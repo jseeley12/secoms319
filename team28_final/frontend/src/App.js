@@ -9,6 +9,8 @@ function App() {
   const [ProductsCategory, setProductsCategory] = useState([]);
   const [ProductsCategoryRAW, setProductsCategoryRAW] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [totalRevenue, settotalRevenue] = useState();
+  const [totalSold, settotalSold] = useState();
 
   //Displays
   const [checkOut, setcheckout] = useState(false);
@@ -39,6 +41,7 @@ function App() {
         setProductsCategoryRAW(res);
         setIsLoading(false);
       });
+    
   }
 
 
@@ -281,6 +284,7 @@ function App() {
     setInfo(false);
     setSignin(false);
     setSigninError(false);
+    revenueTotals();
   }
 
   function ShowSignInError() {
@@ -393,13 +397,11 @@ function App() {
   //Removing Inventory after bought
   function removeInventory(){
     let c = cart.length - 1;
-    console.log(c);
-    console.log(cart)
     while(c >= 0){
       let item = cart[c];
       console.log(item);
       console.log(item.inventory-item.qty);
-      updateMethod(item.id,item.price,item.inventory-item.qty,item.name,item.img,item.description);
+      updateMethod(item.id,item.price,item.inventory-item.qty,item.name,item.img,item.description,item.sold+item.qty, item.revenue+(item.qty * item.price));
       c = c-1;
     }
   }
@@ -516,7 +518,7 @@ function App() {
   }
 
     //Update - Mongo
-    function updateMethod(id, price, inventory, name, img, description) {
+    function updateMethod(id, price, inventory, name, img, description, sold, revenue) {
       fetch("http://localhost:8081/updateTools", {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -526,7 +528,9 @@ function App() {
           img: img,
           inventory: inventory,
           price: price,
-          description: description
+          description: description,
+          sold: sold,
+          revenue: revenue
         }),
       })
         .then((response) => response.json())
@@ -575,7 +579,7 @@ function App() {
   //update Mongo
   function updateItem() {
     let itemNum = OneProduct.id;
-    updateMethod(OneProduct.id,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription);
+    updateMethod(OneProduct.id,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription, OneProduct.sold, OneProduct.revenue);
     alert("Item " + itemNum + " has been updated");
     setAdminUpdate(false);
     clearInputs();
@@ -599,6 +603,21 @@ function App() {
     alert("Item " + itemNum + " has been created");
     clearInputs();
     getAllProducts();
+  }
+
+  // Getting Product Revenue Data
+  function revenueTotals(){
+    var i = ProductsCategoryRAW.length;
+    var totalRevenue = 0;
+    var totalSold = 0;
+    while(i > 0){
+      i=i-1;
+      let item1 = ProductsCategoryRAW[i];
+      totalRevenue += item1.revenue;
+      totalSold += item1.sold;
+    }
+    settotalRevenue(totalRevenue)
+    settotalSold(totalSold)
   }
 
   return (
@@ -839,6 +858,9 @@ function App() {
           <h2> Admin Page</h2>
           <hr></hr>
           <h5>Total Number of Items in Store: {ProductsCategoryRAW.length}</h5>
+          <h5>Gross Revenue: ${totalRevenue}</h5>
+          <h5>Total Items Sold: {totalSold}</h5>
+          
           <hr></hr>
           <h4>ID of existing item or new item</h4>
           <input className= "inputcreateboxes" type="search" value={ProductID} onChange={nameProductID} />

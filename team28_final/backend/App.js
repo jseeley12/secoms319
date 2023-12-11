@@ -66,6 +66,8 @@ app.post("/addTool", async (req, res) => {
     inventory: inventory,
     price: price,
     description: description,
+    sold: 0,
+    revenue: 0
   };
   const results = await db.collection("tools").insertOne(newDocument);
   res.status(200);
@@ -96,11 +98,15 @@ app.post("/updateTools", async (req, res) => {
   const inventory = values[3];
   const price = values[4];
   const description = values[5];
+  const sold = values[6];
+  const revenue = values[7];
   const results = await db.collection("tools").updateOne({ id: id },{ $set: { name: name} });
   const results1 = await db.collection("tools").updateOne({ id: id },{ $set: { img: image } });
   const results2 = await db.collection("tools").updateOne({ id: id },{ $set: { inventory: inventory } });
   const results3 = await db.collection("tools").updateOne({ id: id },{ $set: { price: price } });
   const results4 = await db.collection("tools").updateOne({ id: id },{ $set: { description: description } });
+  const results5 = await db.collection("tools").updateOne({ id: id },{ $set: { sold: sold } });
+  const results6 = await db.collection("tools").updateOne({ id: id },{ $set: { revenue: revenue } });
   console.log("Item Updated: " + id);
   res.status(200);
   res.send(results);

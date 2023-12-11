@@ -2,292 +2,358 @@
         {
             "id": "1",
             "name": "Impact Wrench",
-            "img": "./images/impactWench.png",
+            "img": "http://localhost:8081/images/impactWench.png",
             "qty": 0,
             "inventory": 100,
             "price": "189.00",
-            "discription": "Used driving in Bolts"
+            "description": "Used driving in Bolts",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id": "2",
             "name": "Sawzaw",
-            "img": "./images/Sawzall1.png",
+            "img": "http://localhost:8081/images/Sawzall1.png",
             "qty": 0,
             "inventory": 100,
             "price": "79.00",
-            "discription": "Used to cut through any wood or metal"
+            "description": "Used to cut through any wood or metal",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id": "3",
             "name": "Impact Driver",
-            "img": "./images/impactDriver.png",
+            "img": "http://localhost:8081/images/impactDriver.png",
             "qty": 0,
             "inventory": 100,
             "price": "79.00",
-            "discription": "Used for driving in screws and small bolts"
+            "description": "Used for driving in screws and small bolts",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id": "4",
             "name": "Circular Saw",
-            "img": "./images/cicularSaw.png",
+            "img": "http://localhost:8081/images/cicularSaw.png",
             "qty": 0,
             "inventory": 100,
             "price": "129.00",
-            "discription": "Used for cutting wood sheets"
+            "description": "Used for cutting wood sheets",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id": "5",
             "name": "Miter Saw",
-            "img": "./images/miterSaw.png",
+            "img": "http://localhost:8081/images/miterSaw.png",
             "qty": 0,
             "inventory": 100,
             "price": "249.00",
-            "discription": "Used for cut wood boards. Can cut at angles."
+            "description": "Used for cut wood boards. Can cut at angles.",
+            "sold": 0,
+            "revenue": 0
         },{
             "id": "6",
             "name": "Welder",
-            "img": "./images/welder.png",
+            "img": "http://localhost:8081/images/welder.png",
             "qty": 0,
             "inventory": 100,
             "price": "649.00",
-            "discription": "Used to melt 2 peices of metals together."
+            "description": "Used to melt 2 peices of metals together.",
+            "sold": 0,
+            "revenue": 0
         },{
             "id": "7",
             "name": "Table Saw",
-            "img": "./images/tableSaw.png",
+            "img": "http://localhost:8081/images/tableSaw.png",
             "qty": 0,
             "inventory": 100,
             "price": "149.00",
-            "discription": "Used for cutting stright lines in sheets of wood"
+            "description": "Used for cutting stright lines in sheets of wood",
+            "sold": 0,
+            "revenue": 0
         },{
             "id": "8",
             "name": "Orbital Sander",
-            "img": "./images/sander.png",
+            "img": "http://localhost:8081/images/sander.png",
             "qty": 0,
             "inventory": 100,
             "price": "54.00",
-            "discription": "Used to smooth out wood"
+            "description": "Used to smooth out wood",
+            "sold": 0,
+            "revenue": 0
         },{
             "id": "9",
             "name": "Drill",
-            "img": "./images/drill.png",
+            "img": "http://localhost:8081/images/drill.png",
             "qty": 0,
             "inventory": 100,
             "price": "79.00",
-            "discription": "Used for making holes and driving in screw"
+            "description": "Used for making holes and driving in screw",
+            "sold": 0,
+            "revenue": 0
         },{
             "id": "10",
             "name": "Angle Grinder",
-            "img": "./images/angleGrinder.png",
+            "img": "http://localhost:8081/images/angleGrinder.png",
             "qty": 0,
             "inventory": 100,
             "price": "59.00",
-            "discription": "Used to cut through metal"
+            "description": "Used to cut through metal",
+            "sold": 0,
+            "revenue": 0
         },{
             "id": "11",
             "name": "Band Saw",
-            "img": "./images/bandSaw.png",
+            "img": "http://localhost:8081/images/bandSaw.png",
             "qty": 0,
             "inventory": 100,
             "price": "189.00",
-            "discription": "tool designed for making precise and intricate cuts in a variety of materials."
+            "description": "tool designed for making precise and intricate cuts in a variety of materials.",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "12",
             "name": "Hammer",
-            "img": "./images/Hammer.png",
+            "img": "http://localhost:8081/images/Hammer.png",
             "qty": 0,
             "inventory": 100,
             "price": "9.98",
-            "discription": "Used for striking nails or metals etc."
+            "description": "Used for striking nails or metals etc.",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "13",
             "name": "Stright Blade Screw Driver",
-            "img": "./images/flathead.png",
+            "img": "http://localhost:8081/images/flathead.png",
             "qty": 0,
             "inventory": 100,
             "price": "5.48",
-            "discription": "Used for driving in flathead screws"
+            "description": "Used for driving in flathead screws",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "14",
             "name": "Phlips head Screw Driver",
-            "img": "./images/philips.png",
+            "img": "http://localhost:8081/images/philips.png",
             "qty": 0,
             "inventory": 100,
             "price": "5.48",
-            "discription": "Used for driving in philps head screws"
+            "description": "Used for driving in philps head screws",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "15",
             "name": "Hand Saw",
-            "img": "./images/handsaw.png",
+            "img": "http://localhost:8081/images/handsaw.png",
             "qty": 0,
             "inventory": 100,
             "price": "14.98",
-            "discription": "Used for cutting many things including wood, plastic, and much more"
+            "description": "Used for cutting many things including wood, plastic, and much more",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "16",
             "name": "Wrench Set",
-            "img": "./images/wrenchset.png",
+            "img": "http://localhost:8081/images/wrenchset.png",
             "qty": 0,
             "inventory": 100,
             "price": "44.98",
-            "discription": "Used for tightening bolts in many sizes"
+            "description": "Used for tightening bolts in many sizes",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "17",
             "name": "Socket Set",
-            "img": "./images/socketset.png",
+            "img": "http://localhost:8081/images/socketset.png",
             "qty": 0,
             "inventory": 100,
             "price": "139.00",
-            "discription": "Used for tighening bolts in many sizes and shapes, but in a quicker fashion"
+            "description": "Used for tighening bolts in many sizes and shapes, but in a quicker fashion",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "18",
             "name": "Measuring Tape",
-            "img": "./images/measuringtape.png",
+            "img": "http://localhost:8081/images/measuringtape.png",
             "qty": 0,
             "inventory": 100,
             "price": "16.98",
-            "discription": "Used for measuring the distance of something. Useful for measurments for cutting, shaping, etc."
+            "description": "Used for measuring the distance of something. Useful for measurments for cutting, shaping, etc.",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "19",
             "name": "Axe",
-            "img": "./images/axe.png",
+            "img": "http://localhost:8081/images/axe.png",
             "qty": 0,
             "inventory": 100,
             "price": "39.98",
-            "discription": "Used for cutting things with blunt force"
+            "description": "Used for cutting things with blunt force",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "20",
             "name": "Wire strippers",
-            "img": "./images/wirestrippercutter.png",
+            "img": "http://localhost:8081/images/wirestrippercutter.png",
             "qty": 0,
             "inventory": 100,
             "price": "16.98",
-            "discription": "Used for stripping and cutting wire"
+            "description": "Used for stripping and cutting wire",
+            "sold": 0,
+            "revenue": 0
         },  
         {
             "id":  "21",
             "name": "Pliers",
-            "img": "./images/pliers.png",
+            "img": "http://localhost:8081/images/pliers.png",
             "qty": 0,
             "inventory": 100,
             "price": "12.98",
-            "discription": "Used for pulling nails, staples, screws out of things; including wires. Also useful for anything you need to get a grip on."
+            "description": "Used for pulling nails, staples, screws out of things; including wires. Also useful for anything you need to get a grip on.",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "22",
             "name": "Leveler",
-            "img": "./images/leveler.png",
+            "img": "http://localhost:8081/images/leveler.png",
             "qty": 0,
             "inventory": 100,
             "price": "20.98",
-            "discription": "Used for telling if a surface is level or not"
+            "description": "Used for telling if a surface is level or not",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "23",
             "name": "Pry bar",
-            "img": "./images/prybar.png",
+            "img": "http://localhost:8081/images/prybar.png",
             "qty": 0,
             "inventory": 100,
             "price": "14.98",
-            "discription": "Used for prying something open or out of something. It is also used for holding something open"
+            "description": "Used for prying something open or out of something. It is also used for holding something open",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "24",
             "name": "Staple Gun",
-            "img": "./images/staplegun.png",
+            "img": "http://localhost:8081/images/staplegun.png",
             "qty": 0,
             "inventory": 100,
             "price": "19.98",
-            "discription": "Used for stapling things. You also need staples for this to be useful"
+            "description": "Used for stapling things. You also need staples for this to be useful",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "25",
             "name": "Chisel",
-            "img": "./images/chisel.png",
+            "img": "http://localhost:8081/images/chisel.png",
             "qty": 0,
             "inventory": 100,
             "price": "14.98",
-            "discription": "Used for scraping and cutting wood, metal, or stone."
+            "description": "Used for scraping and cutting wood, metal, or stone.",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "26",
             "name": "Mallet",
-            "img": "./images/mallet.png",
+            "img": "http://localhost:8081/images/mallet.png",
             "qty": 0,
             "inventory": 100,
             "price": "18.98",
-            "discription": "Used for driving dowels or chisels. Softer type of hammer with more surface area"
+            "description": "Used for driving dowels or chisels. Softer type of hammer with more surface area",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "27",
             "name": "Utility Knife",
-            "img": "./images/utilityknife.png",
+            "img": "http://localhost:8081/images/utilityknife.png",
             "qty": 0,
             "inventory": 100,
             "price": "5.98",
-            "discription": "Used for cutting things including plastic, banding, and anything you may need to cut with a knife. Comes with multiple blades"
+            "description": "Used for cutting things including plastic, banding, and anything you may need to cut with a knife. Comes with multiple blades",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "28",
             "name": "Sandpaper",
-            "img": "./images/sandpaper.png",
+            "img": "http://localhost:8081/images/sandpaper.png",
             "qty": 0,
             "inventory": 100,
             "price": "6.98",
-            "discription": "Used for metal or wood to soften edges, corners, and rough spots on the material"
+            "description": "Used for metal or wood to soften edges, corners, and rough spots on the material",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "29",
             "name": "Adjustable Wrench",
-            "img": "./images/adjustablewrench.png",
+            "img": "http://localhost:8081/images/adjustablewrench.png",
             "qty": 0,
             "inventory": 100,
             "price": "10.98",
-            "discription": "Used for tightening bolts of many sizes. Can adjust to many different sizes to tighten or loosen different sized bolts/knuts"
+            "description": "Used for tightening bolts of many sizes. Can adjust to many different sizes to tighten or loosen different sized bolts/knuts",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "30",
             "name": " C-Clamp",
-            "img": "./images/cclamp.png",
+            "img": "http://localhost:8081/images/cclamp.png",
             "qty": 0,
             "inventory": 100,
             "price": "37.98",
-            "discription": "Used for holding something in place to do other work on it. This includes any material you may need to hold in place."
+            "description": "Used for holding something in place to do other work on it. This includes any material you may need to hold in place.",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id":  "31",
             "name": "Needle Nose Pliers",
-            "img": "./images/needlenosepliers.png",
+            "img": "http://localhost:8081/images/needlenosepliers.png",
             "qty": 0,
             "inventory": 100,
             "price": "8.98",
-            "discription": "Used for reaching into tight areas to grasp something. Also used for cutting and twisting wire. Also can be used for pulling staples"
+            "description": "Used for reaching into tight areas to grasp something. Also used for cutting and twisting wire. Also can be used for pulling staples",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id": "33",
             "name": "Paint Brush",
-            "img": "./images/paintbrush.png",
+            "img": "http://localhost:8081/images/paintbrush.png",
             "qty": 0,
             "inventory": 100,
             "price": "8.00",
-            "discription": "Used for painting any object to another color or coat."
+            "description": "Used for painting any object to another color or coat.",
+            "sold": 0,
+            "revenue": 0
         },
         {
             "id": "34",
             "name": "Shovel",
-            "img": "./images/shovel.png",
+            "img": "http://localhost:8081/images/shovel.png",
             "qty": 0,
             "inventory": 100,
             "price": "8.00",
-            "discription": "Used for scooping dirt, snow, rocks, or anything you need to pick up."
+            "description": "Used for scooping dirt, snow, rocks, or anything you need to pick up.",
+            "sold": 0,
+            "revenue": 0
         }
 ]
