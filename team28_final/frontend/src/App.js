@@ -37,23 +37,7 @@ function App() {
       });
   }, []);
 
-  //Update - Mongo
-  function updateMethod(id, price, inventory) {
-    fetch("http://localhost:8081/updateTools", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        id: id,
-        price: price,
-        inventory: inventory
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => console.log("Errror:" + err));
-  }
+
 
   const listItems = ProductsCategory.map((el) => (
     <div key={el.id} className="col">
@@ -63,7 +47,7 @@ function App() {
           <p className="title">
             {el.name} <br />
           </p>
-          {el.discription} <br />
+          {el.description} <br />
           <br />
           <span className="price">
             <span className="commentPrice">{"For the small price of:"}</span>{" "}
@@ -411,7 +395,7 @@ function App() {
       let item = cart[c];
       console.log(item);
       console.log(item.inventory-item.qty);
-      updateMethod(item.id,item.price,item.inventory-item.qty);
+      updateMethod(item.id,item.price,item.inventory-item.qty,item.name,item.img,item.description);
       c = c-1;
     }
   }
@@ -443,7 +427,7 @@ function App() {
   const [OneProduct, setOneProduct] = useState([]);
   const [ProductID, setProductID] = useState([]);
   const [ProductName, setProductName] = useState([]);
-  const [ProductDiscription, setProductDiscription] = useState([]);
+  const [Productdescription, setProductdescription] = useState([]);
   const [ProductPrice, setProductPrice] = useState([]);
   const [ProductImage, setProductImage] = useState([]);
   const [ProductInventory, setProductInventory] = useState([]);
@@ -456,8 +440,8 @@ function App() {
     setProductName(e.target.value);
   };
 
-  const nameProductDiscription = (e) => {
-    setProductDiscription(e.target.value);
+  const nameProductdescription = (e) => {
+    setProductdescription(e.target.value);
   };
 
   const nameProductPrice = (e) => {
@@ -478,14 +462,14 @@ function App() {
     if(OneProduct === "Id Does not exist"){
       ShowAdminItemAdd()
       setProductName("");
-      setProductDiscription("");
+      setProductdescription("");
       setProductPrice("");
       setProductInventory("");
       setProductImage("");
     }else{
       ShowAdminItemUpdate()
       setProductName(OneProduct.name);
-      setProductDiscription(OneProduct.discription);
+      setProductdescription(OneProduct.description);
       setProductPrice(OneProduct.price);
       setProductInventory(OneProduct.inventory);
       setProductImage(OneProduct.img);
@@ -517,8 +501,78 @@ function App() {
         setOneProduct("Id Does not exist");
       });
   }
+
+    //Update - Mongo
+    function updateMethod(id, price, inventory, name, img, description) {
+      fetch("http://localhost:8081/updateTools", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          id: id,
+          name: name,
+          img: img,
+          inventory: inventory,
+          price: price,
+          description: description
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => console.log("Errror:" + err));
+    }
+
+  //delete -  Mongo
+  function deleteMethod(id) {
+    fetch("http://localhost:8081/deleteTool", {
+      method: "DELETE",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        id: id,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log("Error:" + err));
+  }
+
+  //add -  Mongo
+  function postMethod(id, price, inventory, name, img, description) {
+    fetch("http://localhost:8081/addTool", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        id: id,
+        name: name,
+        img: img,
+        inventory: inventory,
+        price: price,
+        description: description
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }
   
-  
+  //update Mongo
+  function updateItem() {
+    updateMethod(OneProduct.id,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription);
+  }
+
+  //delete Mongo
+  function deleteItem(){
+    deleteMethod(OneProduct.id);
+  }
+
+  //Add Mongo
+  function AddItem() {
+    postMethod(ProductID,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription);
+  }
 
   return (
     <>
@@ -767,14 +821,14 @@ function App() {
           <hr/>
           {adminUpdate && <>Id:{OneProduct.id}<br/></>}
           Name: <input className= "inputcreateboxes" type="search" value={ProductName} onChange={nameProductName}/><br/>
-          Description: <input className= "inputcreateboxes" type="search" value={ProductDiscription} onChange={nameProductDiscription}/><br/>
+          Description: <input className= "inputcreateboxes" type="search" value={Productdescription} onChange={nameProductdescription}/><br/>
           Price: <input className= "inputcreateboxes" type="search" value={ProductPrice} onChange={nameProductPrice}/><br/>
           Inventory: <input className= "inputcreateboxes" type="search" value={ProductInventory} onChange={nameProductInventory}/><br/>
           Image: <input className= "inputcreateboxes" type="search" value={ProductImage} onChange={nameProductImage}/><br/><br/>
-          {adminAdd && <botton className="btn btn-primary my-2"> Add Item </botton>}
+          {adminAdd && <botton className="btn btn-primary my-2" onClick={AddItem}> Add Item </botton>}
           {adminUpdate && <>
-          <botton className="btn btn-primary my-2"> Update Item </botton> <br/>
-          <botton className="btn btn-primary my-2"> Delete Item </botton>
+          <botton className="btn btn-primary my-2" onClick={updateItem}> Update Item </botton> <br/>
+          <botton className="btn btn-primary my-2" onClick={deleteItem}> Delete Item </botton>
           </>}
         </div>
       )}

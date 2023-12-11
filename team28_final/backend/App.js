@@ -57,7 +57,7 @@ app.post("/addTool", async (req, res) => {
   const inventory = values[3];
   const price = values[4];
   const description = values[5];
-  console.log(id, name, price, description, imageUrl);
+  console.log(id, name, price, description);
   const newDocument = {
     id: id,
     name: name,
@@ -90,11 +90,17 @@ app.post("/updateTools", async (req, res) => {
   await client.connect();
   //const keys = Object.keys(req.body);
   const values = Object.values(req.body);
-  const id = values[0]; 
-  const price = values[1]; 
-  const inventory = values[2];
-  const results = await db.collection("tools").updateOne({ id: id },{ $set: { inventory: inventory } });
-  const results1 = await db.collection("tools").updateOne({ id: id },{ $set: { price: price } });
+  const id = values[0];
+  const name = values[1];
+  const image = values[2];
+  const inventory = values[3];
+  const price = values[4];
+  const description = values[5];
+  const results = await db.collection("tools").updateOne({ id: id },{ $set: { name: name} });
+  const results1 = await db.collection("tools").updateOne({ id: id },{ $set: { img: image } });
+  const results2 = await db.collection("tools").updateOne({ id: id },{ $set: { inventory: inventory } });
+  const results3 = await db.collection("tools").updateOne({ id: id },{ $set: { price: price } });
+  const results4 = await db.collection("tools").updateOne({ id: id },{ $set: { description: description } });
   console.log("Item Updated: " + id);
   res.status(200);
   res.send(results);
