@@ -446,8 +446,10 @@ function App() {
   const [ProductImage, setProductImage] = useState([]);
   const [ProductInventory, setProductInventory] = useState([]);
 
-  const nameProductID = (e) => {
-    setProductID(parseInt(e.target.value));
+  const [UserProductID, setUserProductID] = useState();
+
+  const nameUserProductID = (e) => {
+    setUserProductID(e.target.value);
   };
 
   const nameProductName = (e) => {
@@ -481,6 +483,12 @@ function App() {
 
   //Admin Views
   function SelectButton(){
+    if(parseInt(UserProductID) != isNaN){
+      setProductID(UserProductID);
+    }
+    else{
+      setProductID();
+    }
     getOneProducts(ProductID);
     if(OneProduct === "Id Does not exist"){
       ShowAdminItemAdd()
@@ -590,7 +598,7 @@ function App() {
     updateMethod(OneProduct.id,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription, OneProduct.sold, OneProduct.revenue);
     alert("Item " + itemNum + " has been updated");
     setAdminUpdate(false);
-    clearInputs();
+    clearInputs()
     getAllProducts();
   }
 
@@ -609,18 +617,15 @@ function App() {
     let itemNum = ProductID;
     postMethod(ProductID,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription);
     alert("Item " + itemNum + " has been created");
+    setAdminAdd(false);
     clearInputs();
     getAllProducts();
   }
 
   useEffect(() => {
-    
-    if (Number(ProductID !== isNaN)) {
-      const productInfo = getOneProducts(ProductID);
-      setOneProduct(productInfo);
-    }
-    
+    getOneProducts(ProductID);
   }, [ProductID]);
+
 
   // Getting Product Revenue Data
   function revenueTotals(){
@@ -927,12 +932,12 @@ function App() {
           
           <hr></hr>
           <h4>ID of existing item or new item</h4>
-          <input className= "inputcreateboxes" type="search" onChange={nameProductID}/>
+          <input className= "inputcreateboxes" type="search" value={UserProductID} onChange={nameUserProductID}/>
           <button className="btn btn-primary my-2" onClick={SelectButton}>
             Search
           </button>
           <hr/>
-          {adminUpdate && <>Id:{OneProduct.id}<br/></>}
+          {adminUpdate && <><h5>Id Showing: {OneProduct.id}</h5><br/></>}
           Name: <input className= "inputcreateboxes" type="search" value={ProductName} onChange={nameProductName}/><br/>
           Description: <input className= "inputcreateboxes" type="search" value={Productdescription} onChange={nameProductdescription}/><br/>
           Price: <input className= "inputcreateboxes" type="search" value={ProductPrice} onChange={nameProductPrice}/><br/>
