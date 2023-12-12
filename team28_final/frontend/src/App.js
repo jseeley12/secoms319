@@ -473,7 +473,8 @@ function App() {
   };
 
   function clearInputs(){
-    setProductID("");
+    //setUserProductID("");
+    //setProductID("");
     setProductName("");
     setProductdescription("");
     setProductPrice("");
@@ -483,20 +484,30 @@ function App() {
 
   //Admin Views
   function SelectButton(){
-    if(parseInt(UserProductID) != isNaN){
+    if(!isNaN(UserProductID)){
       setProductID(UserProductID);
     }
     else{
       setProductID();
     }
-    //getOneProducts(ProductID);
     if(OneProduct === "Id Does not exist"){
-      ShowAdminItemAdd()
-      setProductName("");
-      setProductdescription("");
-      setProductPrice("");
-      setProductInventory("");
-      setProductImage("");
+      if(isNaN(UserProductID)){
+        setAdminUpdate(false);
+        setAdminAdd(false);
+        setProductName("");
+        setProductdescription("");
+        setProductPrice("");
+        setProductInventory("");
+        setProductImage("");
+      }
+      else{
+        ShowAdminItemAdd()
+        setProductName("");
+        setProductdescription("");
+        setProductPrice("");
+        setProductInventory("");
+        setProductImage("");
+    }  
     }else{
       ShowAdminItemUpdate()
       setProductName(OneProduct.name);
@@ -598,6 +609,7 @@ function App() {
     updateMethod(OneProduct.id,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription, OneProduct.sold, OneProduct.revenue);
     alert("Item " + itemNum + " has been updated");
     setAdminUpdate(false);
+    getOneProducts(parseInt(UserProductID));
     clearInputs()
     getAllProducts();
   }
@@ -608,6 +620,7 @@ function App() {
     deleteMethod(OneProduct.id);
     alert("Item " + itemNum + " has been deleted");
     setAdminUpdate(false);
+    getOneProducts(parseInt(UserProductID));
     clearInputs();
     getAllProducts();
   }
@@ -615,9 +628,10 @@ function App() {
   //Add Mongo
   function AddItem() {
     let itemNum = ProductID;
-    postMethod(ProductID,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription);
+    postMethod(parseInt(ProductID),ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription);
     alert("Item " + itemNum + " has been created");
     setAdminAdd(false);
+    getOneProducts(parseInt(UserProductID));
     clearInputs();
     getAllProducts();
   }
@@ -937,18 +951,21 @@ function App() {
             Search
           </button>
           <hr/>
-          {adminUpdate && <><h5>Id Showing: {OneProduct.id}</h5><br/></>}
+          {(adminUpdate || adminAdd)&& <>
+          {adminAdd && (<h5>Add New Item</h5>)}
+          {adminUpdate && (<h5>Update or Delete Item</h5>)}
+          <h6>Id Showing: {ProductID}</h6><br/>
           Name: <input className= "inputcreateboxes" type="search" value={ProductName} onChange={nameProductName}/><br/>
           Description: <input className= "inputcreateboxes" type="search" value={Productdescription} onChange={nameProductdescription}/><br/>
           Price: <input className= "inputcreateboxes" type="search" value={ProductPrice} onChange={nameProductPrice}/><br/>
           Inventory: <input className= "inputcreateboxes" type="search" value={ProductInventory} onChange={nameProductInventory}/><br/>
           Image: <input className= "inputcreateboxes" type="search" value={ProductImage} onChange={nameProductImage}/><br/><br/>
           
-          {adminAdd && <botton className="btn btn-primary my-2" onClick={AddItem}> Add Item </botton>}
+          {adminAdd && <button className="btn btn-primary my-2" onClick={AddItem}> Add Item </button>}
           {adminUpdate && <>
           <button className="btn btn-primary my-2" onClick={updateItem}> Update Item </button> <br/>
           <button className="btn btn-primary my-2" onClick={deleteItem}> Delete Item </button>
-          </>}
+          </>}</>}
           <footer
         class="text-body-secondary py-5 background"
         style={{ backgroundColor: "#ECECEC", height:"10px"}}
