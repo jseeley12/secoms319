@@ -6,7 +6,7 @@
             "qty": 0,
             "inventory": 100,
             "price": "189.00",
-            "description": "Used driving in Bolts",
+            "description": "Used driving in Bolts. This includes bolts of many sizes and for almost every application",
             "sold": 0,
             "revenue": 0
         },
@@ -17,7 +17,7 @@
             "qty": 0,
             "inventory": 100,
             "price": "79.00",
-            "description": "Used to cut through any wood or metal",
+            "description": "Used to cut through any wood or metal.",
             "sold": 0,
             "revenue": 0
         },

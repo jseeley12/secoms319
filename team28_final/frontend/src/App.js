@@ -54,20 +54,26 @@ function App() {
           <p className="title">
             {el.name} <br />
           </p>
+          <p className="description">
           {el.description} <br />
+          </p>
           <br />
-          <span className="price">
-            <span className="commentPrice">{"For the small price of:"}</span>{" "}
-            {"    "}
-            {"$"}
-            {el.price}
-            <br /> <br />
-          </span>
-          {el.inventory} in stock <br/>
-          Item id: {el.id}<br/>
+          <ul className=" list-group">
+        <li className=" cardbackgroundspecs list-group-item">
+          <span className="boldtitle commentPrice">Price: </span>${el.price}
+        </li>
+        <li className="cardbackgroundspecs list-group-item">
+          <span className="boldtitle commentInventory">In Stock: </span>
+          {el.inventory}
+        </li>
+        <li className="cardbackgroundspecs list-group-item">
+       <span className="boldtitle"> ID Number: </span>{el.id}
+        </li>
+      </ul>
           <hr></hr>
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "center"}}>
             <button
+            className="custom-btn"
               type="button"
               variant="light"
               onClick={() => removeFromCart(el)}
@@ -75,7 +81,7 @@ function App() {
               -
             </button>{" "}
             {el.qty}{" "}
-            <button type="button" variant="light" onClick={() => addToCart(el)}>
+            <button className="custom-btn" type="button" variant="light" onClick={() => addToCart(el)}>
               {" "}
               +{" "}
             </button>
@@ -84,6 +90,7 @@ function App() {
       </div>
     </div>
   ));
+ 
 
   //Cart
   const addToCart = (el) => {
@@ -659,7 +666,7 @@ function App() {
       {catalog && (
         <div className="container-fluid">
           <div className="row">
-            <div className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+            <div style={{position: "fixed", height: "100%"}} className="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
               <div className="align-items-center">
                 <h3>Cart ({cart.length})</h3>
                 <button className="btn btn-primary my-2" onClick={ShowCheckout}>
@@ -683,7 +690,7 @@ function App() {
               </button>
               <img
                 className="imgnew1"
-                src="./images/multipletools.png"
+                src="http://localhost:8081/images/multipletools.png"
                 alt="toolbox"
                 width="200px"
               ></img>
@@ -698,6 +705,22 @@ function App() {
               </div>
             </main>
           </div>
+
+          <footer
+        className="text-body-secondary py-5 background"
+        style={{ backgroundColor: "#ECECEC", marginLeft:"16%", marginRight:"-12px" }}
+      >
+        <div class="container">
+          <p class="float-end mb-2">
+            <a href="#">Back to top</a>
+          </p>
+          <p class="mb-6">
+            Thanks for Visiting our catalog! Hope you have found everything
+            needed!
+          </p>
+        </div>
+      </footer>
+
         </div>
       )}
 
@@ -798,13 +821,14 @@ function App() {
                   <button class="btn btn-success" onClick={ConfirmationInfo}>
                     <i class="bi-bag-check"></i> Order
                   </button>
+
                 </div>
               )}
 
               {/* Confirmation Page */}
               {confirmation && (
                 <div>
-                  <h5>✅ Items Purchased ✅</h5>
+                  <h5 style={{width: "70px", whiteSpace: "nowrap"}}>✅Items Purchased✅</h5>
                   <h6>Name: {name}</h6>
                   <h6>Email: {email}</h6>
                   <h6>Card: {cardNum}</h6>
@@ -822,6 +846,20 @@ function App() {
               </div>
             </main>
           </div>
+          <footer
+        class="text-body-secondary py-5 background"
+        style={{ backgroundColor: "#ECECEC" }}
+      >
+        <div class="container">
+          <p class="float-end mb-2">
+            <a href="#">Back to top</a>
+          </p>
+          <p class="mb-6">
+            Thanks for Visiting our catalog! Hope you have found everything
+            needed!
+          </p>
+        </div>
+      </footer>
         </div>
       )}
 
@@ -849,6 +887,20 @@ function App() {
           <botton className="btn btn-primary my-2" onClick={testPassword}>
             Sign In
           </botton>
+          <footer
+        class="text-body-secondary py-5 background"
+        style={{ backgroundColor: "#ECECEC" }}
+      >
+        <div class="container">
+          <p class="float-end mb-2">
+            <a href="#">Back to top</a>
+          </p>
+          <p class="mb-6">
+            Thanks for Visiting our catalog! Hope you have found everything
+            needed!
+          </p>
+        </div>
+      </footer>
         </div>
       )}
 
@@ -879,6 +931,20 @@ function App() {
           <botton className="btn btn-primary my-2" onClick={updateItem}> Update Item </botton> <br/>
           <botton className="btn btn-primary my-2" onClick={deleteItem}> Delete Item </botton>
           </>}
+          <footer
+        class="text-body-secondary py-5 background"
+        style={{ backgroundColor: "#ECECEC" }}
+      >
+        <div class="container">
+          <p class="float-end mb-2">
+            <a href="#">Back to top</a>
+          </p>
+          <p class="mb-6">
+            Thanks for Visiting our catalog! Hope you have found everything
+            needed!
+          </p>
+        </div>
+      </footer>
         </div>
       )}
 
@@ -919,6 +985,20 @@ function App() {
             <h4>To help users find the tool needed for their project.</h4>
           </div>
           </div>
+          <footer
+        class="text-body-secondary py-5 background"
+        style={{ backgroundColor: "#ECECEC" }}
+      >
+        <div class="container">
+          <p class="float-end mb-2">
+            <a href="#">Back to top</a>
+          </p>
+          <p class="mb-6">
+            Thanks for Visiting our catalog! Hope you have found everything
+            needed!
+          </p>
+        </div>
+      </footer>
           </div>
       )}
 
@@ -935,7 +1015,7 @@ function App() {
           <div className="help1">
             <img
               style={{ marginLeft: "50px", float: "left" }}
-              src="./images/toolbox.png"
+              src="http://localhost:8081/images/toolbox.png"
               alt="toolbox"
               width="200px"
             ></img>
@@ -1172,10 +1252,14 @@ function App() {
 
               <div className="brands">
                 <h5 style={{ textAlign: "center" }}>Brands:</h5>
-                <h6>
-                  DeWalt | Makita | Bosch | Milwaukee | Ryobi | Hilti | Black &
-                  Decker | Hitachi | RIDGID | Fein | Porter-Cable | Skil
-                </h6>
+                <img className="img-container" src="http://localhost:8081/images/homepagecraftsman.jpg" alt="craftsman"></img>
+                <img style={{height: "50px"}} className="img-container" src="http://localhost:8081/images/homepagemilwaukee.jpg" alt="milwaukee"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagedewaltpng.png" alt="dewalt"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagehitachi.png" alt="hitachi"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepageblackanddecker.jpg" alt="black&decker"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepageryobi.jpg" alt="ryobi"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagerigid.jpg" alt="rigid"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagebosch.jpg" alt="bosch"></img>
               </div>
             </div>
             <div className="box">
@@ -1351,10 +1435,14 @@ function App() {
 
               <div className="brands">
                 <h5 style={{ textAlign: "center" }}>Brands:</h5>
-                <h6>
-                  DeWalt | Makita | Bosch | Milwaukee | Ryobi | Hilti | Black &
-                  Decker | Hitachi | RIDGID | Fein | Porter-Cable | Skil
-                </h6>
+                <img className="img-container" src="http://localhost:8081/images/homepagecraftsman.jpg" alt="craftsman"></img>
+                <img style={{height: "50px"}} className="img-container" src="http://localhost:8081/images/homepagemilwaukee.jpg" alt="milwaukee"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagedewaltpng.png" alt="dewalt"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagehitachi.png" alt="hitachi"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepageblackanddecker.jpg" alt="black&decker"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepageryobi.jpg" alt="ryobi"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagerigid.jpg" alt="rigid"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagebosch.jpg" alt="bosch"></img>
               </div>
             </div>
             <div className="box">
@@ -1547,14 +1635,18 @@ function App() {
 
               <div className="brands">
                 <h5 style={{ textAlign: "center" }}>Brands:</h5>
-                <h6>
-                  DeWalt | Makita | Bosch | Milwaukee | Ryobi | Hilti | Black &
-                  Decker | Hitachi | RIDGID | Fein | Porter-Cable | Skil
-                </h6>
+                <img className="img-container" src="http://localhost:8081/images/homepagecraftsman.jpg" alt="craftsman"></img>
+                <img style={{height: "50px"}} className="img-container" src="http://localhost:8081/images/homepagemilwaukee.jpg" alt="milwaukee"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagedewaltpng.png" alt="dewalt"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagehitachi.png" alt="hitachi"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepageblackanddecker.jpg" alt="black&decker"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepageryobi.jpg" alt="ryobi"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagerigid.jpg" alt="rigid"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagebosch.jpg" alt="bosch"></img>
               </div>
             </div>
 
-            <div className="box">
+            <div style={{marginBottom:"20px"}} className="box">
               <h4 className="helpheadersize">Wrenchs/Socket sets</h4>
               <hr
                 style={{
@@ -1785,17 +1877,18 @@ function App() {
 
               <div className="brands">
                 <h5 style={{ textAlign: "center" }}>Brands:</h5>
-                <h6>
-                  DeWalt | Makita | Bosch | Milwaukee | Ryobi | Hilti | Black &
-                  Decker | Hitachi | RIDGID | Fein | Porter-Cable | Skil
-                </h6>
+                <img className="img-container" src="http://localhost:8081/images/homepagecraftsman.jpg" alt="craftsman"></img>
+                <img style={{height: "50px"}} className="img-container" src="http://localhost:8081/images/homepagemilwaukee.jpg" alt="milwaukee"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagedewaltpng.png" alt="dewalt"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagehitachi.png" alt="hitachi"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepageblackanddecker.jpg" alt="black&decker"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepageryobi.jpg" alt="ryobi"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagerigid.jpg" alt="rigid"></img>
+                <img style={{height: "50px"}}className="img-container" src="http://localhost:8081/images/homepagebosch.jpg" alt="bosch"></img>
               </div>
             </div>
           </div>
-        </div>
-      )}
-
-      <footer
+          <footer
         class="text-body-secondary py-5 background"
         style={{ backgroundColor: "#ECECEC" }}
       >
@@ -1809,6 +1902,11 @@ function App() {
           </p>
         </div>
       </footer>
+        </div>
+        
+      )}
+
+     
     </>
   );
 }
