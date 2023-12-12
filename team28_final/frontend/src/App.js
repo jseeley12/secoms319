@@ -473,7 +473,8 @@ function App() {
   };
 
   function clearInputs(){
-    setProductID("");
+    //setUserProductID("");
+    //setProductID("");
     setProductName("");
     setProductdescription("");
     setProductPrice("");
@@ -483,20 +484,30 @@ function App() {
 
   //Admin Views
   function SelectButton(){
-    if(parseInt(UserProductID) != isNaN){
+    if(!isNaN(UserProductID)){
       setProductID(UserProductID);
     }
     else{
       setProductID();
     }
-    //getOneProducts(ProductID);
     if(OneProduct === "Id Does not exist"){
-      ShowAdminItemAdd()
-      setProductName("");
-      setProductdescription("");
-      setProductPrice("");
-      setProductInventory("");
-      setProductImage("");
+      if(isNaN(UserProductID)){
+        setAdminUpdate(false);
+        setAdminAdd(false);
+        setProductName("");
+        setProductdescription("");
+        setProductPrice("");
+        setProductInventory("");
+        setProductImage("");
+      }
+      else{
+        ShowAdminItemAdd()
+        setProductName("");
+        setProductdescription("");
+        setProductPrice("");
+        setProductInventory("");
+        setProductImage("");
+    }  
     }else{
       ShowAdminItemUpdate()
       setProductName(OneProduct.name);
@@ -598,6 +609,7 @@ function App() {
     updateMethod(OneProduct.id,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription, OneProduct.sold, OneProduct.revenue);
     alert("Item " + itemNum + " has been updated");
     setAdminUpdate(false);
+    getOneProducts(parseInt(UserProductID));
     clearInputs()
     getAllProducts();
   }
@@ -608,6 +620,7 @@ function App() {
     deleteMethod(OneProduct.id);
     alert("Item " + itemNum + " has been deleted");
     setAdminUpdate(false);
+    getOneProducts(parseInt(UserProductID));
     clearInputs();
     getAllProducts();
   }
@@ -615,9 +628,10 @@ function App() {
   //Add Mongo
   function AddItem() {
     let itemNum = ProductID;
-    postMethod(ProductID,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription);
+    postMethod(parseInt(ProductID),ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription);
     alert("Item " + itemNum + " has been created");
     setAdminAdd(false);
+    getOneProducts(parseInt(UserProductID));
     clearInputs();
     getAllProducts();
   }
