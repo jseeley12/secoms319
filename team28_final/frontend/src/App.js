@@ -31,6 +31,7 @@ function App() {
     getAllProducts();
   }, []);
 
+
   function getAllProducts(){
     setIsLoading(true);
     fetch("http://localhost:8081/listTools")
@@ -612,6 +613,15 @@ function App() {
     getAllProducts();
   }
 
+  useEffect(() => {
+    
+    if (Number(ProductID !== isNaN)) {
+      const productInfo = getOneProducts(ProductID);
+      setOneProduct(productInfo);
+    }
+    
+  }, [ProductID]);
+
   // Getting Product Revenue Data
   function revenueTotals(){
     var i = ProductsCategoryRAW.length;
@@ -708,7 +718,7 @@ function App() {
 
           <footer
         className="text-body-secondary py-5 background"
-        style={{ backgroundColor: "#ECECEC", marginLeft:"16%", marginRight:"-12px" }}
+        style={{ backgroundColor: "#ECECEC", marginLeft:"16%", marginRight:"-12px",height:"10px"}}
       >
         <div class="container">
           <p class="float-end mb-2">
@@ -848,7 +858,7 @@ function App() {
           </div>
           <footer
         class="text-body-secondary py-5 background"
-        style={{ backgroundColor: "#ECECEC" }}
+        style={{ backgroundColor: "#ECECEC", height:"10px"}}
       >
         <div class="container">
           <p class="float-end mb-2">
@@ -889,7 +899,7 @@ function App() {
           </botton>
           <footer
         class="text-body-secondary py-5 background"
-        style={{ backgroundColor: "#ECECEC" }}
+        style={{ backgroundColor: "#ECECEC", height:"10px" }}
       >
         <div class="container">
           <p class="float-end mb-2">
@@ -904,6 +914,8 @@ function App() {
         </div>
       )}
 
+      
+
       {/* Admin Sheet */}
       {admin && (
         <div>
@@ -915,10 +927,10 @@ function App() {
           
           <hr></hr>
           <h4>ID of existing item or new item</h4>
-          <input className= "inputcreateboxes" type="search" value={ProductID} onChange={nameProductID} />
-          <botton className="btn btn-primary my-2" onClick={SelectButton}>
-            Seach
-          </botton>
+          <input className= "inputcreateboxes" type="search" onChange={nameProductID}/>
+          <button className="btn btn-primary my-2" onClick={SelectButton}>
+            Search
+          </button>
           <hr/>
           {adminUpdate && <>Id:{OneProduct.id}<br/></>}
           Name: <input className= "inputcreateboxes" type="search" value={ProductName} onChange={nameProductName}/><br/>
@@ -926,14 +938,15 @@ function App() {
           Price: <input className= "inputcreateboxes" type="search" value={ProductPrice} onChange={nameProductPrice}/><br/>
           Inventory: <input className= "inputcreateboxes" type="search" value={ProductInventory} onChange={nameProductInventory}/><br/>
           Image: <input className= "inputcreateboxes" type="search" value={ProductImage} onChange={nameProductImage}/><br/><br/>
+          
           {adminAdd && <botton className="btn btn-primary my-2" onClick={AddItem}> Add Item </botton>}
           {adminUpdate && <>
-          <botton className="btn btn-primary my-2" onClick={updateItem}> Update Item </botton> <br/>
-          <botton className="btn btn-primary my-2" onClick={deleteItem}> Delete Item </botton>
+          <button className="btn btn-primary my-2" onClick={updateItem}> Update Item </button> <br/>
+          <button className="btn btn-primary my-2" onClick={deleteItem}> Delete Item </button>
           </>}
           <footer
         class="text-body-secondary py-5 background"
-        style={{ backgroundColor: "#ECECEC" }}
+        style={{ backgroundColor: "#ECECEC", height:"10px"}}
       >
         <div class="container">
           <p class="float-end mb-2">
@@ -987,7 +1000,7 @@ function App() {
           </div>
           <footer
         class="text-body-secondary py-5 background"
-        style={{ backgroundColor: "#ECECEC" }}
+        style={{ backgroundColor: "#ECECEC", height:"10px" }}
       >
         <div class="container">
           <p class="float-end mb-2">
@@ -1890,7 +1903,7 @@ function App() {
           </div>
           <footer
         class="text-body-secondary py-5 background"
-        style={{ backgroundColor: "#ECECEC" }}
+        style={{ backgroundColor: "#ECECEC", height:"10px" }}
       >
         <div class="container">
           <p class="float-end mb-2">
