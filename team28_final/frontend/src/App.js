@@ -489,7 +489,7 @@ function App() {
     else{
       setProductID();
     }
-    getOneProducts(ProductID);
+    //getOneProducts(ProductID);
     if(OneProduct === "Id Does not exist"){
       ShowAdminItemAdd()
       setProductName("");
