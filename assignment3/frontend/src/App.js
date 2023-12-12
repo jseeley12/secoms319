@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     getAllProducts();
   }, []);
-
+//get all products
   function getAllProducts() {
     setIsLoading(true);
     fetch("http://localhost:8081/listItems")
@@ -23,7 +23,7 @@ function App() {
         setIsLoading(false);
       });
   }
-
+//get products by id
   function getOneProducts(id) {
     setIsLoading(true);
     setOneFound(false);
@@ -42,7 +42,7 @@ function App() {
         setOneFound(true);
       });
   }
-
+//read page and list of products
   const listItems = ProductsCategory.map((el) => (
     <div key={el.id} className="col">
       <div style={{ backgroundColor: "#ECECEC" }} className="card shadow-sm">
@@ -68,7 +68,7 @@ function App() {
       </div>
     </div>
   ));
-
+//shows one product from an id
   function showOne() {
     if (oneProduct === "Id Does not exist") {
       return <div>That Item ID does not Exist!</div>;
@@ -242,7 +242,7 @@ function App() {
   }
 
 
-  //form
+  //form for creating a new product
   const [Id, setId] = useState();
   const [Title, setTitle] = useState("");
   const [Price, setPrice] = useState();
@@ -285,6 +285,7 @@ function App() {
   };
 
   return (
+    //navbar
     <>
       <header className="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow">
         <div className="container-fluid d-flex align-items-center">
