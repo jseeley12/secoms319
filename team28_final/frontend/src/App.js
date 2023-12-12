@@ -623,13 +623,8 @@ function App() {
   }
 //method for admin page
   useEffect(() => {
-    
-    if (Number(ProductID !== isNaN)) {
-     getOneProducts(ProductID);
-      
-    }
-    
-  }, [ProductID]);
+    getOneProducts(parseInt(UserProductID));
+  }, [UserProductID]);
 
 
   // Getting Product Revenue Data
