@@ -623,8 +623,8 @@ function App() {
   }
 
   useEffect(() => {
-    getOneProducts(ProductID);
-  }, [ProductID]);
+    getOneProducts(parseInt(UserProductID));
+  }, [UserProductID]);
 
 
   // Getting Product Revenue Data
