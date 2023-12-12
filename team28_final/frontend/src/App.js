@@ -612,13 +612,13 @@ function App() {
     clearInputs();
     getAllProducts();
   }
-
+//method for admin page
   useEffect(() => {
     
-    if (Number(ProductID !== isNaN)) {
-      const productInfo = getOneProducts(ProductID);
-      setOneProduct(productInfo);
+    if (ProductID !== isNaN) {
+    getOneProducts(ProductID);
     }
+    
     
   }, [ProductID]);
 
@@ -927,7 +927,7 @@ function App() {
           
           <hr></hr>
           <h4>ID of existing item or new item</h4>
-          <input className= "inputcreateboxes" type="search" onChange={nameProductID}/>
+          <input className= "inputcreateboxes" type="search" value={ProductID} onChange={nameProductID}/>
           <button className="btn btn-primary my-2" onClick={SelectButton}>
             Search
           </button>
