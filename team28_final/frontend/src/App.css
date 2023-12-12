@@ -219,3 +219,23 @@ align-items: center;
 .cardbackgroundspecs{
   background-color: rgb(248, 247, 247);
 }
+.adminpageformtitles{
+  font-size: 20px;
+  font-weight: bolder;
+}
+.borderadminsearch{
+  border: 1px solid black;
+}
+.titleadminpagebox{
+  margin-left: 15%;
+  margin-right: 15%;
+background-color:rgb(182, 182, 182);
+height: 80px;
+display: flex; 
+align-items: center; 
+justify-content: center; 
+border: .1px solid black;
+}
+.admintop{
+  background-color: rgb(238, 238, 238);
+}

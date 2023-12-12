@@ -921,37 +921,101 @@ function App() {
 
       
 
+
       {/* Admin Sheet */}
       {admin && (
-        <div>
-          <h2> Admin Page</h2>
-          <hr></hr>
-          <h5>Total Number of Items in Store: {ProductsCategoryRAW.length}</h5>
-          <h5>Gross Revenue: ${totalRevenue}</h5>
-          <h5>Total Items Sold: {totalSold}</h5>
-          
-          <hr></hr>
-          <h4>ID of existing item or new item</h4>
-          <input className= "inputcreateboxes" type="search" onChange={nameUserProductID}/>
-          <button className="btn btn-primary my-2" onClick={SelectButton}>
-            Search
-          </button>
-          <hr/>
-          {adminUpdate && <><h5>Id Showing: {OneProduct.id}</h5><br/></>}
-          Name: <input className= "inputcreateboxes" type="search" value={ProductName} onChange={nameProductName}/><br/>
-          Description: <input className= "inputcreateboxes" type="search" value={Productdescription} onChange={nameProductdescription}/><br/>
-          Price: <input className= "inputcreateboxes" type="search" value={ProductPrice} onChange={nameProductPrice}/><br/>
-          Inventory: <input className= "inputcreateboxes" type="search" value={ProductInventory} onChange={nameProductInventory}/><br/>
-          Image: <input className= "inputcreateboxes" type="search" value={ProductImage} onChange={nameProductImage}/><br/><br/>
-          
-          {adminAdd && <botton className="btn btn-primary my-2" onClick={AddItem}> Add Item </botton>}
+       <div className="admintop">
+    <h2 style={{marginLeft:"41%", marginRight:"46%", paddingTop:"15px"}}>Admin Page</h2>
+    <hr />
+
+    <div style={{marginLeft:"30px"}}>
+      <h5><span className="boldtitle">Total Number of Items in Store: </span>{ProductsCategoryRAW.length}</h5>
+      <h5><span className="boldtitle">Gross Revenue: </span>${totalRevenue}</h5>
+      <h5><span className="boldtitle">Total Items Sold: </span>{totalSold}</h5>
+    </div>
+
+    <div style={{marginLeft: "15px", marginRight:"15px"}}>
+      <hr />
+      <h4 style={{fontStyle:"italic"}}>Enter an ID of a existing item or of a New item</h4>
+      <input
+        className="form-control borderadminsearch"
+        type="search"
+        onChange={nameUserProductID}
+      />
+      <button className="btn btn-primary mt-2" onClick={SelectButton}>
+        Search
+      </button>
+    </div>
+
+    {(adminUpdate || adminAdd) && <> 
+    {adminAdd && (<div style={{backgroundColor:"lightgrey", marginTop:"30px"}}><div className="titleadminpagebox"><h5 style={{textAlign: "center", fontSize:"30px"}}>Add New Item</h5></div></div>)}
+    {adminUpdate && (
+    <div style={{backgroundColor:"lightgrey", marginTop:"30px"}}><div className="titleadminpagebox"><h5 style={{textAlign: "center", fontSize:"30px" }}>Update or Delete Item</h5></div></div>)}
+      
+        <div style={{backgroundColor: "lightgrey"}}>
+        
+        <div style={{marginLeft: "15px", marginRight:"15px"}}>
+        
+         <span style={{textAlign: "center",fontSize:"30px"}} className="adminpageformtitles">ID:</span> <span style={{fontSize:"30px"}}>{ProductID}</span>
+          <br /><br />
+          <span className="adminpageformtitles">Name:</span>{" "}
+          <input
+            className="form-control borderadminsearch"
+            type="search"
+            value={ProductName}
+            onChange={nameProductName}
+          />
+          <br />
+          <span className="adminpageformtitles">Description:{" "}</span>
+          <input
+            className="form-control borderadminsearch"
+            type="search"
+            value={Productdescription}
+            onChange={nameProductdescription}
+          />
+          <br />
+          <span className="adminpageformtitles">Price:{" "}</span>
+          <input
+            className="form-control borderadminsearch"
+            type="search"
+            value={ProductPrice}
+            onChange={nameProductPrice}
+          />
+          <br />
+          <span className="adminpageformtitles">Inventory:{" "}</span>
+          <input
+            className="form-control borderadminsearch"
+            type="search"
+            value={ProductInventory}
+            onChange={nameProductInventory}
+          />
+          <br />
+          <span className="adminpageformtitles">Image:{" "}</span>
+          <input
+            className="form-control borderadminsearch"
+            type="search"
+            value={ProductImage}
+            onChange={nameProductImage}
+          />
+          <br />
+          <br />
+          {adminAdd && <button className="btn btn-primary my-2" onClick={AddItem}> Add Item </button>}
           {adminUpdate && <>
-          <button className="btn btn-primary my-2" onClick={updateItem}> Update Item </button> <br/>
-          <button className="btn btn-primary my-2" onClick={deleteItem}> Delete Item </button>
-          </>}
-          <footer
+          <button style={{marginBottom:"15px"}} className="btn btn-primary" onClick={updateItem}>
+            Update Item
+          </button>{" "}
+          <button style={{marginBottom:"15px"}} className="btn btn-danger" onClick={deleteItem}>
+            Delete Item
+          </button>
+          
+        </>}
+        </div>
+        </div>
+        </>}
+        
+      <footer
         class="text-body-secondary py-5 background"
-        style={{ backgroundColor: "#ECECEC", height:"10px"}}
+        style={{ backgroundColor: "#ECECEC", height:"10px" }}
       >
         <div class="container">
           <p class="float-end mb-2">
@@ -963,8 +1027,11 @@ function App() {
           </p>
         </div>
       </footer>
-        </div>
+      </div>
       )}
+
+
+  
 
       {/* info Sheet */}
       {Info && (
