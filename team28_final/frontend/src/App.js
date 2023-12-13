@@ -46,7 +46,7 @@ function App() {
   }
 
 
-
+//lists the items for the card 
   const listItems = ProductsCategory.map((el) => (
     <div key={el.id} className="col">
       <div style={{ backgroundColor: "#ECECEC" }} className="card shadow-sm">
@@ -347,7 +347,7 @@ function App() {
     setZip(e.target.value);
   };
 
-  //testing form
+  //testing form for checkout customer info
   function ConfirmationInfo() {
     let val = true;
 
@@ -472,7 +472,7 @@ function App() {
   const nameProductInventory = (e) => {
     setProductInventory(parseInt(e.target.value));
   };
-
+//clears inputs out of fields on form
   function clearInputs(){
     //setUserProductID("");
     //setProductID("");
@@ -518,17 +518,18 @@ function App() {
       setProductImage(OneProduct.img);
     }
   }
-
+//shows admin update page
   function ShowAdminItemUpdate(){
     setAdminUpdate(true);
     setAdminAdd(false);
   }
+  //shows admin add page
   function ShowAdminItemAdd(){
     setAdminAdd(true);
     setAdminUpdate(false);
   }
 
-  // Get Item
+  // Get Item - finds and item by id 
   function getOneProducts(id) {
     setIsLoading(true);
     fetch("http://localhost:8081/" + id)
@@ -545,7 +546,7 @@ function App() {
       });
   }
 
-    //Update - Mongo
+    //Update - Mongo - for admin page form
     function updateMethod(id, price, inventory, name, img, description, sold, revenue) {
       fetch("http://localhost:8081/updateTools", {
         method: "POST",
@@ -568,7 +569,7 @@ function App() {
         .catch((err) => console.log("Errror:" + err));
     }
 
-  //delete -  Mongo
+  //delete -  Mongo - for admin page form
   function deleteMethod(id) {
     fetch("http://localhost:8081/deleteTool", {
       method: "DELETE",
@@ -584,7 +585,7 @@ function App() {
       .catch((err) => console.log("Error:" + err));
   }
 
-  //add -  Mongo
+  //add -  Mongo - for admin page form
   function postMethod(id, price, inventory, name, img, description) {
     fetch("http://localhost:8081/addTool", {
       method: "POST",
@@ -604,7 +605,7 @@ function App() {
       });
   }
   
-  //update Mongo
+  //update Mongo - for admin page form
   function updateItem() {
     let itemNum = OneProduct.id;
     updateMethod(OneProduct.id,ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription, OneProduct.sold, OneProduct.revenue);
@@ -615,7 +616,7 @@ function App() {
     getAllProducts();
   }
 
-  //delete Mongo
+  //delete Mongo - for admin page form
   function deleteItem(){
     let itemNum = OneProduct.id;
     deleteMethod(OneProduct.id);
@@ -626,7 +627,7 @@ function App() {
     getAllProducts();
   }
 
-  //Add Mongo
+  //Add Mongo - for admin page form
   function AddItem() {
     let itemNum = ProductID;
     postMethod(parseInt(ProductID),ProductPrice,ProductInventory,ProductName,ProductImage,Productdescription);
