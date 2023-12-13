@@ -22,7 +22,7 @@ app.use("/images", express.static("images"));
 const port = "8081";
 const host = "localhost";
 
-//Mongo - Get
+//Mongo - Get - List all tools
 app.get("/listTools", async (req, res) => {
   await client.connect();
   console.log("Node connected successfully to GET MongoDB");
@@ -33,7 +33,7 @@ app.get("/listTools", async (req, res) => {
   res.send(results);
 });
 
-//Mongo Get ID
+//Mongo Get by ID
 app.get("/:id", async (req, res) => {
     const itemid = Number(req.params.id);
     console.log("Item to find :", itemid);
@@ -46,7 +46,7 @@ app.get("/:id", async (req, res) => {
     else res.send(results).status(200);
   });
 
-//Mongo - Add
+//Mongo - Add - Add a new tool to the database
 app.post("/addTool", async (req, res) => {
   await client.connect();
   const keys = Object.keys(req.body);
@@ -74,7 +74,7 @@ app.post("/addTool", async (req, res) => {
   res.send(results);
 });
 
-//Mongo - Delete
+//Mongo - Delete - Delete a tool from the database
 app.delete("/deleteTool", async (req, res) => {
   await client.connect();
   // const keys = Object.keys(req.body);
@@ -87,7 +87,7 @@ app.delete("/deleteTool", async (req, res) => {
   res.send(results);
 });
 
-//Mongo - Update
+//Mongo - Update - Update an existing tool in the database 
 app.post("/updateTools", async (req, res) => {
   await client.connect();
   //const keys = Object.keys(req.body);

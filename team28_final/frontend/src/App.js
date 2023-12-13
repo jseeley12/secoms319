@@ -184,6 +184,7 @@ function App() {
 
 
   //Changing Displays
+//shows the main catalog page
   function ShowCatalog() {
     setQuery("");
     setProductsCategory(ProductsCategoryRAW);
@@ -198,7 +199,7 @@ function App() {
     setSignin(false);
     setSigninError(false);
   }
-
+//shows the checkout page
   function ShowCheckout() {
     setcheckout(true);
     setcatalog(false);
@@ -211,7 +212,7 @@ function App() {
     setSignin(false);
     setSigninError(false);
   }
-
+//shows the confirmation page
   function ShowConfirmation() {
     setcheckout(true);
     setcatalog(false);
@@ -224,7 +225,7 @@ function App() {
     setSignin(false);
     setSigninError(false);
   }
-
+//shows the error for the checkout page
   function ShowError() {
     setcheckout(true);
     setcatalog(false);
@@ -237,11 +238,11 @@ function App() {
     setSignin(false);
     setSigninError(false);
   }
-
+//resets the webpage back to the catalog
   function ShowCatalog2() {
     window.location.reload();
   }
-
+//shows the help page
   function ShowHelp() {
     setcheckout(false);
     setcatalog(false);
@@ -254,7 +255,7 @@ function App() {
     setSignin(false);
     setSigninError(false);
   }
-
+//shows the info page
   function ShowInfo() {
     setcheckout(false);
     setcatalog(false);
@@ -267,7 +268,7 @@ function App() {
     setSignin(false);
     setSigninError(false);
   }
-
+//shows the sign in page
   function ShowSignIn() {
     setcheckout(false);
     setcatalog(false);
@@ -280,7 +281,7 @@ function App() {
     setSignin(true);
     setSigninError(false);
   }
-
+//shows the admin page
   function ShowAdmin() {
     setcheckout(false);
     setcatalog(false);
@@ -294,7 +295,7 @@ function App() {
     setSigninError(false);
     revenueTotals();
   }
-
+//shows a sign in error 
   function ShowSignInError() {
     setcheckout(false);
     setcatalog(false);
